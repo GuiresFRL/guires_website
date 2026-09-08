@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "guires-static",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [".claude/dev-server.py"],
+      "port": 8420
+    }
+  ]
+}

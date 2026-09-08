@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | GUIRES</title>
+    <meta name="description" content="Research and industry insights, whitepapers and publications from GUIRES.">
+
+    <!-- React & Babel -->
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <!-- Three.js & GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --black: #080808;
+            --white: #ffffff;
+            --off-white: #f5f5f2;
+            --gray: #777777;
+            --light-gray: #dddddd;
+            --accent: #0C4DA2;
+            --accent-secondary: #29539B;
+        }
+    }
+
+    @layer base {
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            letter-spacing: -0.02em;
+        }
+
+        ::selection {
+            background-color: var(--accent-secondary);
+            color: var(--white);
+        }
+    }
+
+    @layer components {
+        .nav-link {
+            @apply text-sm font-medium tracking-wide text-gray-600 hover:text-black transition-colors duration-300 relative;
+        }
+        .nav-link::after {
+            content: '';
+            @apply absolute left-0 -bottom-1 w-0 h-[1px] bg-[var(--accent)] transition-all duration-300;
+        }
+        .nav-link:hover::after {
+            @apply w-full;
+        }
+
+        .btn-primary {
+            @apply px-6 py-3 bg-[var(--accent)] text-white text-sm font-medium hover:bg-blue-800 transition-colors duration-300 inline-flex items-center gap-2;
+        }
+
+        .btn-outline {
+            @apply px-6 py-3 border border-black/20 text-black text-sm font-medium hover:bg-black/5 transition-colors duration-300 inline-flex items-center gap-2;
+        }
+    }
+
+    @layer utilities {
+        .text-balance {
+            text-wrap: balance;
+        }
+        .clip-text-reveal {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--white);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #ccc;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #999;
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" src="/components/ErrorBoundary.js?v=1"></script>
+    <script type="text/babel" src="/components/siteNav.js?v=4"></script>
+    <script type="text/babel" src="/components/Header.js?v=4"></script>
+    <script type="text/babel" src="/components/PageHero.js?v=2"></script>
+    <script type="text/babel" src="/components/pages/InsightsPage.js?v=1"></script>
+    <script type="text/babel" src="/components/Footer.js?v=2"></script>
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="min-h-screen bg-white text-black selection:bg-[var(--accent-secondary)] selection:text-white font-sans">
+                    <Header />
+                    <main>
+                        <PageHero eyebrow="Insights &amp; Resources" title="Insights" subtitle="Perspectives for what's next." />
+                        <InsightsPage />
+                    </main>
+                    <Footer />
+                </div>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ErrorBoundary><App /></ErrorBoundary>);
+    </script>
+</body>
+</html>
