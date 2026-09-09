@@ -58,7 +58,7 @@ const SITE_NAV = [
         submenu: [
            
             'Request a Consultation', 'Support', 'Global Locations'
-        ].map((label) => ({ label, href: '/contact-us.html' }))
+        ].map((label) => ({ label, href: 'https://guiresfrl.github.io/guires_website/contact-us.html' }))
     }
 ];
 
