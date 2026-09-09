@@ -7,7 +7,7 @@ function Header() {
 
     const isActive = (href) => {
         const path = href.split('#')[0];
-        if (path === '/index.html') {
+        if (path === 'https://guiresfrl.github.io/guires_website/index.html') {
             return currentPath === '/' || currentPath === '/index.html' || currentPath === '';
         }
         return currentPath === path;
@@ -43,7 +43,7 @@ function Header() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
                 <div className="header-elem">
                     <a href="/index.html" className="block">
-                        <img src="/assets/guires-logo.png" alt="Guires" className="h-9 lg:h-10 w-auto" />
+                        <img src="https://guiresfrl.github.io/guires_website/assets/guires-logo.png" alt="Guires" className="h-9 lg:h-10 w-auto" />
                     </a>
                 </div>
 
