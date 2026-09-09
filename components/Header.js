@@ -42,8 +42,14 @@ function Header() {
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
                 <div className="header-elem">
-                    <a href="/index.html" className="block">
-                        <img src="https://guiresfrl.github.io/guires_website/assets/guires-logo.png" alt="Guires" className="h-9 lg:h-10 w-auto" />
+                    <a href="https://guiresfrl.github.io/guires_website/index.html" className="block">
+                        <img
+                            src="https://guiresfrl.github.io/guires_website/assets/guires-logo.png"
+                            alt="Guires"
+                            className="h-16 lg:h-20 w-auto"
+                            width="520"
+                            height="160"
+                        />
                     </a>
                 </div>
 

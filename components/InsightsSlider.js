@@ -27,7 +27,7 @@ function InsightsSlider() {
     }, []);
 
     return (
-        <section id="insights-slider" className="py-24 bg-white border-t border-black/5" data-name="insights-slider" data-file="components/InsightsSlider.js">
+        <section id="insights-slider" className="py-24 bg-[#EEF3FA] border-t border-black/5" data-name="insights-slider" data-file="components/InsightsSlider.js">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div>
@@ -35,7 +35,7 @@ function InsightsSlider() {
                         <p className="text-xl text-gray-600">Perspectives for what's next.</p>
                     </div>
                     <div className="flex items-center gap-4 shrink-0">
-                        <a href="/insights.html" className="btn-outline">View All Insights <div className="icon-arrow-right"></div></a>
+                        <a href="https://guiresfrl.github.io/guires_website/insights.html" className="btn-outline">View All Insights <div className="icon-arrow-right"></div></a>
                         <div className="flex items-center gap-2">
                             <button
                                 onClick={() => scrollByCard(-1)}
@@ -59,7 +59,7 @@ function InsightsSlider() {
                     {articles.map((art, idx) => (
                         <a
                             key={idx}
-                            href="/insights.html"
+                            href="https://guiresfrl.github.io/guires_website/insights.html"
                             className="insight-slide-card snap-start shrink-0 w-[80vw] sm:w-[320px] bg-white p-8 border border-black/10 hover:border-black/30 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[300px] shadow-sm hover:-translate-y-1 hover:shadow-lg"
                         >
                             <div>

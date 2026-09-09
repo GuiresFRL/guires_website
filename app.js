@@ -10,6 +10,7 @@ function App() {
           <IndustriesTeaser />
           <WhyGuires />
           <OurWork />
+          <Testimonials />
           <InsightsSlider />
           <BrandsMarquee />
           <Impact />

@@ -22,13 +22,13 @@ const SITE_NAV = [
         label: 'Services',
         href: 'https://guiresfrl.github.io/guires_website/services.html',
         submenu: [
-            { label: 'Research Solutions', href: '/services.html#research-solutions' },
-            { label: 'Data Science & Analytics', href: '/services.html#data-science-analytics' },
-            { label: 'Regulatory & Pharmacovigilance', href: '/services.html#regulatory-pharmacovigilance' },
-            { label: 'Biostatistics & Statistical Programming', href: '/services.html#biostatistics-statistical-programming' },
-            { label: 'Scientific & Medical Communication', href: '/services.html#scientific-medical-communication' },
-            { label: 'Branding & Communication', href: '/services.html#branding-communication' },
-            { label: 'Food Research & R&D', href: '/services.html#food-research-rd' }
+            { label: 'Research Solutions', href: 'https://guiresfrl.github.io/guires_website/services.html#research-solutions' },
+            { label: 'Data Science & Analytics', href: 'https://guiresfrl.github.io/guires_website/services.html#data-science-analytics' },
+            { label: 'Regulatory & Pharmacovigilance', href: 'https://guiresfrl.github.io/guires_website/services.html#regulatory-pharmacovigilance' },
+            { label: 'Biostatistics & Statistical Programming', href: 'https://guiresfrl.github.io/guires_website/services.html#biostatistics-statistical-programming' },
+            { label: 'Scientific & Medical Communication', href: 'https://guiresfrl.github.io/guires_website/services.html#scientific-medical-communication' },
+            { label: 'Branding & Communication', href: 'https://guiresfrl.github.io/guires_website/services.html#branding-communication' },
+            { label: 'Food Research & R&D', href: 'https://guiresfrl.github.io/guires_website/services.html#food-research-rd' }
         ]
     },
     {
@@ -38,7 +38,7 @@ const SITE_NAV = [
             'Healthcare & Life Sciences', 'Pharmaceuticals', 'Medical Devices', 'Biotechnology',
             'Diagnostics', 'Nutraceuticals', 'Food', 'Retail', 'Travel & Hospitality',
             'Insurance', 'Mortgage', 'Logistics', 'Telecom'
-        ].map((label) => ({ label, href: '/industries.html' }))
+        ].map((label) => ({ label, href: 'https://guiresfrl.github.io/guires_website/industries.html' }))
     },
   
    
@@ -48,7 +48,7 @@ const SITE_NAV = [
         submenu: [
             'Blog', 'Research Insights', 'Industry Insights', 'Whitepapers',
             'Reports', 'Publications', 'News & Updates', 'FAQs'
-        ].map((label) => ({ label, href: '/insights.html' }))
+        ].map((label) => ({ label, href: 'https://guiresfrl.github.io/guires_website/insights.html' }))
     },
   
     { label: 'Careers', href: 'https://guiresfrl.github.io/guires_website/careers.html' },

@@ -71,10 +71,15 @@ function AboutUsPage() {
                 </div>
             </section>
 
-            <section id="our-story" className="py-24 bg-gray-50 border-b border-black/5">
-                <div className="max-w-5xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-sm font-bold tracking-wider text-[var(--accent)] uppercase mb-6">Our Story</h2>
-                    <p className="reveal-el text-2xl lg:text-3xl font-medium leading-relaxed text-gray-800">
+            <section id="our-story" className="relative py-24 bg-[#081B33] border-b border-black/5 overflow-hidden">
+                <svg className="absolute -right-20 -bottom-20 w-[380px] h-[380px] text-white/5 pointer-events-none" viewBox="0 0 400 400" fill="none">
+                    <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="200" cy="200" r="90" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+                <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12">
+                    <h2 className="reveal-el text-sm font-bold tracking-wider text-blue-300 uppercase mb-6">Our Story</h2>
+                    <p className="reveal-el text-2xl lg:text-3xl font-medium leading-relaxed text-white">
                         GUIRES was built around a simple idea: that healthcare and life sciences organizations move faster and further when their research is rigorous, their data is trustworthy, and their science is communicated clearly. Today we support pharmaceutical, biotechnology, medical device and food science organizations across research, regulatory, statistical and communication disciplines &mdash; so our clients can focus on the outcomes that matter.
                     </p>
                 </div>
@@ -106,11 +111,13 @@ function AboutUsPage() {
                             </div>
                         ))}
                     </div>
-                    <a href="/about-us/meet-our-team.html" className="reveal-el inline-flex items-center gap-2 text-lg font-medium text-[var(--accent)] hover:gap-4 transition-all duration-300">
+                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="reveal-el inline-flex items-center gap-2 text-lg font-medium text-[var(--accent)] hover:gap-4 transition-all duration-300">
                         Meet Our Team <div className="icon-arrow-right"></div>
                     </a>
                 </div>
             </section>
+
+            <Testimonials />
 
             <section id="values" className="py-24 border-b border-black/5">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">

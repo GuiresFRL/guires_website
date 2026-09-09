@@ -42,7 +42,7 @@ function CultureSlider() {
                 <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
                     Where curious minds come together to advance research that matters.
                 </p>
-                <a href="/careers.html" className="btn-primary">
+                <a href="https://guiresfrl.github.io/guires_website/careers.html" className="btn-primary">
                     Join Our Team <div className="icon-arrow-right"></div>
                 </a>
             </div>

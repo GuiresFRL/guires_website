@@ -39,10 +39,10 @@ function Hero() {
                     </p>
 
                     <div className="flex flex-wrap gap-4 hero-fade">
-                        <a href="/services.html" className="btn-primary">
+                        <a href="https://guiresfrl.github.io/guires_website/services.html" className="btn-primary">
                             Explore Our Services <div className="icon-arrow-right"></div>
                         </a>
-                        <a href="/contact-us.html" className="px-6 py-3 border border-white/40 text-white text-sm font-medium hover:bg-white/10 transition-colors duration-300 inline-flex items-center gap-2">
+                        <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="px-6 py-3 border border-white/40 text-white text-sm font-medium hover:bg-white/10 transition-colors duration-300 inline-flex items-center gap-2">
                             Start a Conversation <div className="icon-arrow-right"></div>
                         </a>
                     </div>

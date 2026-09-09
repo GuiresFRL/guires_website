@@ -68,7 +68,7 @@ function Impact() {
     }, []);
 
     return (
-        <section id="impact" className="py-32 bg-gradient-to-b from-gray-50 to-white border-t border-black/5" data-name="impact" data-file="components/Impact.js">
+        <section id="impact" className="py-32 bg-[#DCE8F5] border-t border-black/5" data-name="impact" data-file="components/Impact.js">
             <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 className="text-4xl font-bold mb-6">Global Reach, <br/>Research-Led Impact.</h2>

@@ -40,7 +40,7 @@ function CareersPage() {
                             </div>
                         ))}
                     </div>
-                    <a href="/contact-us.html" className="reveal-el btn-primary mt-16 inline-flex">
+                    <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="reveal-el btn-primary mt-16 inline-flex">
                         Get in Touch <div className="icon-arrow-right"></div>
                     </a>
                 </div>

@@ -22,8 +22,13 @@ function WhoWeAre() {
     const values = ['Curiosity', 'Integrity', 'Innovation', 'Collaboration', 'Impact'];
 
     return (
-        <section id="who-we-are" className="py-32 bg-gradient-to-b from-gray-50 to-white border-t border-black/5" data-name="who-we-are" data-file="components/WhoWeAre.js">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <section id="who-we-are" className="relative py-32 bg-[#EEF3FA] border-t border-black/5 overflow-hidden" data-name="who-we-are" data-file="components/WhoWeAre.js">
+            <svg className="absolute -right-28 -top-28 w-[420px] h-[420px] text-[#0C4DA2]/10 pointer-events-none" viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="200" cy="200" r="90" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
                 <h2 className="wwa-reveal text-[clamp(3rem,6vw,5rem)] font-bold mb-24">We are GUIRES.</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-16">
@@ -53,7 +58,7 @@ function WhoWeAre() {
                     </div>
                 </div>
 
-                <a href="/about-us.html" className="wwa-reveal inline-flex items-center gap-2 text-lg font-medium text-[var(--accent)] hover:gap-4 transition-all duration-300">
+                <a href="https://guiresfrl.github.io/guires_website/about-us.html" className="wwa-reveal inline-flex items-center gap-2 text-lg font-medium text-[var(--accent)] hover:gap-4 transition-all duration-300">
                     Learn more about GUIRES <div className="icon-arrow-right"></div>
                 </a>
             </div>

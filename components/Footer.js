@@ -21,19 +21,11 @@ const FOOTER_GROUPS = [
         items: getSubmenu('Industries')
     },
     {
-        title: 'Solutions',
-        items: getSubmenu('Solutions')
-    },
-    {
         title: 'Insights & Resources',
         items: [
             ...getSubmenu('Insights'),
             { label: 'Case Studies', href: './case-studies.html' }
         ]
-    },
-    {
-        title: 'Our Brands',
-        items: getSubmenu('Our Brands')
     },
     {
         title: 'Contact',
@@ -64,7 +56,7 @@ function Footer() {
 
     return (
         <footer
-            className="bg-[var(--black)] text-gray-300 pt-24 pb-10"
+            className="bg-[#081B33] text-gray-300 pt-24 pb-10"
             data-name="footer"
             data-file="components/Footer.js"
         >
@@ -74,9 +66,15 @@ function Footer() {
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-20 pb-16 border-b border-white/10">
 
                     <div>
-                        <h2 className="text-3xl font-bold mb-4 text-white">
-                            GUIRES
-                        </h2>
+                        <div className="inline-block bg-white rounded-lg px-5 py-3 mb-6">
+                            <img
+                                src="https://guiresfrl.github.io/guires_website/assets/guires-logo.png"
+                                alt="Guires"
+                                className="h-14 lg:h-16 w-auto"
+                                width="520"
+                                height="160"
+                            />
+                        </div>
 
                         <div className="text-gray-400 text-lg space-y-1">
                             <p>Technology.</p>
@@ -102,7 +100,7 @@ function Footer() {
                 </div>
 
                 {/* Footer Navigation */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-14 mb-20">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-14 mb-20">
 
                     {FOOTER_GROUPS.map((group) => (
                         <div key={group.title}>

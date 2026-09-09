@@ -12,7 +12,7 @@ function BrandsMarquee() {
                     {track.map((name, i) => (
                         <a
                             key={i}
-                            href="/our-brands.html"
+                            href="https://guiresfrl.github.io/guires_website/our-brands.html"
                             className="shrink-0 px-10 lg:px-14 text-2xl lg:text-3xl font-semibold text-gray-300 hover:text-[var(--accent)] transition-colors whitespace-nowrap"
                         >
                             {name}

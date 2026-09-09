@@ -54,7 +54,7 @@ function TeamPage() {
                     {TEAM_MEMBERS.map((m) => (
                         <a
                             key={m.slug}
-                            href={`/about-us/meet-our-team/${m.slug}.html`}
+                            href={`https://guiresfrl.github.io/guires_website/about-us/meet-our-team/${m.slug}.html`}
                             className="team-card group shrink-0 snap-start w-[280px] block border border-black/10 rounded-lg p-8 hover:border-[var(--accent)] transition-colors"
                         >
                             <div className="w-16 h-16 rounded-full bg-gray-100 text-[var(--accent)] font-bold flex items-center justify-center text-lg mb-6 group-hover:bg-[var(--accent)] group-hover:text-white transition-colors">

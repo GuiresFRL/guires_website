@@ -36,12 +36,12 @@ function WhatWeDo() {
                         <h2 className="text-5xl font-bold mb-4">Our Core Services</h2>
                         <p className="text-xl text-gray-600">We turn complex research challenges into opportunities.</p>
                     </div>
-                    <a href="/services.html" className="btn-outline shrink-0">View All Services <div className="icon-arrow-right"></div></a>
+                    <a href="https://guiresfrl.github.io/guires_website/services.html" className="btn-outline shrink-0">View All Services <div className="icon-arrow-right"></div></a>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8">
                     {capabilities.map((cap) => (
-                        <a key={cap.id} href="/services.html" className="capability-item group cursor-pointer border-t border-black/10 pt-6 block transition-transform duration-300 hover:-translate-y-1">
+                        <a key={cap.id} href="https://guiresfrl.github.io/guires_website/services.html" className="capability-item group cursor-pointer border-t border-black/10 pt-6 block transition-transform duration-300 hover:-translate-y-1">
                             <div className="text-gray-500 text-sm mb-4 font-mono">{cap.id}</div>
                             <h3 className="text-3xl font-medium text-gray-700 group-hover:text-black transition-colors duration-300 flex items-center justify-between">
                                 {cap.title}

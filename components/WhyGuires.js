@@ -31,7 +31,7 @@ function WhyGuires() {
     }, []);
 
     return (
-        <section id="why-guires" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white border-t border-black/5" data-name="why-guires" data-file="components/WhyGuires.js">
+        <section id="why-guires" className="py-24 lg:py-32 bg-[#DCE8F5] border-t border-black/5" data-name="why-guires" data-file="components/WhyGuires.js">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="mb-16 max-w-2xl">
                     <h2 className="text-4xl lg:text-5xl font-bold mb-4">Why GUIRES</h2>

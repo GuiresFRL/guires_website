@@ -13,7 +13,7 @@ function TeamMemberPage({ member }) {
     return (
         <section className="py-24">
             <div className="max-w-4xl mx-auto px-6 lg:px-12">
-                <a href="/about-us/meet-our-team.html" className="member-reveal inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[var(--accent)] transition-colors mb-12">
+                <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="member-reveal inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[var(--accent)] transition-colors mb-12">
                     <div className="icon-arrow-left"></div> Back to Team
                 </a>
 
