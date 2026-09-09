@@ -1,26 +1,26 @@
 const SITE_NAV = [
-    { label: 'Home', href: '/index.html' },
+   
     {
         label: 'About Us',
-        href: '/about-us.html',
+        href: 'https://guiresfrl.github.io/guires_website/about-us.html',
         submenu: [
-            { label: 'Company Overview', href: '/about-us.html#company-overview' },
-            { label: 'Our Story', href: '/about-us.html#our-story' },
-            { label: 'Vision & Mission', href: '/about-us.html#vision-mission' },
-            { label: 'Leadership', href: '/about-us.html#leadership' },
-            { label: 'Meet Our Team', href: '/about-us/meet-our-team.html' },
-            { label: 'Our Values', href: '/about-us.html#values' },
-            { label: 'Our Approach', href: '/about-us.html#our-approach' },
-            { label: 'Quality & Compliance', href: '/about-us.html#quality-compliance' },
-            { label: 'Awards & Recognition', href: '/about-us.html#awards' },
-            { label: 'Associations', href: '/about-us.html#associations' },
-            { label: 'Global Presence', href: '/about-us.html#global-presence' },
-            { label: 'Milestones', href: '/about-us.html#milestones' }
+            { label: 'Company Overview', href: 'https://guiresfrl.github.io/guires_website/about-us.html#company-overview' },
+            { label: 'Our Story', href: 'https://guiresfrl.github.io/guires_website/about-us.html#our-story' },
+            { label: 'Vision & Mission', href: 'https://guiresfrl.github.io/guires_website/about-us.html#vision-mission' },
+            { label: 'Leadership', href: 'https://guiresfrl.github.io/guires_website/about-us.html#leadership' },
+            { label: 'Meet Our Team', href: 'https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html' },
+            { label: 'Our Values', href: 'https://guiresfrl.github.io/guires_website/about-us.html#values' },
+            { label: 'Our Approach', href: 'https://guiresfrl.github.io/guires_website/about-us.html#our-approach' },
+            { label: 'Quality & Compliance', href: 'https://guiresfrl.github.io/guires_website/about-us.html#quality-compliance' },
+            { label: 'Awards & Recognition', href: 'https://guiresfrl.github.io/guires_website/about-us.html#awards' },
+            { label: 'Associations', href: 'https://guiresfrl.github.io/guires_website/about-us.html#associations' },
+            { label: 'Global Presence', href: 'https://guiresfrl.github.io/guires_website/about-us.html#global-presence' },
+            { label: 'Milestones', href: 'https://guiresfrl.github.io/guires_website/about-us.html#milestones' }
         ]
     },
     {
         label: 'Services',
-        href: '/services.html',
+        href: 'https://guiresfrl.github.io/guires_website/services.html',
         submenu: [
             { label: 'Research Solutions', href: '/services.html#research-solutions' },
             { label: 'Data Science & Analytics', href: '/services.html#data-science-analytics' },
@@ -33,47 +33,30 @@ const SITE_NAV = [
     },
     {
         label: 'Industries',
-        href: '/industries.html',
+        href: 'https://guiresfrl.github.io/guires_website/industries.html',
         submenu: [
             'Healthcare & Life Sciences', 'Pharmaceuticals', 'Medical Devices', 'Biotechnology',
             'Diagnostics', 'Nutraceuticals', 'Food', 'Retail', 'Travel & Hospitality',
             'Insurance', 'Mortgage', 'Logistics', 'Telecom'
         ].map((label) => ({ label, href: '/industries.html' }))
     },
-    {
-        label: 'Solutions',
-        href: '/solutions.html',
-        submenu: [
-            'Research Solutions', 'Analytics Solutions', 'Healthcare Solutions', 'Life Sciences Solutions',
-            'Regulatory Solutions', 'Digital Solutions', 'Customized Solutions'
-        ].map((label) => ({ label, href: '/solutions.html' }))
-    },
-    { label: 'Case Studies', href: '/case-studies.html' },
+  
+   
     {
         label: 'Insights',
-        href: '/insights.html',
+        href: 'https://guiresfrl.github.io/guires_website/insights.html',
         submenu: [
             'Blog', 'Research Insights', 'Industry Insights', 'Whitepapers',
             'Reports', 'Publications', 'News & Updates', 'FAQs'
         ].map((label) => ({ label, href: '/insights.html' }))
     },
-    {
-        label: 'Our Brands',
-        href: '/our-brands.html',
-        submenu: [
-            { label: 'Statswork', href: '/our-brands.html#statswork' },
-            { label: 'Pepgra', href: '/our-brands.html#pepgra' },
-            { label: 'Pubrica', href: '/our-brands.html#pubrica' },
-            { label: 'Food Research Lab', href: '/our-brands.html#food-research-lab' },
-            { label: 'Pepcreations', href: '/our-brands.html#pepcreations' }
-        ]
-    },
-    { label: 'Careers', href: '/careers.html' },
+  
+    { label: 'Careers', href: 'https://guiresfrl.github.io/guires_website/careers.html' },
     {
         label: 'Contact Us',
-        href: '/contact-us.html',
+        href: 'https://guiresfrl.github.io/guires_website/contact-us.html',
         submenu: [
-            'Business Enquiry', 'Sales Enquiry', 'Request a Quote',
+           
             'Request a Consultation', 'Support', 'Global Locations'
         ].map((label) => ({ label, href: '/contact-us.html' }))
     }
