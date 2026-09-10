@@ -48,7 +48,7 @@ function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#050B18]" data-name="hero" data-file="components/Hero.js">
+        <section className="relative min-h-[85vh] flex items-center pt-28 overflow-hidden bg-[#050B18]" data-name="hero" data-file="components/Hero.js">
             <div className="hero-dusk-sky absolute inset-0"></div>
 
             {/* animated winding light-trail data streams */}
