@@ -35,7 +35,7 @@ function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-white border-b border-black/10 ${scrolled ? 'py-4 shadow-sm' : 'py-6'}`}
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-white border-b border-black/10 py-0 ${scrolled ? 'shadow-sm' : ''}`}
             data-name="header"
             data-file="components/Header.js"
             onMouseLeave={() => setOpenDesktopMenu(null)}
