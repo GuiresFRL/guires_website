@@ -1,9 +1,3 @@
-const HERO_TRAILS = [
-    'M-20 480 C 120 460, 220 380, 340 360 C 460 340, 520 300, 620 260',
-    'M-20 520 C 100 510, 240 440, 380 410 C 500 385, 560 330, 660 300',
-    'M-20 440 C 140 400, 260 340, 400 320 C 500 305, 540 270, 600 230'
-];
-
 function Hero() {
     const parallaxRef = React.useRef(null);
 
@@ -13,7 +7,8 @@ function Hero() {
         gsap.fromTo('.hero-line', { y: '100%' }, { y: '0%', duration: 1, stagger: 0.12, ease: 'power3.out', delay: 0.25 });
         gsap.fromTo('.hero-fade', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.15, ease: 'power2.out', delay: 0.9 });
 
-        gsap.fromTo('.hero-trail', { opacity: 0 }, { opacity: 1, duration: 1.5, stagger: 0.2, ease: 'power2.out', delay: 0.4 });
+        gsap.fromTo('.hero-globe', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 1.4, ease: 'power2.out', delay: 0.3 });
+        gsap.to('.hero-globe-spin', { rotation: 360, transformOrigin: '50% 50%', duration: 90, repeat: -1, ease: 'none' });
         gsap.fromTo('.hero-glow-orb', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 2, stagger: 0.3, ease: 'power2.out', delay: 0.2 });
 
         const bars = gsap.utils.toArray('.hero-bar');
@@ -62,9 +57,17 @@ function Hero() {
                 const py = (e.clientY - rect.top) / rect.height - 0.5;
                 gsap.to('.hero-parallax-slow', { x: px * 14, y: py * 10, duration: 1, ease: 'power2.out' });
                 gsap.to('.hero-parallax-fast', { x: px * 26, y: py * 18, duration: 0.8, ease: 'power2.out' });
+                gsap.to('.hero-globe', { x: px * 40, y: py * 30, rotationY: px * 25, rotationX: py * -20, duration: 1.1, ease: 'power2.out', transformPerspective: 800 });
+            };
+            const onLeave = () => {
+                gsap.to('.hero-globe', { x: 0, y: 0, rotationY: 0, rotationX: 0, duration: 1.2, ease: 'power2.out' });
             };
             section.addEventListener('mousemove', onMove);
-            return () => section.removeEventListener('mousemove', onMove);
+            section.addEventListener('mouseleave', onLeave);
+            return () => {
+                section.removeEventListener('mousemove', onMove);
+                section.removeEventListener('mouseleave', onLeave);
+            };
         }
     }, []);
 
@@ -75,23 +78,25 @@ function Hero() {
             <div className="hero-glow-orb hero-parallax-slow absolute top-[10%] right-[18%] w-[360px] h-[360px] rounded-full bg-[#3E7BD6]/25 blur-[90px] pointer-events-none"></div>
             <div className="hero-glow-orb hero-parallax-fast absolute bottom-[5%] left-[8%] w-[280px] h-[280px] rounded-full bg-[#0C4DA2]/20 blur-[80px] pointer-events-none"></div>
 
-            {/* animated winding light-trail data streams */}
-            <svg className="hero-parallax-slow absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 700 600" preserveAspectRatio="xMidYMax slice" fill="none">
+            {/* interactive globe, tilts and drifts with the mouse */}
+            <svg className="hero-globe absolute -right-8 lg:right-8 top-1/2 -translate-y-1/2 w-[380px] h-[380px] lg:w-[460px] lg:h-[460px] opacity-0 pointer-events-none hidden sm:block" viewBox="0 0 400 400" fill="none" style={{ transformStyle: 'preserve-3d' }}>
+                <g className="hero-globe-spin">
+                    <circle cx="200" cy="200" r="188" stroke="#5A8FD6" strokeOpacity="0.4" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="150" stroke="#5A8FD6" strokeOpacity="0.3" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="110" stroke="#7FA8E8" strokeOpacity="0.4" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="70" stroke="#7FA8E8" strokeOpacity="0.5" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="32" stroke="#CFE0FF" strokeOpacity="0.7" strokeWidth="1.5" />
+                    <ellipse cx="200" cy="200" rx="188" ry="70" stroke="#5A8FD6" strokeOpacity="0.25" strokeWidth="1" />
+                    <ellipse cx="200" cy="200" rx="188" ry="140" stroke="#5A8FD6" strokeOpacity="0.2" strokeWidth="1" />
+                    <ellipse cx="200" cy="200" rx="70" ry="188" stroke="#5A8FD6" strokeOpacity="0.2" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="188" fill="url(#globeGlow)" />
+                </g>
                 <defs>
-                    <linearGradient id="trailGrad" x1="0" y1="0" x2="700" y2="0" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stopColor="#0C4DA2" stopOpacity="0" />
-                        <stop offset="55%" stopColor="#3E7BD6" stopOpacity="0.9" />
-                        <stop offset="100%" stopColor="#8FD8FF" stopOpacity="1" />
-                    </linearGradient>
+                    <radialGradient id="globeGlow" cx="35%" cy="30%" r="70%">
+                        <stop offset="0%" stopColor="#3E7BD6" stopOpacity="0.12" />
+                        <stop offset="100%" stopColor="#3E7BD6" stopOpacity="0" />
+                    </radialGradient>
                 </defs>
-                {HERO_TRAILS.map((d, i) => (
-                    <path key={i} className="hero-trail" d={d} stroke="url(#trailGrad)" strokeWidth={i === 1 ? 3 : 2} strokeLinecap="round" fill="none" opacity="0" />
-                ))}
-                {HERO_TRAILS.map((d, i) => (
-                    <circle key={`p${i}`} r={i === 1 ? 5 : 3.5} fill="#BFE6FF">
-                        <animateMotion dur={`${5 + i}s`} repeatCount="indefinite" begin={`${i * 1.2}s`} path={d} />
-                    </circle>
-                ))}
             </svg>
 
             {/* HUD gauge + bar chart accent */}
