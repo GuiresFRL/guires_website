@@ -79,15 +79,24 @@ function Hero() {
             <div className="hero-glow-orb hero-parallax-fast absolute bottom-[5%] left-[8%] w-[280px] h-[280px] rounded-full bg-[#0C4DA2]/20 blur-[80px] pointer-events-none"></div>
 
             {/* interactive globe, tilts and drifts with the mouse */}
-            <svg className="hero-globe absolute -right-8 lg:right-8 top-1/2 -translate-y-1/2 w-[380px] h-[380px] lg:w-[480px] lg:h-[480px] opacity-0 pointer-events-none hidden sm:block" viewBox="0 0 400 400" fill="none" style={{ transformStyle: 'preserve-3d' }}>
+            <svg className="hero-globe absolute -right-8 lg:right-8 top-1/2 -translate-y-1/2 w-[380px] h-[380px] lg:w-[460px] lg:h-[460px] opacity-0 pointer-events-none hidden sm:block" viewBox="0 0 400 400" fill="none" style={{ transformStyle: 'preserve-3d' }}>
                 <g className="hero-globe-spin">
-                    <circle cx="200" cy="200" r="190" stroke="#5A8FD6" strokeOpacity="0.35" strokeWidth="1" />
-                    <circle cx="200" cy="200" r="160" stroke="#5A8FD6" strokeOpacity="0.3" strokeWidth="1" />
-                    <circle cx="200" cy="200" r="130" stroke="#5A8FD6" strokeOpacity="0.35" strokeWidth="1" />
-                    <circle cx="200" cy="200" r="100" stroke="#7FA8E8" strokeOpacity="0.4" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="188" stroke="#5A8FD6" strokeOpacity="0.4" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="150" stroke="#5A8FD6" strokeOpacity="0.3" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="110" stroke="#7FA8E8" strokeOpacity="0.4" strokeWidth="1" />
                     <circle cx="200" cy="200" r="70" stroke="#7FA8E8" strokeOpacity="0.5" strokeWidth="1" />
-                    <circle cx="200" cy="200" r="40" stroke="#CFE0FF" strokeOpacity="0.6" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="32" stroke="#CFE0FF" strokeOpacity="0.7" strokeWidth="1.5" />
+                    <ellipse cx="200" cy="200" rx="188" ry="70" stroke="#5A8FD6" strokeOpacity="0.25" strokeWidth="1" />
+                    <ellipse cx="200" cy="200" rx="188" ry="140" stroke="#5A8FD6" strokeOpacity="0.2" strokeWidth="1" />
+                    <ellipse cx="200" cy="200" rx="70" ry="188" stroke="#5A8FD6" strokeOpacity="0.2" strokeWidth="1" />
+                    <circle cx="200" cy="200" r="188" fill="url(#globeGlow)" />
                 </g>
+                <defs>
+                    <radialGradient id="globeGlow" cx="35%" cy="30%" r="70%">
+                        <stop offset="0%" stopColor="#3E7BD6" stopOpacity="0.12" />
+                        <stop offset="100%" stopColor="#3E7BD6" stopOpacity="0" />
+                    </radialGradient>
+                </defs>
             </svg>
 
             {/* HUD gauge + bar chart accent */}
