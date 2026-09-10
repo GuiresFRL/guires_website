@@ -5,16 +5,16 @@ function App() {
         <Header />
         <main>
           <Hero />
-          <WhoWeAre />
+          <SplitFeature />
           <WhatWeDo />
-          <IndustriesTeaser />
-          <WhyGuires />
+          <DomainBand />
           <OurWork />
+          <PlatformStats />
+          <IndustriesTeaser />
+          <BrandsMarquee />
           <Testimonials />
           <InsightsSlider />
-          <BrandsMarquee />
-          <Impact />
-          <CultureSlider />
+          <CareersHighlights />
           <ContactCTA />
         </main>
         <Footer />
