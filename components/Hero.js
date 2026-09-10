@@ -73,6 +73,11 @@ function Hero() {
 
     return (
         <section ref={parallaxRef} className="relative min-h-[88vh] flex flex-col overflow-hidden bg-[#050B18]" data-name="hero" data-file="components/Hero.js">
+            <img
+                src="https://framerusercontent.com/images/tFmxdTOWi1Jv0r1ReULpyyS1P8.webp?scale-down-to=2048&width=2125&height=1197"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen pointer-events-none"
+            />
             <div className="hero-dusk-sky absolute inset-0"></div>
 
             <div className="hero-glow-orb hero-parallax-slow absolute top-[10%] right-[18%] w-[360px] h-[360px] rounded-full bg-[#3E7BD6]/25 blur-[90px] pointer-events-none"></div>
