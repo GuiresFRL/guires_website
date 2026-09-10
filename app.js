@@ -8,7 +8,6 @@ function App() {
           <SplitFeature />
           <WhatWeDo />
           <DomainBand />
-          <OurWork />
           <PlatformStats />
           <IndustriesTeaser />
           <BrandsMarquee />
