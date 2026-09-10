@@ -26,7 +26,7 @@ function InsightsSlider() {
         <section id="insights-slider" className="py-24 bg-[var(--tint-1)]" data-name="insights-slider" data-file="components/InsightsSlider.js">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="flex items-end justify-between mb-14">
-                    <h2 className="text-3xl lg:text-4xl font-bold">Insights</h2>
+                    <h2 className="text-4xl lg:text-5xl font-bold">Insights</h2>
                     <a href="https://guiresfrl.github.io/guires_website/insights.html" className="btn-outline">View All Insights <div className="icon-arrow-right"></div></a>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

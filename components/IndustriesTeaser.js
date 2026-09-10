@@ -72,7 +72,7 @@ function IndustriesTeaser() {
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="industries-reveal text-center max-w-3xl mx-auto mb-14">
                     <span className="inline-block border border-white/30 rounded-full px-5 py-2 text-xs font-bold tracking-wider text-white uppercase mb-6">Industry-Specific Solutions</span>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Reimagining Possibilities Across Industries</h2>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Reimagining Possibilities Across Industries</h2>
                     <p className="text-white/60">From healthcare to food science and beyond &mdash; we bring deep domain expertise and rigorous research to accelerate outcomes that matter.</p>
                 </div>
 

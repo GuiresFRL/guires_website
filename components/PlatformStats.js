@@ -54,7 +54,7 @@ function PlatformStats() {
         <section id="platform-section" className="py-24 bg-white" data-name="platform-stats" data-file="components/PlatformStats.js">
             <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
                 <div>
-                    <h2 className="platform-reveal text-3xl lg:text-4xl font-bold mb-6">Data &amp; research intelligence platforms</h2>
+                    <h2 className="platform-reveal text-4xl lg:text-5xl font-bold mb-6">Data &amp; research intelligence platforms</h2>
                     <p className="platform-reveal text-gray-600 leading-relaxed mb-6">
                         Global demand for research, regulatory and data-driven decision-making continues to accelerate. GUIRES combines domain specialists with modern research operations to help clients move from raw data to publication-ready outcomes &mdash; faster and with confidence.
                     </p>

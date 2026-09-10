@@ -11,7 +11,7 @@ function BrandsMarquee() {
             <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row lg:items-center gap-8">
                 <div className="marquee-reveal lg:w-[30%] shrink-0 lg:pr-8 lg:border-r border-black/15">
                     <div className="text-xs font-bold tracking-wider text-gray-500 uppercase mb-3">A Family of Specialist Research Brands</div>
-                    <h2 className="text-3xl lg:text-4xl font-bold leading-tight">Collaborating Across <span className="text-[var(--accent)]">Specialist Brands</span></h2>
+                    <h2 className="text-4xl lg:text-5xl font-bold leading-tight">Collaborating Across <span className="text-[var(--accent)]">Specialist Brands</span></h2>
                 </div>
                 <div className="relative flex-1 overflow-hidden brand-marquee-mask">
                     <div className="brand-marquee-track flex items-center gap-4 w-max">

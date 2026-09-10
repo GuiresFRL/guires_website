@@ -32,7 +32,7 @@ function DomainBand() {
         <section id="domain-band" className="py-24 bg-[#0A0A0A]" data-name="domain-band" data-file="components/DomainBand.js">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end mb-14">
-                    <h2 className="domain-reveal text-3xl lg:text-4xl font-bold text-white leading-tight">
+                    <h2 className="domain-reveal text-4xl lg:text-5xl font-bold text-white leading-tight">
                         Where deep domain expertise meets scientific excellence
                     </h2>
                     <p className="domain-reveal text-gray-400 leading-relaxed">

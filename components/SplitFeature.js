@@ -17,7 +17,7 @@ function SplitFeature() {
                     </div>
                 </div>
                 <div>
-                    <h2 className="split-reveal text-3xl lg:text-4xl font-bold mb-6 leading-tight">
+                    <h2 className="split-reveal text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                         Powering last-mile delivery with domain-specific research solutions
                     </h2>
                     <p className="split-reveal text-gray-600 text-lg mb-10 leading-relaxed">

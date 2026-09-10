@@ -28,7 +28,7 @@ function Testimonials() {
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="max-w-2xl mb-16">
                     <div className="text-sm font-bold tracking-wider text-blue-300 uppercase mb-4">Testimonials</div>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Trusted by research &amp; healthcare leaders</h2>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Trusted by research &amp; healthcare leaders</h2>
                     <p className="text-lg text-white/60">What our clients say about working with GUIRES.</p>
                 </div>
 
