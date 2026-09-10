@@ -14,7 +14,7 @@ function Testimonials() {
     }, []);
 
     return (
-        <section id="testimonials" className="relative py-24 lg:py-32 bg-[#081B33] border-t border-black/5 overflow-hidden" data-name="testimonials" data-file="components/Testimonials.js">
+        <section id="testimonials" className="relative py-24 bg-[#081B33] border-t border-black/5 overflow-hidden" data-name="testimonials" data-file="components/Testimonials.js">
             <svg className="absolute -right-24 -top-24 w-[420px] h-[420px] text-white/5 pointer-events-none" viewBox="0 0 400 400" fill="none">
                 <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" />
                 <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
@@ -27,7 +27,7 @@ function Testimonials() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="max-w-2xl mb-16">
-                    <div className="text-sm font-bold tracking-wider text-blue-300 uppercase mb-4">Testimonials</div>
+                    <div className="text-xs font-bold tracking-wider text-blue-300 uppercase mb-4">Testimonials</div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Trusted by research &amp; healthcare leaders</h2>
                     <p className="text-lg text-white/60">What our clients say about working with GUIRES.</p>
                 </div>

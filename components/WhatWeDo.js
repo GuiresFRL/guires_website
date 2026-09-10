@@ -33,7 +33,7 @@ function WhatWeDo() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div>
-                        <h2 className="text-5xl font-bold mb-4">Our Core Services</h2>
+                        <h2 className="text-4xl lg:text-5xl font-bold mb-4">Our Core Services</h2>
                         <p className="text-xl text-gray-600">We turn complex research challenges into opportunities.</p>
                     </div>
                     <a href="https://guiresfrl.github.io/guires_website/services.html" className="btn-outline shrink-0">View All Services <div className="icon-arrow-right"></div></a>

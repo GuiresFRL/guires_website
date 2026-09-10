@@ -63,7 +63,7 @@ function PlatformStats() {
                         <li className="flex items-center gap-3"><div className="icon-check text-[var(--accent)]"></div> Regulatory &amp; compliance workflows</li>
                         <li className="flex items-center gap-3"><div className="icon-check text-[var(--accent)]"></div> Scientific communication &amp; publication support</li>
                     </ul>
-                    <a href="https://guiresfrl.github.io/guires_website/services.html" className="platform-reveal btn-primary">Read More <div className="icon-arrow-right"></div></a>
+                    <a href="https://guiresfrl.github.io/guires_website/services.html" className="platform-reveal rounded-full px-8 py-4 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-blue-800 transition-colors inline-flex items-center gap-2">Read More <div className="icon-arrow-right"></div></a>
                 </div>
                 <div className="flex items-center justify-center">
                     <svg viewBox="0 0 480 440" className="w-full max-w-lg" fill="none">
