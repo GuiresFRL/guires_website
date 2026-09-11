@@ -45,6 +45,12 @@ const DECISION_TILES = [
     { title: 'Statistical Modeling & Machine Learning', img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=500' }
 ];
 
+const SUCCESS_STORIES = [
+    { title: 'Driving Efficiency Through Modern Data Infrastructure', img: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&q=80&w=500' },
+    { title: 'Accelerating Regulatory Submissions With Unified Data Pipelines', img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=500' },
+    { title: 'Improving Data Quality Across Multi-Site Clinical Research', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=500' }
+];
+
 const FAQS = [
     {
         q: 'What is data science & analytics support, and why does it matter for research organizations?',
@@ -159,6 +165,68 @@ function CaseStudyVideo() {
                 </button>
             )}
         </div>
+    );
+}
+
+function CustomerSuccessCarousel() {
+    const [active, setActive] = React.useState(0);
+    const story = SUCCESS_STORIES[active];
+    const go = (dir) => setActive((active + dir + SUCCESS_STORIES.length) % SUCCESS_STORIES.length);
+
+    return (
+        <section className="relative bg-white overflow-hidden">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-6 text-center">
+                <div className="dsa-reveal text-xs font-bold tracking-wider text-[var(--accent)] uppercase">Customer Success Stories</div>
+            </div>
+
+            <svg className="block w-full text-[#081B33]" viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ height: '60px' }}>
+                <path fill="currentColor" d="M0,30 C 360,68 1080,-8 1440,30 L1440,60 L0,60 Z" />
+            </svg>
+
+            <div className="relative bg-[#081B33] pb-16">
+                <svg className="absolute -right-24 -top-24 w-[420px] h-[420px] text-white/5 pointer-events-none" viewBox="0 0 400 400" fill="none">
+                    <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="200" cy="200" r="90" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+
+                <button onClick={() => go(-1)} aria-label="Previous story" className="absolute left-4 lg:left-10 top-[45%] -translate-y-1/2 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#081B33] hover:bg-white/90 transition-colors z-20">
+                    <div className="icon-chevron-left"></div>
+                </button>
+                <button onClick={() => go(1)} aria-label="Next story" className="absolute right-4 lg:right-10 top-[45%] -translate-y-1/2 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#081B33] hover:bg-white/90 transition-colors z-20">
+                    <div className="icon-chevron-right"></div>
+                </button>
+
+                <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center pt-4">
+                    <div className="relative mx-auto w-[220px] h-[280px]">
+                        <div className="absolute inset-0 m-auto w-[260px] h-[260px] rounded-full border border-white/15"></div>
+                        <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white/10">
+                            <img key={story.img} src={story.img} className="w-full h-full object-cover" alt="" />
+                        </div>
+                    </div>
+                    <div>
+                        <h3 key={story.title} className="text-2xl font-bold text-white mb-4 leading-snug">{story.title}</h3>
+                        <p className="text-white/50 mb-8 leading-relaxed">Client success story placeholder &mdash; to be replaced with a real GUIRES case study once available.</p>
+                        <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="rounded-full px-6 py-3 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-blue-800 transition-colors inline-flex items-center gap-2">Learn More <div className="icon-chevron-right"></div></a>
+                    </div>
+                </div>
+            </div>
+
+            <svg className="block w-full text-[#081B33] -mt-px" viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ height: '60px', transform: 'scaleY(-1)' }}>
+                <path fill="currentColor" d="M0,30 C 360,68 1080,-8 1440,30 L1440,60 L0,60 Z" />
+            </svg>
+
+            <div className="flex justify-center gap-3 py-10">
+                {SUCCESS_STORIES.map((s, i) => (
+                    <button
+                        key={s.title}
+                        onClick={() => setActive(i)}
+                        aria-label={`Go to story ${i + 1}`}
+                        className={`w-2.5 h-2.5 rounded-full transition-colors ${i === active ? 'bg-[var(--accent)] ring-2 ring-[var(--accent)]/30 ring-offset-2' : 'bg-gray-300'}`}
+                    ></button>
+                ))}
+            </div>
+        </section>
     );
 }
 
@@ -290,32 +358,8 @@ function DataScienceAnalyticsPage() {
                 </div>
             </section>
 
-            {/* ============ CUSTOMER SUCCESS (dark carousel) ============ */}
-            <section className="relative py-24 bg-[#081B33] overflow-hidden">
-                <svg className="absolute -right-24 -top-24 w-[420px] h-[420px] text-white/5 pointer-events-none" viewBox="0 0 400 400" fill="none">
-                    <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="200" cy="200" r="90" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-                <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="dsa-reveal text-xs font-bold tracking-wider text-blue-300 uppercase mb-10 text-center">Customer Success Stories</div>
-                    <div className="dsa-reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center border border-dashed border-white/20 rounded-lg p-8 lg:p-10">
-                        <div className="h-64 rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" alt="" />
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold text-white mb-4 leading-snug">Driving Efficiency Through Modern Data Infrastructure</h3>
-                            <p className="text-white/50 mb-8 leading-relaxed">Client success story placeholder &mdash; to be replaced with a real GUIRES case study once available.</p>
-                            <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="rounded-full px-6 py-3 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-blue-800 transition-colors inline-flex items-center gap-2">Read More <div className="icon-arrow-right"></div></a>
-                        </div>
-                    </div>
-                    <div className="flex justify-center gap-2 mt-8">
-                        {[0, 1, 2].map((i) => (
-                            <span key={i} className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-white' : 'bg-white/25'}`}></span>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* ============ CUSTOMER SUCCESS (wavy carousel) ============ */}
+            <CustomerSuccessCarousel />
 
             {/* ============ BUILT TO DRIVE BETTER DECISIONS ============ */}
             <section className="relative py-24 bg-white overflow-hidden">
