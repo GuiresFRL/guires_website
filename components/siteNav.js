@@ -23,7 +23,7 @@ const SITE_NAV = [
         href: 'https://guiresfrl.github.io/guires_website/services.html',
         submenu: [
             { label: 'Research Solutions', href: 'https://guiresfrl.github.io/guires_website/services.html#research-solutions' },
-            { label: 'Data Science & Analytics', href: 'https://guiresfrl.github.io/guires_website/services.html#data-science-analytics' },
+            { label: 'Data Science & Analytics', href: 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html' },
             { label: 'Regulatory & Pharmacovigilance', href: 'https://guiresfrl.github.io/guires_website/services.html#regulatory-pharmacovigilance' },
             { label: 'Biostatistics & Statistical Programming', href: 'https://guiresfrl.github.io/guires_website/services.html#biostatistics-statistical-programming' },
             { label: 'Scientific & Medical Communication', href: 'https://guiresfrl.github.io/guires_website/services.html#scientific-medical-communication' },

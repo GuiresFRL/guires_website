@@ -10,7 +10,8 @@ function ServicesPage() {
             id: 'data-science-analytics',
             num: '02',
             title: 'Data Science & Analytics',
-            desc: 'Turning research and operational data into clear, decision-ready insight through analytics, modelling and visualization.'
+            desc: 'Turning research and operational data into clear, decision-ready insight through analytics, modelling and visualization.',
+            link: 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html'
         },
         {
             id: 'regulatory-pharmacovigilance',
@@ -61,7 +62,14 @@ function ServicesPage() {
                     <div key={s.id} id={s.id} className="service-panel grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 border-t border-black/10 pt-10 scroll-mt-32">
                         <div className="lg:col-span-2 text-gray-400 font-mono text-sm">{s.num}</div>
                         <h2 className="lg:col-span-4 text-3xl lg:text-4xl font-bold">{s.title}</h2>
-                        <p className="lg:col-span-6 text-lg text-gray-600 leading-relaxed">{s.desc}</p>
+                        <div className="lg:col-span-6">
+                            <p className="text-lg text-gray-600 leading-relaxed">{s.desc}</p>
+                            {s.link && (
+                                <a href={s.link} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:text-blue-800 transition-colors">
+                                    Learn More <div className="icon-arrow-right"></div>
+                                </a>
+                            )}
+                        </div>
                     </div>
                 ))}
             </div>

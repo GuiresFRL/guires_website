@@ -23,7 +23,7 @@ const FOOTER_COLUMNS = [
         title: 'Services',
         items: [
             { label: 'Research Solutions', href: `${SITE}/services.html#research-solutions` },
-            { label: 'Data Science & Analytics', href: `${SITE}/services.html#data-science-analytics` },
+            { label: 'Data Science & Analytics', href: `${SITE}/services/data-science-analytics.html` },
             { label: 'Regulatory & Pharmacovigilance', href: `${SITE}/services.html#regulatory-pharmacovigilance` },
             { label: 'Biostatistics', href: `${SITE}/services.html#biostatistics-statistical-programming` }
         ]
