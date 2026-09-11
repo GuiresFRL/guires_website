@@ -20,7 +20,7 @@ function CareersHighlights() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div className="careers-card bg-gray-50 rounded-lg overflow-hidden">
                         <div className="h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=700" className="w-full h-full object-cover" alt="" />
+                            <img src="https://images.unsplash.com/photo-1666886573531-48d2e3c2b684?auto=format&fit=crop&q=80&w=700" className="w-full h-full object-cover" alt="" />
                         </div>
                         <div className="p-6">
                             <h3 className="text-lg font-semibold mb-3">GUIRES Learning Academy</h3>
@@ -31,7 +31,7 @@ function CareersHighlights() {
 
                     <div className="careers-card bg-gray-50 rounded-lg overflow-hidden lg:mt-10">
                         <div className="relative h-72 overflow-hidden cursor-pointer group">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="" />
+                            <img src="https://images.unsplash.com/photo-1631039302217-5a6c56371e86?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="" />
                             <div className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors flex items-center justify-center">
                                 <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center text-[var(--accent)] text-2xl group-hover:scale-110 transition-transform duration-300">
                                     <div className="icon-play"></div>
@@ -46,7 +46,7 @@ function CareersHighlights() {
 
                     <div className="careers-card bg-gray-50 rounded-lg overflow-hidden">
                         <div className="h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=700" className="w-full h-full object-cover" alt="" />
+                            <img src="https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&q=80&w=700" className="w-full h-full object-cover" alt="" />
                         </div>
                         <div className="p-6">
                             <h3 className="text-lg font-semibold mb-3">Global Team Connect</h3>

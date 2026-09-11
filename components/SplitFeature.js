@@ -13,7 +13,7 @@ function SplitFeature() {
                         <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover opacity-70" alt="" />
                     </div>
                     <div className="absolute left-[8%] top-[14%] w-[62%] h-[78%] rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" alt="Research specialist" />
+                        <img src="https://images.unsplash.com/photo-1618053448492-2b629c2c912c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" alt="Research specialist" />
                     </div>
                 </div>
                 <div>

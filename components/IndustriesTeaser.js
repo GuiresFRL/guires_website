@@ -27,7 +27,7 @@ const INDUSTRY_TABS = [
     {
         title: 'Nutraceuticals', icon: 'icon-leaf',
         desc: 'Research and regulatory support helping nutraceutical organizations validate claims and bring products to market with confidence.',
-        img: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&q=80&w=1000'
+        img: 'https://images.unsplash.com/photo-1624362772755-4d5843e67047?auto=format&fit=crop&q=80&w=1000'
     },
     {
         title: 'Food', icon: 'icon-apple',
