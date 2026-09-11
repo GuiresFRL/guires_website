@@ -143,8 +143,9 @@ function CaseStudyVideo() {
                     className="w-full h-full object-cover"
                     src="https://cdn.quantiphi.com/2025/08/Energy-and-Utilities_10-secs.mp4"
                     poster="https://www.exlservice.com/sites/default/files/styles/ng_style_webp/public/2025-07/moddata-promobanner-destkop.png.webp?itok=X8t0zeHR"
-                    controls
                     autoPlay
+                    muted
+                    loop
                     playsInline
                 />
             ) : (
