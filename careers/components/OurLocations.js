@@ -27,7 +27,7 @@ function OurLocations() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="max-w-2xl mb-14">
                     <div className="cw-loc-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">Where We Work</div>
-                    <h2 className="cw-loc-elem text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--cw-text)]">Our Locations</h2>
+                    <h2 className="cw-loc-elem text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--cw-text)]">Our Locations</h2>
                     <div className="cw-loc-elem w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mt-5"></div>
                 </div>
 

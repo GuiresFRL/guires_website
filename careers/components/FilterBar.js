@@ -106,7 +106,7 @@ function FilterBar({ filters, setFilter, clearFilters, options, activeCount }) {
                 <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)}></div>
                 <div className={`absolute right-0 top-0 h-full w-[88%] max-w-sm bg-[var(--cw-surface)] shadow-2xl transition-transform duration-300 ease-out flex flex-col ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                     <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--cw-border)]">
-                        <h3 className="text-lg font-bold text-[var(--cw-text)]">Filters</h3>
+                        <h3 className="text-lg font-semibold text-[var(--cw-text)]">Filters</h3>
                         <button onClick={() => setMobileOpen(false)} aria-label="Close filters" className="w-9 h-9 rounded-full flex items-center justify-center text-[var(--cw-text)] hover:bg-[var(--cw-surface-2)]">
                             <div className="icon-x"></div>
                         </button>

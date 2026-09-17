@@ -30,7 +30,7 @@ function StatsBand() {
                     <div className="absolute inset-0 bg-[#0B1120CC]"></div>
                     {CAREERS_STATS.map((s, i) => (
                         <div key={s.label} className={`cw-stats-elem relative p-7 lg:p-10 text-center ${i % 2 === 1 ? 'border-l border-white/15' : ''} ${i >= 2 ? 'border-t lg:border-t-0 border-white/15' : ''} ${i === 2 ? 'lg:border-l' : ''}`}>
-                            <div className="text-3xl lg:text-4xl font-extrabold text-white mb-1">{s.value}</div>
+                            <div className="text-3xl lg:text-4xl font-semibold text-white mb-1">{s.value}</div>
                             <div className="text-xs sm:text-sm text-white/60 font-medium">{s.label}</div>
                         </div>
                     ))}

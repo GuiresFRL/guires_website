@@ -25,7 +25,7 @@ function WellbeingBand() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                     <div>
-                        <h2 className="cw-well-elem text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6" style={{ color: 'var(--cw-accent-secondary)' }}>
+                        <h2 className="cw-well-elem text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.2] mb-6" style={{ color: 'var(--cw-accent-secondary)' }}>
                             Our Commitment to Your Wellbeing
                         </h2>
                         <p className="cw-well-elem text-lg leading-relaxed mb-4" style={{ color: 'var(--cw-accent-secondary)' }}>
@@ -51,7 +51,7 @@ function WellbeingBand() {
                                 <div className="w-11 h-11 rounded-xl bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center text-xl mb-4 transition-transform duration-300 group-hover:scale-110">
                                     <div className={tile.icon}></div>
                                 </div>
-                                <h3 className="text-sm font-bold text-[var(--cw-text)] mb-1">{tile.label}</h3>
+                                <h3 className="text-sm font-semibold text-[var(--cw-text)] mb-1">{tile.label}</h3>
                                 <p className="text-xs text-[var(--cw-muted)] leading-relaxed">{tile.desc}</p>
                             </div>
                         ))}

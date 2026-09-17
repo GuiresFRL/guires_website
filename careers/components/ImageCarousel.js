@@ -60,7 +60,7 @@ function ImageCarousel() {
         >
             <div className="max-w-3xl mx-auto px-6 text-center mb-12">
                 <div className="text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">Life at GUIRES</div>
-                <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--cw-text)]">A team that shows up for each other</h2>
+                <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--cw-text)]">A team that shows up for each other</h2>
                 <div className="w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mt-5 mx-auto"></div>
             </div>
 

@@ -92,7 +92,7 @@ function JobsListingPage() {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
                     <div ref={headerRef} className="max-w-2xl">
                         <div className="cw-jl-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent-light)] uppercase mb-4">Careers</div>
-                        <h1 className="cw-jl-elem text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">Open Positions</h1>
+                        <h1 className="cw-jl-elem text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-4">Open Positions</h1>
                         <div className="cw-jl-elem w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mb-5"></div>
                         <p className="cw-jl-elem text-lg text-white/70 leading-relaxed">Find an opportunity that matches your skills, experience and ambitions.</p>
                     </div>
@@ -119,7 +119,7 @@ function JobsListingPage() {
                         <div className="w-14 h-14 rounded-full bg-[var(--cw-surface-2)] text-[var(--cw-muted)] flex items-center justify-center text-2xl mx-auto mb-5">
                             <div className="icon-search"></div>
                         </div>
-                        <h3 className="text-lg font-bold text-[var(--cw-text)] mb-2">No roles match your filters</h3>
+                        <h3 className="text-lg font-semibold text-[var(--cw-text)] mb-2">No roles match your filters</h3>
                         <p className="text-sm text-[var(--cw-muted)] mb-6">Try adjusting your search or clearing filters to see more open positions.</p>
                         <button onClick={clearFilters} className="inline-flex items-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--cw-accent-dark)] transition-colors">
                             Clear Filters

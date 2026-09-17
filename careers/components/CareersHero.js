@@ -52,7 +52,7 @@ function CareersHero() {
                         <span className="w-1.5 h-1.5 rounded-full bg-[var(--cw-accent)]"></span>
                         We&rsquo;re hiring across engineering, data, design &amp; research
                     </div>
-                    <h1 className="cw-hero-elem text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-[var(--cw-text)] mb-6">
+                    <h1 className="cw-hero-elem text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.15] text-[var(--cw-text)] mb-6">
                         Build Your Future <span className="text-[var(--cw-accent)]">With Us</span>
                     </h1>
                     <p className="cw-hero-elem text-lg text-[var(--cw-muted)] leading-relaxed max-w-md mb-9">

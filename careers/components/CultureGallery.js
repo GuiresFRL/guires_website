@@ -21,7 +21,7 @@ function CultureGallery() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-10">
                 <div className="max-w-2xl">
                     <div className="text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">Our Culture</div>
-                    <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--cw-text)]">Moments that define how we work</h2>
+                    <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--cw-text)]">Moments that define how we work</h2>
                     <div className="w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mt-5"></div>
                 </div>
             </div>

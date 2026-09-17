@@ -17,7 +17,7 @@ function CareersCTA({ eyebrow = 'Join Us', heading, subtext, buttonLabel, button
             </div>
             <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
                 <div className="cw-cta-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent-light)] uppercase mb-5">{eyebrow}</div>
-                <h2 className="cw-cta-elem text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">{heading}</h2>
+                <h2 className="cw-cta-elem text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-[1.2] tracking-tight mb-6">{heading}</h2>
                 {subtext && <p className="cw-cta-elem text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">{subtext}</p>}
                 <a
                     href={buttonHref}

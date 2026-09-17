@@ -7,7 +7,7 @@ function applyMailto(job) {
 function JobDetailSection({ title, children }) {
     return (
         <div className="cw-jd-section mb-12">
-            <h2 className="text-2xl font-bold text-[var(--cw-text)] mb-5">{title}</h2>
+            <h2 className="text-2xl font-semibold text-[var(--cw-text)] mb-5">{title}</h2>
             {children}
         </div>
     );
@@ -74,7 +74,7 @@ function JobDetailPage({ slug }) {
     if (!job) {
         return (
             <section className="pt-40 pb-24 text-center max-w-xl mx-auto px-6">
-                <h1 className="text-3xl font-extrabold text-[var(--cw-text)] mb-4">Role not found</h1>
+                <h1 className="text-3xl font-semibold text-[var(--cw-text)] mb-4">Role not found</h1>
                 <p className="text-[var(--cw-muted)] mb-8">This role may have closed or the link is incorrect.</p>
                 <a href={`${CAREERS_BASE}/jobs/`} className="inline-flex items-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-sm font-semibold px-6 py-3">
                     View All Jobs <div className="icon-arrow-right"></div>
@@ -100,7 +100,7 @@ function JobDetailPage({ slug }) {
                         <div className="icon-arrow-left text-xs"></div> Back to Open Positions
                     </a>
                     <div className="cw-jd-hero-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent-light)] uppercase mb-4">{job.department}</div>
-                    <h1 className="cw-jd-hero-elem text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6 max-w-3xl">{job.title}</h1>
+                    <h1 className="cw-jd-hero-elem text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6 max-w-3xl">{job.title}</h1>
                     <div className="cw-jd-hero-elem flex flex-wrap items-center gap-3 mb-8">
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-map-pin text-[11px]"></div> {job.location}</span>
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-briefcase text-[11px]"></div> {EMPLOYMENT_TYPES[job.type]}</span>
@@ -144,7 +144,7 @@ function JobDetailPage({ slug }) {
                                 {JOB_APPLICATION_PROCESS.map((s) => (
                                     <div key={s.step} className="rounded-xl border border-[var(--cw-border)] p-5">
                                         <div className="w-8 h-8 rounded-full bg-[var(--cw-accent)] text-white text-sm font-bold flex items-center justify-center mb-3">{s.step}</div>
-                                        <h4 className="text-sm font-bold text-[var(--cw-text)] mb-1.5">{s.title}</h4>
+                                        <h4 className="text-sm font-semibold text-[var(--cw-text)] mb-1.5">{s.title}</h4>
                                         <p className="text-xs text-[var(--cw-muted)] leading-relaxed">{s.desc}</p>
                                     </div>
                                 ))}

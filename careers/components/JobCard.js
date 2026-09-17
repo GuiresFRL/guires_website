@@ -20,7 +20,7 @@ function JobCard({ job }) {
 
             <div className="p-6 lg:p-7">
                 <div className="flex items-start justify-between gap-4 mb-4">
-                    <h3 className="text-xl font-bold text-[var(--cw-text)] leading-snug">{job.title}</h3>
+                    <h3 className="text-xl font-semibold text-[var(--cw-text)] leading-snug">{job.title}</h3>
                     <div className="shrink-0 w-10 h-10 rounded-full border border-[var(--cw-border)] flex items-center justify-center text-[var(--cw-text)] transition-all duration-300 group-hover:bg-[var(--cw-accent)] group-hover:text-white group-hover:border-[var(--cw-accent)] group-hover:translate-x-1">
                         <div className="icon-arrow-right text-sm"></div>
                     </div>

@@ -20,7 +20,7 @@ function OpportunityTypes() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="max-w-2xl mb-14">
                     <div className="text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">Open Roles</div>
-                    <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--cw-text)]">Find Your Next Opportunity</h2>
+                    <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--cw-text)]">Find Your Next Opportunity</h2>
                     <div className="w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mt-5"></div>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -37,7 +37,7 @@ function OpportunityTypes() {
                                     <div className="w-14 h-14 rounded-xl bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center text-2xl mb-8 transition-transform duration-300 group-hover:scale-110">
                                         <div className={opp.icon}></div>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-[var(--cw-text)] mb-3">{opp.title}</h3>
+                                    <h3 className="text-2xl font-semibold text-[var(--cw-text)] mb-3">{opp.title}</h3>
                                     <p className="text-sm text-[var(--cw-muted)] leading-relaxed mb-8">{opp.desc}</p>
                                     <div className="flex items-center justify-between pt-6 border-t border-[var(--cw-border)]">
                                         <span className="text-sm font-semibold text-[var(--cw-text)]">{count} open role{count === 1 ? '' : 's'}</span>
