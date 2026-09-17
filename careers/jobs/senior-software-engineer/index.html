@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Senior Software Engineer | Careers at GUIRES</title>
+    <meta name="description" content="Lead the design and development of research data platforms that power GUIRES analytics and reporting tools. Chennai, India. Full Time.">
+
+    <!-- React & Babel -->
+    <script src="https://guiresfrl.github.io/guires_website/vendor/react/react.production.min.js?v=1"></script>
+    <script src="https://guiresfrl.github.io/guires_website/vendor/react/react-dom.production.min.js?v=1"></script>
+    <script src="https://guiresfrl.github.io/guires_website/vendor/babel/babel.min.js?v=1"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <link href="https://guiresfrl.github.io/guires_website/vendor/lucide/lucide.css?v=1" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --cw-bg: #FAFAF8;
+            --cw-surface: #FFFFFF;
+            --cw-surface-2: #F3F2EE;
+            --cw-ink: #0B1120;
+            --cw-text: #14181F;
+            --cw-muted: #6B7280;
+            --cw-border: #E7E4DF;
+            --cw-accent: #0C4DA2;
+            --cw-accent-dark: #093A7D;
+            --cw-accent-secondary: #29539B;
+            --cw-accent-light: #7FA8E8;
+        }
+    }
+    @layer base {
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cw-bg);
+            color: var(--cw-text);
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { letter-spacing: -0.02em; }
+        ::selection { background-color: var(--cw-accent); color: #fff; }
+    }
+    @layer utilities {
+        .text-balance { text-wrap: balance; }
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cw-bg); }
+    ::-webkit-scrollbar-thumb { background: #ccc; }
+    ::-webkit-scrollbar-thumb:hover { background: #999; }
+    </style>
+    <style>
+        @keyframes cwFloatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-16px); } }
+        @keyframes cwFloatSlower { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(12px); } }
+        .cw-float-slow { animation: cwFloatSlow 7s ease-in-out infinite; }
+        .cw-float-slower { animation: cwFloatSlower 9s ease-in-out infinite; }
+        .cw-btn-arrow:hover .icon-arrow-right { transform: translateX(4px); }
+        @media (prefers-reduced-motion: reduce) {
+            .cw-float-slow, .cw-float-slower { animation: none !important; }
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/ErrorBoundary.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/careers/data/jobsData.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/careers/components/CareersHeader.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/careers/components/CareersFooter.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/careers/components/CareersCTA.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/careers/pages/JobDetail.js?v=1"></script>
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="min-h-screen bg-[var(--cw-bg)] text-[var(--cw-text)] font-sans">
+                    <CareersHeader />
+                    <main>
+                        <JobDetailPage slug="senior-software-engineer" />
+                    </main>
+                    <CareersFooter />
+                </div>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ErrorBoundary><App /></ErrorBoundary>);
+        function cwRefreshST() { if (window.ScrollTrigger) ScrollTrigger.refresh(); }
+        window.addEventListener('load', cwRefreshST);
+        setTimeout(cwRefreshST, 300);
+    </script>
+</body>
+</html>
