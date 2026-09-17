@@ -85,17 +85,26 @@ function JobDetailPage({ slug }) {
 
     return (
         <React.Fragment>
-            <section className="pt-32 pb-10 lg:pt-40 lg:pb-14 bg-[var(--cw-surface-2)] border-b border-[var(--cw-border)]">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <a href={`${CAREERS_BASE}/jobs/`} className="cw-jd-hero-elem inline-flex items-center gap-2 text-sm font-semibold text-[var(--cw-muted)] hover:text-[var(--cw-accent)] transition-colors mb-6">
+            <section className="relative pt-32 pb-10 lg:pt-40 lg:pb-14 overflow-hidden">
+                <img
+                    src={DEPARTMENT_BANNER_IMAGES[job.department] || DEPARTMENT_BANNER_IMAGES.Engineering}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[#0B1120B3]"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120E6] via-transparent to-[#0B112033]"></div>
+
+                <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+                    <a href={`${CAREERS_BASE}/jobs/`} className="cw-jd-hero-elem inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition-colors mb-6">
                         <div className="icon-arrow-left text-xs"></div> Back to Open Positions
                     </a>
-                    <div className="cw-jd-hero-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">{job.department}</div>
-                    <h1 className="cw-jd-hero-elem text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--cw-text)] mb-6 max-w-3xl">{job.title}</h1>
+                    <div className="cw-jd-hero-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent-light)] uppercase mb-4">{job.department}</div>
+                    <h1 className="cw-jd-hero-elem text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6 max-w-3xl">{job.title}</h1>
                     <div className="cw-jd-hero-elem flex flex-wrap items-center gap-3 mb-8">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--cw-surface)] border border-[var(--cw-border)] px-3.5 py-2 text-xs font-semibold text-[var(--cw-text)]"><div className="icon-map-pin text-[11px]"></div> {job.location}</span>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--cw-surface)] border border-[var(--cw-border)] px-3.5 py-2 text-xs font-semibold text-[var(--cw-text)]"><div className="icon-briefcase text-[11px]"></div> {EMPLOYMENT_TYPES[job.type]}</span>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--cw-surface)] border border-[var(--cw-border)] px-3.5 py-2 text-xs font-semibold text-[var(--cw-text)]"><div className="icon-layers text-[11px]"></div> {EXPERIENCE_LEVELS[job.experience]}</span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-map-pin text-[11px]"></div> {job.location}</span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-briefcase text-[11px]"></div> {EMPLOYMENT_TYPES[job.type]}</span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-layers text-[11px]"></div> {EXPERIENCE_LEVELS[job.experience]}</span>
                     </div>
                     {/* Mobile: Apply Now near top */}
                     <a

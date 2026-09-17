@@ -27,8 +27,6 @@ function HeroPhoto() {
 
 function CareersHero() {
     const ref = React.useRef(null);
-    const [keyword, setKeyword] = React.useState('');
-    const [location, setLocation] = React.useState('');
 
     React.useEffect(() => {
         gsap.fromTo(ref.current.querySelectorAll('.cw-hero-elem'),
@@ -40,13 +38,6 @@ function CareersHero() {
             { opacity: 1, scale: 1, duration: 1.1, ease: 'power2.out', delay: 0.2 }
         );
     }, []);
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-        const terms = [keyword, location].map((t) => t.trim()).filter(Boolean).join(' ');
-        const qs = terms ? `?search=${encodeURIComponent(terms)}` : '';
-        window.location.href = `${CAREERS_BASE}/jobs/${qs}`;
-    };
 
     return (
         <section ref={ref} className="relative pt-32 pb-10 lg:pt-28 lg:pb-0 overflow-hidden bg-[var(--cw-bg)] lg:flex lg:items-end">
@@ -68,34 +59,12 @@ function CareersHero() {
                         Join a talented team solving meaningful problems in healthcare and life sciences research. We&rsquo;re looking for curious, driven people who want their work to matter.
                     </p>
 
-                    <form onSubmit={handleSearch} className="cw-hero-elem flex flex-col sm:flex-row items-stretch gap-1.5 rounded-2xl sm:rounded-full p-1.5 max-w-lg" style={{ background: 'var(--cw-accent-secondary)' }}>
-                        <div className="relative flex-1">
-                            <div className="icon-search absolute left-4 top-[30%] -translate-y-1/2 text-white/50 text-sm"></div>
-                            <input
-                                type="text"
-                                value={keyword}
-                                onChange={(e) => setKeyword(e.target.value)}
-                                placeholder="Search jobs"
-                                aria-label="Search jobs"
-                                className="w-full bg-transparent text-white placeholder:text-white/50 rounded-full pl-10 pr-4 py-3 focus:outline-none"
-                            />
-                        </div>
-                        <div className="hidden sm:block w-px bg-white/20 my-2"></div>
-                        <div className="relative flex-1">
-                            <div className="icon-map-pin absolute left-4 top-[30%] -translate-y-1/2 text-white/50 text-sm"></div>
-                            <input
-                                type="text"
-                                value={location}
-                                onChange={(e) => setLocation(e.target.value)}
-                                placeholder="Type location"
-                                aria-label="Location"
-                                className="w-full bg-transparent text-white placeholder:text-white/50 rounded-full pl-10 pr-4 py-3 focus:outline-none"
-                            />
-                        </div>
-                        <button type="submit" aria-label="Search jobs" className="cw-btn-arrow shrink-0 w-11 h-11 self-center rounded-full flex items-center justify-center text-white hover:bg-white/10 transition-colors duration-300">
-                            <div className="icon-arrow-right transition-transform duration-300"></div>
-                        </button>
-                    </form>
+                    <a
+                        href={`${CAREERS_BASE}/jobs/`}
+                        className="cw-hero-elem cw-btn-arrow inline-flex items-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-base font-semibold px-8 py-4 hover:bg-[var(--cw-accent-dark)] transition-colors duration-300 shadow-lg shadow-[#0C4DA233] mb-10 lg:mb-16"
+                    >
+                        View All Jobs <div className="icon-arrow-right transition-transform duration-300"></div>
+                    </a>
 
                     {/* mobile: photo shown inline below the text */}
                     <div className="cw-hero-photo lg:hidden relative w-full max-w-[320px] mx-auto aspect-square mt-10">

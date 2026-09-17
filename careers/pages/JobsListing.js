@@ -78,16 +78,31 @@ function JobsListingPage() {
     }, [filters]);
 
     return (
-        <section className="pt-36 pb-24 lg:pt-44 lg:pb-32 bg-[var(--cw-bg)] min-h-screen">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div ref={headerRef} className="max-w-2xl mb-10">
-                    <div className="cw-jl-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">Careers</div>
-                    <h1 className="cw-jl-elem text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--cw-text)] mb-4">Open Positions</h1>
-                    <div className="cw-jl-elem w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mb-5"></div>
-                    <p className="cw-jl-elem text-lg text-[var(--cw-muted)] leading-relaxed">Find an opportunity that matches your skills, experience and ambitions.</p>
-                </div>
+        <section className="bg-[var(--cw-bg)] min-h-screen">
+            <div className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+                <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600"
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[#0B1120CC]"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--cw-bg)] via-transparent to-transparent"></div>
 
-                <FilterBar filters={filters} setFilter={setFilter} clearFilters={clearFilters} options={options} activeCount={activeCount} />
+                <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+                    <div ref={headerRef} className="max-w-2xl">
+                        <div className="cw-jl-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent-light)] uppercase mb-4">Careers</div>
+                        <h1 className="cw-jl-elem text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">Open Positions</h1>
+                        <div className="cw-jl-elem w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mb-5"></div>
+                        <p className="cw-jl-elem text-lg text-white/70 leading-relaxed">Find an opportunity that matches your skills, experience and ambitions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-24 lg:pb-32">
+                <div className="-mt-8 lg:-mt-10 relative z-10">
+                    <FilterBar filters={filters} setFilter={setFilter} clearFilters={clearFilters} options={options} activeCount={activeCount} />
+                </div>
 
                 <div className="flex items-center justify-between mb-6">
                     <p className="text-sm font-semibold text-[var(--cw-text)]">

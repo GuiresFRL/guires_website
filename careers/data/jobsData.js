@@ -14,6 +14,15 @@ const EMPLOYMENT_TYPES = {
     'internship': 'Internship'
 };
 
+const DEPARTMENT_BANNER_IMAGES = {
+    'Engineering': 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=1600',
+    'Design': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1600',
+    'Business': 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1600',
+    'Marketing': 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1600',
+    'Data & Analytics': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600',
+    'Research': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600'
+};
+
 const JOBS_DATA = [
     {
         slug: 'senior-software-engineer',
