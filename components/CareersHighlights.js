@@ -12,7 +12,7 @@ function CareersHighlights() {
                     <div className="text-xs font-bold tracking-wider text-gray-500 uppercase mb-4">Careers &amp; Cultural Highlights</div>
                     <h2 className="text-4xl lg:text-5xl font-bold mb-6"><span className="text-[var(--accent)]">Grow</span> With Us</h2>
                     <p className="text-gray-600 leading-relaxed mb-8">GUIRES&rsquo;s culture is rooted in continuous learning, scientific curiosity, and pushing the boundaries of what rigorous research can achieve.</p>
-                    <a href="https://guiresfrl.github.io/guires_website/careers.html" className="rounded-full px-7 py-3.5 bg-[var(--accent)] text-white text-sm font-semibold uppercase tracking-wide hover:bg-blue-800 transition-colors inline-flex items-center gap-2">
+                    <a href="https://guiresfrl.github.io/guires_website/careers/jobs/" className="rounded-full px-7 py-3.5 bg-[var(--accent)] text-white text-sm font-semibold uppercase tracking-wide hover:bg-blue-800 transition-colors inline-flex items-center gap-2">
                         See Open Roles <div className="icon-chevron-right"></div>
                     </a>
                 </div>
@@ -25,7 +25,7 @@ function CareersHighlights() {
                         <div className="p-6">
                             <h3 className="text-lg font-semibold mb-3">GUIRES Learning Academy</h3>
                             <p className="text-sm text-gray-600 leading-relaxed mb-4">A home for the curious, our learning academy blends research, regulatory and data science training to grow domain-native experts ready for real-world impact.</p>
-                            <a href="https://guiresfrl.github.io/guires_website/careers.html" className="text-sm font-semibold text-[var(--accent)] hover:underline">Know More</a>
+                            <a href="https://guiresfrl.github.io/guires_website/careers/" className="text-sm font-semibold text-[var(--accent)] hover:underline">Know More</a>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@ function CareersHighlights() {
                         <div className="p-6">
                             <h3 className="text-lg font-semibold mb-3">Global Team Connect</h3>
                             <p className="text-sm text-gray-600 leading-relaxed mb-4">A day of learning, laughter and togetherness where our global team experiences the curiosity, collaboration and spirit that define GUIRES.</p>
-                            <a href="https://guiresfrl.github.io/guires_website/careers.html" className="text-sm font-semibold text-[var(--accent)] hover:underline">Know More</a>
+                            <a href="https://guiresfrl.github.io/guires_website/careers/" className="text-sm font-semibold text-[var(--accent)] hover:underline">Know More</a>
                         </div>
                     </div>
                 </div>

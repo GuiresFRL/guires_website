@@ -39,8 +39,8 @@ const FOOTER_COLUMNS = [
     {
         title: 'Careers',
         items: [
-            { label: 'Why GUIRES', href: `${SITE}/careers.html` },
-            { label: 'Current Openings', href: `${SITE}/careers.html` }
+            { label: 'Why GUIRES', href: `${SITE}/careers/` },
+            { label: 'Current Openings', href: `${SITE}/careers/jobs/` }
         ]
     },
     {

@@ -51,7 +51,7 @@ const SITE_NAV = [
         ].map((label) => ({ label, href: 'https://guiresfrl.github.io/guires_website/insights.html' }))
     },
   
-    { label: 'Careers', href: 'https://guiresfrl.github.io/guires_website/careers.html' },
+    { label: 'Careers', href: 'https://guiresfrl.github.io/guires_website/careers/' },
     {
         label: 'Contact Us',
         href: 'https://guiresfrl.github.io/guires_website/contact-us.html',
