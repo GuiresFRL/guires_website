@@ -25,18 +25,22 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style type="text/tailwindcss">
     @layer theme {
         :root {
-            --black: #080808;
+            --black: #14202B;
             --white: #ffffff;
             --off-white: #f5f5f2;
             --gray: #777777;
             --light-gray: #dddddd;
             --accent: #0C4DA2;
             --accent-secondary: #29539B;
+            --accent-cyan: #19D3E6;
+            --ink-navy: #071A2B;
+            --muted: #64748B;
+            --bg-soft: #F7F9FC;
         }
     }
 
@@ -103,6 +107,16 @@
         background: #999;
     }
     </style>
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
@@ -110,17 +124,26 @@
     <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/ErrorBoundary.js?v=1"></script>
     <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/siteNav.js?v=6"></script>
     <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/Header.js?v=4"></script>
-    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/PageHero.js?v=2"></script>
-    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/pages/Services.js?v=2"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/ServicesHero.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/ServiceEcosystem.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/ServiceExplorer.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/ValueLifecycle.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/IndustryCards.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/TherapeuticAreas.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/TechAI.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/ServiceMetrics.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/CaseStudyFeature.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/ServicesInsights.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/services/ServicesFinalCTA.js?v=1"></script>
+    <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/pages/ServicesHome.js?v=1"></script>
     <script type="text/babel" src="https://guiresfrl.github.io/guires_website/components/Footer.js?v=5"></script>
     <script type="text/babel">
         function App() {
             return (
-                <div className="min-h-screen bg-white text-black selection:bg-[var(--accent-secondary)] selection:text-white font-sans">
+                <div className="min-h-screen bg-white text-[var(--black)] selection:bg-[var(--accent-secondary)] selection:text-white font-sans">
                     <Header />
                     <main>
-                        <PageHero eyebrow="Services" title="Our Services" subtitle="Research, regulatory, statistical and communication services for healthcare and life sciences organizations." />
-                        <ServicesPage />
+                        <ServicesHomePage />
                     </main>
                     <Footer />
                 </div>
