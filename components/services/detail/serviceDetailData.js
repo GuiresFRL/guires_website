@@ -4,6 +4,7 @@ const SERVICE_DETAILS = {
         slug: 'biostatistics',
         category: 'Data & Analytics',
         eyebrow: 'DATA & ANALYTICS',
+        heroImage: 'https://www.costellomedical.com/wp-content/uploads/2023/08/header-health-eco.jpg',
         heroHeadline: 'Turning Complex Clinical Data Into Actionable Evidence',
         heroDescription: 'GUIRES’ biostatistics practice designs and executes the statistical foundation behind clinical and non-clinical research — from protocol-stage study design through submission-ready analysis and reporting.',
         challengeEyebrow: 'THE CHALLENGE',
