@@ -1,3 +1,10 @@
+function svcUrl(slug) {
+    if (slug === 'data-science-analytics') {
+        return 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html';
+    }
+    return `https://guiresfrl.github.io/guires_website/services/${slug}/`;
+}
+
 const EXPLORER_CATEGORIES = [
     {
         key: 'research', label: 'Research', icon: 'icon-search',
@@ -98,7 +105,7 @@ function ServiceExplorer() {
                             {category.items.map((item) => (
                                 <a
                                     key={item.title}
-                                    href={`https://guiresfrl.github.io/guires_website/services/${item.slug}.html`}
+                                    href={svcUrl(item.slug)}
                                     className="svc-explorer-item group rounded-2xl bg-white border border-black/10 p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                                 >
                                     <h3 className="text-lg font-bold text-[var(--black)] mb-2">{item.title}</h3>
@@ -129,7 +136,7 @@ function ServiceExplorer() {
                             <div className={`grid transition-all duration-300 ease-out ${openMobile === c.key ? 'grid-rows-[1fr] opacity-100 pb-5' : 'grid-rows-[0fr] opacity-0'}`} style={{ overflow: 'hidden' }}>
                                 <div className="min-h-0 space-y-3">
                                     {c.items.map((item) => (
-                                        <a key={item.title} href={`https://guiresfrl.github.io/guires_website/services/${item.slug}.html`} className="block rounded-xl bg-white border border-black/10 p-5">
+                                        <a key={item.title} href={svcUrl(item.slug)} className="block rounded-xl bg-white border border-black/10 p-5">
                                             <h4 className="font-bold text-[var(--black)] mb-1">{item.title}</h4>
                                             <p className="text-sm text-[var(--muted)]">{item.desc}</p>
                                         </a>

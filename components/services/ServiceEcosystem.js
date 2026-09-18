@@ -1,3 +1,10 @@
+function svcUrl(slug) {
+    if (slug === 'data-science-analytics') {
+        return 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html';
+    }
+    return `https://guiresfrl.github.io/guires_website/services/${slug}/`;
+}
+
 const SERVICE_PILLARS = [
     {
         num: '01', title: 'Research & Intelligence', slug: 'research-intelligence',
@@ -66,7 +73,7 @@ function ServiceEcosystem() {
                     {SERVICE_PILLARS.map((p, i) => (
                         <a
                             key={p.slug}
-                            href={`https://guiresfrl.github.io/guires_website/services/${p.slug}.html`}
+                            href={svcUrl(p.slug)}
                             className={`svc-pillar-card group relative overflow-hidden rounded-[20px] border border-black/10 p-9 lg:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${i === SERVICE_PILLARS.length - 1 ? 'lg:col-span-2' : ''}`}
                         >
                             <div className="absolute inset-0 bg-[var(--bg-soft)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
