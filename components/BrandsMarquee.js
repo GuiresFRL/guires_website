@@ -15,7 +15,7 @@ function BrandsMarquee() {
                     <h2 className="tg-h2 !text-[clamp(2rem,4.4vw,4rem)]">Collaborating Across <span className="text-[var(--accent-secondary)]">Specialist Brands</span></h2>
                 </div>
                 <div className="marquee-reveal lg:col-span-4 lg:text-right">
-                    <a href="https://guiresfrl.github.io/guires_website/our-brands.html" className="tg-btn tg-btn--ghost">Meet the brands <div className="icon-arrow-right"></div></a>
+                    <a href="https://guiresfrl.github.io/guires_website/our-brands/" className="tg-btn tg-btn--ghost">Meet the brands <div className="icon-arrow-right"></div></a>
                 </div>
             </div>
             <div className="relative overflow-hidden brand-marquee-mask border-y border-[#01012026] py-8 lg:py-10" aria-label="GUIRES specialist brands">

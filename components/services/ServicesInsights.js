@@ -9,7 +9,7 @@ function ServicesInsights() {
     const ref = React.useRef(null);
     const featured = SERVICES_INSIGHTS.find((i) => i.featured);
     const rest = SERVICES_INSIGHTS.filter((i) => !i.featured);
-    const href = 'https://guiresfrl.github.io/guires_website/insights.html';
+    const href = 'https://guiresfrl.github.io/guires_website/insights/';
 
     React.useEffect(() => {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

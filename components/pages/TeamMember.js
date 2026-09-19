@@ -16,7 +16,7 @@ function TeamMemberPage({ member }) {
             <section className="tg-on-ink tg-band tg-band--ink pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden">
                 <div className="absolute inset-0 tg-grid-bg opacity-60 pointer-events-none" style={{ WebkitMaskImage: 'linear-gradient(180deg, transparent, #000 60%)', maskImage: 'linear-gradient(180deg, transparent, #000 60%)' }}></div>
                 <div className="tg-container relative z-10">
-                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="member-reveal tg-link text-sm text-white/80 hover:text-white mb-14">
+                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team/" className="member-reveal tg-link text-sm text-white/80 hover:text-white mb-14">
                         <span className="icon-arrow-left"></span> Back to Team
                     </a>
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
@@ -40,7 +40,7 @@ function TeamMemberPage({ member }) {
                         <p className="text-[clamp(1.4rem,2.4vw,2rem)] tracking-[-0.02em] leading-[1.3] text-[var(--muted)] mb-12 max-w-3xl">
                             Full bio coming soon. This profile is a placeholder for {member.role.toLowerCase()} at GUIRES.
                         </p>
-                        <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="tg-btn tg-btn--ghost">
+                        <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team/" className="tg-btn tg-btn--ghost">
                             Meet the rest of the team <div className="icon-arrow-right"></div>
                         </a>
                     </div>

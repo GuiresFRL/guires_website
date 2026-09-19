@@ -207,7 +207,7 @@ function CustomerSuccessCarousel() {
                     <div>
                         <h3 key={story.title} className="text-2xl font-bold text-white mb-4 leading-snug">{story.title}</h3>
                         <p className="text-white/50 mb-8 leading-relaxed">Client success story placeholder &mdash; to be replaced with a real GUIRES case study once available.</p>
-                        <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="rounded-full px-6 py-3 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-[var(--accent-secondary)] transition-colors inline-flex items-center gap-2">Learn More <div className="icon-chevron-right"></div></a>
+                        <a href="https://guiresfrl.github.io/guires_website/case-studies/" className="rounded-full px-6 py-3 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-[var(--accent-secondary)] transition-colors inline-flex items-center gap-2">Learn More <div className="icon-chevron-right"></div></a>
                     </div>
                 </div>
             </div>
@@ -262,9 +262,9 @@ function DataScienceAnalyticsPage() {
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
                     <div className="flex items-center gap-2 text-xs text-white/50 mb-6">
-                        <a href="https://guiresfrl.github.io/guires_website/index.html" className="hover:text-white transition-colors flex items-center"><div className="icon-house text-sm"></div></a>
+                        <a href="https://guiresfrl.github.io/guires_website/" className="hover:text-white transition-colors flex items-center"><div className="icon-house text-sm"></div></a>
                         <div className="icon-chevron-right text-[10px] text-[#F5A623]"></div>
-                        <a href="https://guiresfrl.github.io/guires_website/services.html" className="hover:text-white transition-colors">Services</a>
+                        <a href="https://guiresfrl.github.io/guires_website/services/" className="hover:text-white transition-colors">Services</a>
                         <div className="icon-chevron-right text-[10px] text-[#F5A623]"></div>
                         <span className="text-white/80">Data Science &amp; Analytics</span>
                     </div>
@@ -306,7 +306,7 @@ function DataScienceAnalyticsPage() {
                         ))}
                     </div>
                 </div>
-                <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="hidden lg:flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 -rotate-90 origin-right translate-x-1/2 bg-[var(--accent)] text-white text-xs font-bold tracking-wider uppercase px-5 py-3">
+                <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="hidden lg:flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 -rotate-90 origin-right translate-x-1/2 bg-[var(--accent)] text-white text-xs font-bold tracking-wider uppercase px-5 py-3">
                     Connect With Us <div className="icon-arrow-right"></div>
                 </a>
             </section>
@@ -377,7 +377,7 @@ function DataScienceAnalyticsPage() {
                         ))}
                     </div>
                 </div>
-                <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="hidden lg:flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 -rotate-90 origin-right translate-x-1/2 bg-[#010120] text-white text-xs font-bold tracking-wider uppercase px-5 py-3">
+                <a href="https://guiresfrl.github.io/guires_website/case-studies/" className="hidden lg:flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 -rotate-90 origin-right translate-x-1/2 bg-[#010120] text-white text-xs font-bold tracking-wider uppercase px-5 py-3">
                     View Case Studies <div className="icon-arrow-right"></div>
                 </a>
             </section>
@@ -399,7 +399,7 @@ function DataScienceAnalyticsPage() {
                     <p className="dsa-reveal text-gray-600 mb-14">Perspectives on data, research and analytics for healthcare and life sciences.</p>
                     <div className="dsa-reveal-group grid grid-cols-1 md:grid-cols-3 gap-6">
                         {INSIGHT_CARDS.map((art) => (
-                            <a key={art.title} href="https://guiresfrl.github.io/guires_website/insights.html" className="bg-white border border-black/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 block overflow-hidden">
+                            <a key={art.title} href="https://guiresfrl.github.io/guires_website/insights/" className="bg-white border border-black/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 block overflow-hidden">
                                 <div className="h-40 overflow-hidden">
                                     <img src={art.img} className="w-full h-full object-cover" alt="" />
                                 </div>

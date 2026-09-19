@@ -18,7 +18,7 @@ function CareersHeader() {
             data-file="careers/components/CareersHeader.js"
         >
             <div className="tg-container h-[68px] lg:h-20 flex items-center justify-between gap-6">
-                <a href={`${CAREERS_SITE}/index.html`} className="cw-header-elem block shrink-0" aria-label="GUIRES home">
+                <a href={`${CAREERS_SITE}/`} className="cw-header-elem block shrink-0" aria-label="GUIRES home">
                     <img
                         src={`${CAREERS_SITE}/assets/guires-logo.png`}
                         alt="Guires"
@@ -29,7 +29,7 @@ function CareersHeader() {
                 </a>
                 <div className="flex items-center gap-4 sm:gap-8">
                     <a href={`${CAREERS_BASE}/`} className="cw-header-elem hidden sm:inline text-sm font-medium text-[var(--ink)] hover:text-[var(--accent-secondary)] transition-colors">Careers</a>
-                    <a href={`${CAREERS_SITE}/index.html`} className="cw-header-elem hidden sm:inline text-sm font-medium text-[var(--ink)] hover:text-[var(--accent-secondary)] transition-colors">Visit website</a>
+                    <a href={`${CAREERS_SITE}/`} className="cw-header-elem hidden sm:inline text-sm font-medium text-[var(--ink)] hover:text-[var(--accent-secondary)] transition-colors">Visit website</a>
                     <a href={`${CAREERS_BASE}/jobs/`} className="cw-header-elem tg-btn tg-btn--primary !py-3 !px-5 !text-sm">
                         View all jobs <div className="icon-arrow-right text-xs"></div>
                     </a>

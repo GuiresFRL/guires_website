@@ -71,7 +71,7 @@ function PlatformStats() {
                             </li>
                         ))}
                     </ul>
-                    <a href="https://guiresfrl.github.io/guires_website/services.html" className="platform-reveal tg-btn tg-btn--primary">Read More <div className="icon-arrow-right"></div></a>
+                    <a href="https://guiresfrl.github.io/guires_website/services/" className="platform-reveal tg-btn tg-btn--primary">Read More <div className="icon-arrow-right"></div></a>
                 </div>
                 <div className="lg:col-span-6 flex items-center justify-center">
                     <svg viewBox="0 0 480 440" className="w-full max-w-lg" fill="none" role="img" aria-label="Four research disciplines converging into one platform">

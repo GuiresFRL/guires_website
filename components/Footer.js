@@ -4,36 +4,36 @@ const FOOTER_COLUMNS = [
     {
         title: 'About Us',
         items: [
-            { label: 'Our Story', href: `${SITE}/about-us.html#our-story` },
-            { label: 'Leadership', href: `${SITE}/about-us.html#leadership` },
-            { label: 'Awards & Recognition', href: `${SITE}/about-us.html#awards` },
-            { label: 'Associations', href: `${SITE}/about-us.html#associations` }
+            { label: 'Our Story', href: `${SITE}/about-us/#our-story` },
+            { label: 'Leadership', href: `${SITE}/about-us/#leadership` },
+            { label: 'Awards & Recognition', href: `${SITE}/about-us/#awards` },
+            { label: 'Associations', href: `${SITE}/about-us/#associations` }
         ]
     },
     {
         title: 'Industries',
         items: [
-            { label: 'Healthcare & Life Sciences', href: `${SITE}/industries.html` },
-            { label: 'Pharmaceuticals', href: `${SITE}/industries.html` },
-            { label: 'Medical Devices', href: `${SITE}/industries.html` },
-            { label: 'Food', href: `${SITE}/industries.html` }
+            { label: 'Healthcare & Life Sciences', href: `${SITE}/industries/` },
+            { label: 'Pharmaceuticals', href: `${SITE}/industries/` },
+            { label: 'Medical Devices', href: `${SITE}/industries/` },
+            { label: 'Food', href: `${SITE}/industries/` }
         ]
     },
     {
         title: 'Services',
         items: [
-            { label: 'Research Solutions', href: `${SITE}/services.html#research-solutions` },
-            { label: 'Data Science & Analytics', href: `${SITE}/services/data-science-analytics.html` },
-            { label: 'Regulatory & Pharmacovigilance', href: `${SITE}/services.html#regulatory-pharmacovigilance` },
-            { label: 'Biostatistics', href: `${SITE}/services.html#biostatistics-statistical-programming` }
+            { label: 'Research Solutions', href: `${SITE}/services/#research-solutions` },
+            { label: 'Data Science & Analytics', href: `${SITE}/services/data-science-analytics/` },
+            { label: 'Regulatory & Pharmacovigilance', href: `${SITE}/services/#regulatory-pharmacovigilance` },
+            { label: 'Biostatistics', href: `${SITE}/services/biostatistics/` }
         ]
     },
     {
         title: 'Resources',
         items: [
-            { label: 'Insights', href: `${SITE}/insights.html` },
-            { label: 'Case Studies', href: `${SITE}/case-studies.html` },
-            { label: 'Publications', href: `${SITE}/insights.html` }
+            { label: 'Insights', href: `${SITE}/insights/` },
+            { label: 'Case Studies', href: `${SITE}/case-studies/` },
+            { label: 'Publications', href: `${SITE}/insights/` }
         ]
     },
     {
@@ -71,7 +71,7 @@ function Footer() {
                         <p className="text-white text-[clamp(1.6rem,3.2vw,3rem)] font-medium tracking-[-0.03em] leading-[1.12] mb-10 max-w-4xl">
                             Choose your research pathway, be it study design, regulatory strategy, biostatistics or scientific communication. Let&rsquo;s start a conversation about your next research challenge.
                         </p>
-                        <a href={`${SITE}/contact-us.html`} className="tg-btn tg-btn--primary">Get in Touch <div className="icon-arrow-right"></div></a>
+                        <a href={`${SITE}/contact-us/`} className="tg-btn tg-btn--primary">Get in Touch <div className="icon-arrow-right"></div></a>
                     </div>
                     <div className="lg:col-span-4">
                         <div className="inline-block bg-white px-5 py-3 mb-6">

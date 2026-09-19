@@ -1,19 +1,19 @@
 function WhatWeDo() {
     const SITE_URL = 'https://guiresfrl.github.io/guires_website';
     const capabilities = [
-        { id: '01', title: 'Research Solutions', href: `${SITE_URL}/services.html#research-solutions`,
+        { id: '01', title: 'Research Solutions', href: `${SITE_URL}/services/#research-solutions`,
           desc: 'End-to-end support for academic, clinical and market research, from study design and literature review through data collection and reporting.' },
-        { id: '02', title: 'Data Science & Analytics', href: `${SITE_URL}/services/data-science-analytics.html`,
+        { id: '02', title: 'Data Science & Analytics', href: `${SITE_URL}/services/data-science-analytics/`,
           desc: 'Turning research and operational data into clear, decision-ready insight through analytics, modelling and visualization.' },
-        { id: '03', title: 'Regulatory & Pharmacovigilance', href: `${SITE_URL}/services.html#regulatory-pharmacovigilance`,
+        { id: '03', title: 'Regulatory & Pharmacovigilance', href: `${SITE_URL}/services/#regulatory-pharmacovigilance`,
           desc: 'Regulatory submissions, dossier preparation and safety monitoring support to help products move through global markets responsibly.' },
-        { id: '04', title: 'Biostatistics & Statistical Programming', href: `${SITE_URL}/services.html#biostatistics-statistical-programming`,
+        { id: '04', title: 'Biostatistics & Statistical Programming', href: `${SITE_URL}/services/biostatistics/`,
           desc: 'Statistical analysis plans, SDTM/ADaM programming and biostatistics support for clinical and non-clinical studies.' },
-        { id: '05', title: 'Scientific & Medical Communication', href: `${SITE_URL}/services.html#scientific-medical-communication`,
+        { id: '05', title: 'Scientific & Medical Communication', href: `${SITE_URL}/services/#scientific-medical-communication`,
           desc: 'Manuscripts, publications and medical writing that communicate research clearly to scientific and regulatory audiences.' },
-        { id: '06', title: 'Branding & Communication', href: `${SITE_URL}/services.html#branding-communication`,
+        { id: '06', title: 'Branding & Communication', href: `${SITE_URL}/services/#branding-communication`,
           desc: 'Brand strategy and content for research-driven organizations that need to communicate complex work with clarity.' },
-        { id: '07', title: 'Food Research & R&D', href: `${SITE_URL}/services.html#food-research-rd`,
+        { id: '07', title: 'Food Research & R&D', href: `${SITE_URL}/services/#food-research-rd`,
           desc: 'Product research, sensory evaluation and R&D support for food, beverage and nutraceutical innovation.' }
     ];
 
@@ -36,7 +36,7 @@ function WhatWeDo() {
                     </div>
                     <div className="lg:col-span-4">
                         <p className="tg-lead text-[var(--muted)] mb-6">We turn complex research challenges into opportunities.</p>
-                        <a href={`${SITE_URL}/services.html`} className="tg-btn tg-btn--ghost">View All Services <div className="icon-arrow-right"></div></a>
+                        <a href={`${SITE_URL}/services/`} className="tg-btn tg-btn--ghost">View All Services <div className="icon-arrow-right"></div></a>
                     </div>
                 </div>
 

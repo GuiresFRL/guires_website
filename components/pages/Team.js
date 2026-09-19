@@ -40,7 +40,7 @@ function TeamPage() {
                             return (
                                 <a
                                     key={m.slug}
-                                    href={`https://guiresfrl.github.io/guires_website/about-us/meet-our-team/${m.slug}.html`}
+                                    href={`https://guiresfrl.github.io/guires_website/about-us/meet-our-team/${m.slug}/`}
                                     className="team-card group flex flex-col justify-between min-h-[22rem] p-8 transition-transform duration-300 hover:-translate-y-1"
                                     style={{ background: s.bg, color: s.fg }}
                                 >

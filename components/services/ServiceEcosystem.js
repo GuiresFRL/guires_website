@@ -1,6 +1,6 @@
 function svcUrl(slug) {
     if (slug === 'data-science-analytics') {
-        return 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html';
+        return 'https://guiresfrl.github.io/guires_website/services/data-science-analytics/';
     }
     if (slug === 'biostatistics') {
         return 'https://guiresfrl.github.io/guires_website/services/biostatistics/';

@@ -32,7 +32,7 @@ function InsightsPage() {
     }, [activeFilter]);
 
     const [featured, ...rest] = visible;
-    const href = 'https://guiresfrl.github.io/guires_website/insights.html';
+    const href = 'https://guiresfrl.github.io/guires_website/insights/';
 
     return (
         <React.Fragment>

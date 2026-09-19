@@ -41,7 +41,7 @@ function ServicesHero() {
                             <a href="#service-ecosystem" className="tg-btn tg-btn--primary">
                                 Explore Our Services <div className="icon-arrow-right"></div>
                             </a>
-                            <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="tg-btn tg-btn--ghost-light">
+                            <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="tg-btn tg-btn--ghost-light">
                                 Talk to an Expert
                             </a>
                         </div>

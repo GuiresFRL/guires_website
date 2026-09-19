@@ -83,7 +83,7 @@ function Header() {
             onMouseLeave={() => setOpenDesktopMenu(null)}
         >
             <div className="tg-container h-[68px] xl:h-20 flex items-center gap-10">
-                <a href="https://guiresfrl.github.io/guires_website/index.html" className="header-elem block shrink-0 relative z-50" aria-label="GUIRES home">
+                <a href="https://guiresfrl.github.io/guires_website/" className="header-elem block shrink-0 relative z-50" aria-label="GUIRES home">
                     <img
                         src="https://guiresfrl.github.io/guires_website/assets/guires-logo.png"
                         alt="Guires"

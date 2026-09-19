@@ -24,7 +24,7 @@ function InsightsSlider() {
     }, []);
 
     const [featured, ...rest] = INSIGHT_ARTICLES;
-    const href = 'https://guiresfrl.github.io/guires_website/insights.html';
+    const href = 'https://guiresfrl.github.io/guires_website/insights/';
 
     return (
         <section id="insights-slider" className="py-24 lg:py-36 bg-[var(--bg-soft)]" data-name="insights-slider" data-file="components/InsightsSlider.js">

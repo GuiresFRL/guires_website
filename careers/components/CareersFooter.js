@@ -1,6 +1,6 @@
 const CAREERS_FOOTER_LINKS = [
     { label: 'View All Jobs', href: `${CAREERS_BASE}/jobs/` },
-    { label: 'Visit Website', href: `${CAREERS_SITE}/index.html` },
+    { label: 'Visit Website', href: `${CAREERS_SITE}/` },
     { label: 'Terms & Conditions', href: '#' },
     { label: 'Privacy Policy', href: '#' },
     { label: 'Cookie Policy', href: '#' }

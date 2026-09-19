@@ -17,7 +17,7 @@ function ServicesFinalCTA() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
                     <p className="svc-cta-elem lg:col-span-6 tg-lead max-w-xl">Tell us what you&rsquo;re trying to solve and our experts will help identify the right approach.</p>
                     <div className="svc-cta-elem lg:col-span-6 flex flex-wrap gap-3 lg:justify-end">
-                        <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="tg-btn tg-btn--light !py-5 !px-8">
+                        <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="tg-btn tg-btn--light !py-5 !px-8">
                             Talk to Our Experts <div className="icon-arrow-right"></div>
                         </a>
                         <a href="#service-ecosystem" className="tg-btn tg-btn--ghost-light !py-5 !px-8">

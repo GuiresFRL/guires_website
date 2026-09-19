@@ -33,7 +33,7 @@ function CareersHighlights() {
                     </article>
 
                     <article className="careers-card group lg:mt-16">
-                        <a href={`${SITE_URL}/insights.html`} className="relative block aspect-[4/3] overflow-hidden mb-6 bg-[var(--ink)]" aria-label="Watch: how we cut publication turnaround from 9 months to 3">
+                        <a href={`${SITE_URL}/insights/`} className="relative block aspect-[4/3] overflow-hidden mb-6 bg-[var(--ink)]" aria-label="Watch: how we cut publication turnaround from 9 months to 3">
                             <img src="https://images.unsplash.com/photo-1631039302217-5a6c56371e86?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" loading="lazy" />
                             <div className="absolute inset-0 bg-[#01012059] flex items-center justify-center">
                                 <div className="w-16 h-16 bg-[var(--accent)] text-white flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110">
@@ -42,7 +42,7 @@ function CareersHighlights() {
                             </div>
                         </a>
                         <h3 className="text-2xl font-medium tracking-[-0.02em] mb-3">How we cut publication turnaround from 9 months to 3</h3>
-                        <a href={`${SITE_URL}/insights.html`} className="tg-link text-[var(--accent-secondary)]">Watch Now <span className="icon-arrow-right"></span></a>
+                        <a href={`${SITE_URL}/insights/`} className="tg-link text-[var(--accent-secondary)]">Watch Now <span className="icon-arrow-right"></span></a>
                     </article>
 
                     <article className="careers-card group">

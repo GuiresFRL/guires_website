@@ -51,7 +51,7 @@ function IndustryCards() {
                                         <li key={cap} className="tg-hairline py-2 text-sm text-[#eef3facc]">{cap}</li>
                                     ))}
                                 </ul>
-                                <a href="https://guiresfrl.github.io/guires_website/industries.html" className="tg-link text-sm text-[var(--accent-cyan)]">
+                                <a href="https://guiresfrl.github.io/guires_website/industries/" className="tg-link text-sm text-[var(--accent-cyan)]">
                                     Explore Industry <span className="icon-arrow-right text-xs"></span>
                                 </a>
                             </div>

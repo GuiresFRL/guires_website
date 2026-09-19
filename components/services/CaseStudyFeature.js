@@ -6,7 +6,7 @@ const SMALL_CASE_STUDIES = [
 
 function CaseStudyFeature() {
     const ref = React.useRef(null);
-    const href = 'https://guiresfrl.github.io/guires_website/case-studies.html';
+    const href = 'https://guiresfrl.github.io/guires_website/case-studies/';
 
     React.useEffect(() => {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

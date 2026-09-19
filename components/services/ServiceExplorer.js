@@ -1,9 +1,9 @@
 function explorerUrl(slug) {
     const base = 'https://guiresfrl.github.io/guires_website';
     if (slug === 'biostatistics') return base + '/services/biostatistics/';
-    if (slug === 'data-analytics' || slug === 'data-science-analytics') return base + '/services/data-science-analytics.html';
+    if (slug === 'data-analytics' || slug === 'data-science-analytics') return base + '/services/data-science-analytics/';
     // detail pages not built yet: route to a conversation instead of a dead link
-    return base + '/contact-us.html';
+    return base + '/contact-us/';
 }
 
 const EXPLORER_CATEGORIES = [

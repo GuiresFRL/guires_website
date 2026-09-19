@@ -133,7 +133,7 @@ function serviceUrl(slug) {
     // data-science-analytics already exists as a flat file from an earlier build;
     // every other service uses the newer clean directory URL structure.
     if (slug === 'data-science-analytics') {
-        return 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html';
+        return 'https://guiresfrl.github.io/guires_website/services/data-science-analytics/';
     }
     return `https://guiresfrl.github.io/guires_website/services/${slug}/`;
 }

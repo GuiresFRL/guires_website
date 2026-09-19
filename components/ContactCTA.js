@@ -24,7 +24,7 @@ function ContactCTA() {
                         Tell us about your challenge, idea or opportunity and our team will be in touch.
                     </p>
                     <div className="contact-cta-elem lg:col-span-6 lg:text-right">
-                        <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="tg-btn tg-btn--light !py-5 !px-8 !text-base">
+                        <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="tg-btn tg-btn--light !py-5 !px-8 !text-base">
                             Request a Consultation <div className="icon-arrow-right"></div>
                         </a>
                     </div>

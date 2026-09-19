@@ -119,7 +119,7 @@ function AboutUsPage() {
                             </div>
                         ))}
                     </div>
-                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="reveal-el tg-btn tg-btn--primary">
+                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team/" className="reveal-el tg-btn tg-btn--primary">
                         Meet Our Team <div className="icon-arrow-right"></div>
                     </a>
                 </div>

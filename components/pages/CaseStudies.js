@@ -35,7 +35,7 @@ function CaseStudiesPage() {
                                         <span className="tg-eyebrow">{c.category}</span>
                                     </div>
                                     <h3 className="text-[clamp(1.75rem,3.4vw,3rem)] font-medium tracking-[-0.03em] leading-[1.08] mb-8">{c.title}</h3>
-                                    <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="tg-link text-[var(--accent-secondary)]">
+                                    <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="tg-link text-[var(--accent-secondary)]">
                                         Discuss a similar challenge <span className="icon-arrow-right"></span>
                                     </a>
                                 </div>

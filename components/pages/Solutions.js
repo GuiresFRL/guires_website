@@ -32,7 +32,7 @@ function SolutionsPage() {
                                 <div className="lg:col-span-9">
                                     <h3 className="tg-h2 !text-[clamp(2rem,4.4vw,4rem)] mb-6">{s.title}</h3>
                                     <p className="tg-lead max-w-2xl mb-10 opacity-90">{s.desc}</p>
-                                    <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className={`tg-btn ${surface.cls.includes('ink') || surface.cls.includes('purple') ? 'tg-btn--ghost-light' : 'tg-btn--ghost'}`}>
+                                    <a href="https://guiresfrl.github.io/guires_website/contact-us/" className={`tg-btn ${surface.cls.includes('ink') || surface.cls.includes('purple') ? 'tg-btn--ghost-light' : 'tg-btn--ghost'}`}>
                                         Discuss this solution <div className="icon-arrow-right"></div>
                                     </a>
                                 </div>

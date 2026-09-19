@@ -54,7 +54,7 @@ function ServiceCapabilities({ service }) {
                                 </div>
                             ))}
                         </div>
-                        <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
+                        <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
                             Talk to a Specialist <div className="icon-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></div>
                         </a>
                     </div>

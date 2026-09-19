@@ -71,10 +71,10 @@ function Hero() {
                             GUIRES helps healthcare and life sciences organizations transform research, regulatory and scientific challenges through domain expertise, data intelligence and human-led delivery.
                         </p>
                         <div className="hero-fade flex flex-wrap items-center gap-3">
-                            <a href="https://guiresfrl.github.io/guires_website/services.html" className="tg-btn tg-btn--primary">
+                            <a href="https://guiresfrl.github.io/guires_website/services/" className="tg-btn tg-btn--primary">
                                 Explore Our Services <div className="icon-arrow-right"></div>
                             </a>
-                            <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="tg-btn tg-btn--ghost-light">
+                            <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="tg-btn tg-btn--ghost-light">
                                 Start a Conversation
                             </a>
                         </div>

@@ -56,7 +56,7 @@ function DomainBand() {
                         return (
                             <a
                                 key={tile.title}
-                                href="https://guiresfrl.github.io/guires_website/services.html"
+                                href="https://guiresfrl.github.io/guires_website/services/"
                                 className={`tile-reveal group relative flex flex-col justify-between min-h-[440px] p-7 lg:p-10 overflow-hidden ${s.span}`}
                                 style={{ background: s.bg, color: s.fg }}
                             >

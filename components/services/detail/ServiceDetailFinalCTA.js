@@ -18,7 +18,7 @@ function ServiceDetailFinalCTA({ service }) {
                     <p className="svd-cta-elem text-2xl lg:text-3xl font-semibold text-white leading-snug max-w-lg mb-8">
                         For more information on our {title} services or to request a quote, please contact <span className="text-[var(--accent-cyan)] underline decoration-2 underline-offset-4">our specialist team</span>.
                     </p>
-                    <a href="https://guiresfrl.github.io/guires_website/contact-us.html" className="svd-cta-elem group inline-flex items-center gap-2 rounded-full bg-white text-[var(--ink-navy)] text-sm font-semibold px-7 py-4 hover:bg-white/90 transition-colors duration-300">
+                    <a href="https://guiresfrl.github.io/guires_website/contact-us/" className="svd-cta-elem group inline-flex items-center gap-2 rounded-full bg-white text-[var(--ink-navy)] text-sm font-semibold px-7 py-4 hover:bg-white/90 transition-colors duration-300">
                         Get In Touch <div className="icon-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></div>
                     </a>
                 </div>

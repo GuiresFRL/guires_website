@@ -11,7 +11,7 @@ function ServicesPage() {
             num: '02',
             title: 'Data Science & Analytics',
             desc: 'Turning research and operational data into clear, decision-ready insight through analytics, modelling and visualization.',
-            link: 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html'
+            link: 'https://guiresfrl.github.io/guires_website/services/data-science-analytics/'
         },
         {
             id: 'regulatory-pharmacovigilance',

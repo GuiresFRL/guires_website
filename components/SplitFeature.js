@@ -44,7 +44,7 @@ function SplitFeature() {
                         ))}
                     </ol>
 
-                    <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="split-reveal tg-btn tg-btn--primary">
+                    <a href="https://guiresfrl.github.io/guires_website/case-studies/" className="split-reveal tg-btn tg-btn--primary">
                         Explore Our Success Stories <div className="icon-arrow-right"></div>
                     </a>
                 </div>

@@ -19,7 +19,7 @@ function ServiceInsightsDetail({ service }) {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                     {list.map((a) => (
-                        <a key={a.title} href="https://guiresfrl.github.io/guires_website/insights.html" className="svd-insight-card group rounded-2xl overflow-hidden border border-black/10 bg-[var(--bg-soft)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                        <a key={a.title} href="https://guiresfrl.github.io/guires_website/insights/" className="svd-insight-card group rounded-2xl overflow-hidden border border-black/10 bg-[var(--bg-soft)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                             <div className="relative h-40 overflow-hidden">
                                 <img src={a.img} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                             </div>
