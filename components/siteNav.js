@@ -38,7 +38,7 @@ const SITE_NAV = [
             'Healthcare & Life Sciences', 'Pharmaceuticals', 'Medical Devices', 'Biotechnology',
             'Diagnostics', 'Nutraceuticals', 'Food', 'Retail', 'Travel & Hospitality',
             'Insurance', 'Mortgage', 'Logistics', 'Telecom'
-        ].map((label) => ({ label, href: 'https://guiresfrl.github.io/guires_website/industries/' }))
+        ].map((label) => ({ label, href: 'https://guiresfrl.github.io/guires_website/industries/' + label.toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '/' }))
     },
   
    

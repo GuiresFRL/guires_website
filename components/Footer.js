@@ -13,10 +13,10 @@ const FOOTER_COLUMNS = [
     {
         title: 'Industries',
         items: [
-            { label: 'Healthcare & Life Sciences', href: `${SITE}/industries/` },
-            { label: 'Pharmaceuticals', href: `${SITE}/industries/` },
-            { label: 'Medical Devices', href: `${SITE}/industries/` },
-            { label: 'Food', href: `${SITE}/industries/` }
+            { label: 'Healthcare & Life Sciences', href: `${SITE}/industries/healthcare-life-sciences/` },
+            { label: 'Pharmaceuticals', href: `${SITE}/industries/pharmaceuticals/` },
+            { label: 'Medical Devices', href: `${SITE}/industries/medical-devices/` },
+            { label: 'Food', href: `${SITE}/industries/food/` }
         ]
     },
     {

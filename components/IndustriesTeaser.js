@@ -100,7 +100,7 @@ function IndustriesTeaser() {
                         <div ref={textRef} className="max-w-xl">
                             <h3 className="text-3xl font-medium tracking-[-0.03em] mb-4">{current.title}</h3>
                             <p className="mb-8 leading-relaxed text-[#010120CC]">{current.desc}</p>
-                            <a href="https://guiresfrl.github.io/guires_website/industries/" className="tg-btn" style={{ background: 'var(--ink)', color: '#fff' }}>
+                            <a href={`https://guiresfrl.github.io/guires_website/industries/${current.title.toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}/`} className="tg-btn" style={{ background: 'var(--ink)', color: '#fff' }}>
                                 Explore {current.title} <div className="icon-arrow-right"></div>
                             </a>
                         </div>

@@ -1,19 +1,5 @@
 function IndustriesPage() {
-    const industries = [
-        { name: 'Healthcare & Life Sciences', desc: 'Research and evidence support across the healthcare continuum.' },
-        { name: 'Pharmaceuticals', desc: 'Regulatory, clinical and scientific support for drug development.' },
-        { name: 'Medical Devices', desc: 'Research and documentation support through the device lifecycle.' },
-        { name: 'Biotechnology', desc: 'Data and regulatory support for emerging biotech innovation.' },
-        { name: 'Diagnostics', desc: 'Research support for diagnostic development and validation.' },
-        { name: 'Nutraceuticals', desc: 'Scientific and regulatory support for nutraceutical products.' },
-        { name: 'Food', desc: 'Product research and R&D for food and beverage innovation.' },
-        { name: 'Retail', desc: 'Data and consumer research support for retail organizations.' },
-        { name: 'Travel & Hospitality', desc: 'Research and analytics for travel and hospitality businesses.' },
-        { name: 'Insurance', desc: 'Data and analytics support for insurance risk and operations.' },
-        { name: 'Mortgage', desc: 'Research and analytics support for mortgage and lending.' },
-        { name: 'Logistics', desc: 'Data-driven support for logistics and supply chain operations.' },
-        { name: 'Telecom', desc: 'Research and analytics support for telecom operators.' }
-    ];
+    const industries = INDUSTRIES_DATA;
 
     React.useEffect(() => {
         tgReveal('.industry-card');
@@ -33,15 +19,14 @@ function IndustriesPage() {
 
                     <div id="industries-grid" className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16">
                         {industries.map((ind, i) => (
-                            <div key={ind.name} className="industry-card tg-index-row">
-                                <div className="grid grid-cols-12 gap-x-4 items-baseline py-7">
-                                    <span className="col-span-2 text-sm font-medium text-[var(--muted)] tabular-nums">{String(i + 1).padStart(2, '0')}</span>
-                                    <div className="col-span-10">
-                                        <h3 className="tg-index-title text-[clamp(1.5rem,2.4vw,2.125rem)] font-medium tracking-[-0.03em] leading-tight mb-2">{ind.name}</h3>
-                                        <p className="text-[var(--muted)] leading-relaxed max-w-md">{ind.desc}</p>
-                                    </div>
+                            <a key={ind.slug} href={industryUrl(ind.slug)} className="industry-card tg-index-row group grid grid-cols-12 gap-x-4 items-baseline py-7">
+                                <span className="col-span-2 text-sm font-medium text-[var(--muted)] tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                                <div className="col-span-8">
+                                    <h3 className="tg-index-title text-[clamp(1.5rem,2.4vw,2.125rem)] font-medium tracking-[-0.03em] leading-tight mb-2">{ind.name}</h3>
+                                    <p className="text-[var(--muted)] leading-relaxed max-w-md">{ind.desc}</p>
                                 </div>
-                            </div>
+                                <span className="tg-index-arrow col-span-2 text-right icon-arrow-right text-xl"></span>
+                            </a>
                         ))}
                     </div>
                 </div>
