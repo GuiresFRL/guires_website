@@ -51,13 +51,13 @@ function OurLocations() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {LOCATION_PINS.map((pin) => (
                         <div key={pin.slug} className="cw-loc-elem rounded-xl bg-[var(--cw-surface)] border border-[var(--cw-border)] p-5 text-center">
-                            <div className="w-9 h-9 rounded-full bg-[#da2e0f1A] text-[var(--cw-accent)] flex items-center justify-center mx-auto mb-3"><div className="icon-map-pin text-sm"></div></div>
+                            <div className="w-9 h-9 rounded-full bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center mx-auto mb-3"><div className="icon-map-pin text-sm"></div></div>
                             <div className="text-sm font-bold text-[var(--cw-text)] mb-1">{pin.label}</div>
                             <div className="text-xs text-[var(--cw-muted)]">{roleCount(pin.slug)} open role{roleCount(pin.slug) === 1 ? '' : 's'}</div>
                         </div>
                     ))}
                     <div className="cw-loc-elem rounded-xl bg-[var(--cw-surface)] border border-[var(--cw-border)] p-5 text-center">
-                        <div className="w-9 h-9 rounded-full bg-[#da2e0f1A] text-[var(--cw-accent)] flex items-center justify-center mx-auto mb-3"><div className="icon-globe text-sm"></div></div>
+                        <div className="w-9 h-9 rounded-full bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center mx-auto mb-3"><div className="icon-globe text-sm"></div></div>
                         <div className="text-sm font-bold text-[var(--cw-text)] mb-1">Remote</div>
                         <div className="text-xs text-[var(--cw-muted)]">{remoteCount} open role{remoteCount === 1 ? '' : 's'}</div>
                     </div>

@@ -21,7 +21,7 @@ function CareersFooter() {
 
                 <div className="pt-8 border-t border-white/15 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                     <div className="inline-block self-start bg-white px-4 py-2.5">
-                        <img src={`${CAREERS_SITE}/assets/guires-logo.png`} alt="Guires" className="h-8 w-auto" />
+                        <img src={`${CAREERS_SITE}/assets/guires-logo.png`} alt="Guires" className="h-10 w-auto" />
                     </div>
                     <nav className="flex flex-wrap gap-x-8 gap-y-3" aria-label="Careers footer">
                         {CAREERS_FOOTER_LINKS.map((l) => (

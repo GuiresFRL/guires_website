@@ -79,7 +79,7 @@ function PlatformStats() {
                             <path key={i} className="hub-path" d={d} stroke="#b89dc0" strokeWidth="2" fill="none" />
                         ))}
                         {HUB_PATHS.map((d, i) => (
-                            <circle key={i} r="4" fill="#da2e0f">
+                            <circle key={i} r="4" fill="#0C4DA2">
                                 <animateMotion dur="2.4s" repeatCount="indefinite" begin={`${i * 0.6}s`} path={d} />
                             </circle>
                         ))}
@@ -91,7 +91,7 @@ function PlatformStats() {
                                 </foreignObject>
                             </g>
                         ))}
-                        <circle cx="240" cy="395" r="58" fill="#da2e0f" />
+                        <circle cx="240" cy="395" r="58" fill="#0C4DA2" />
                         <foreignObject x="205" y="360" width="70" height="70">
                             <div xmlns="http://www.w3.org/1999/xhtml" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '28px' }} className="icon-network"></div>
                         </foreignObject>

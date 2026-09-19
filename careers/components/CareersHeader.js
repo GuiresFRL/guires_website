@@ -17,12 +17,12 @@ function CareersHeader() {
             data-name="careers-header"
             data-file="careers/components/CareersHeader.js"
         >
-            <div className="tg-container h-16 lg:h-[72px] flex items-center justify-between gap-6">
+            <div className="tg-container h-[68px] lg:h-20 flex items-center justify-between gap-6">
                 <a href={`${CAREERS_SITE}/index.html`} className="cw-header-elem block shrink-0" aria-label="GUIRES home">
                     <img
                         src={`${CAREERS_SITE}/assets/guires-logo.png`}
                         alt="Guires"
-                        className="h-10 lg:h-12 w-auto"
+                        className="h-12 lg:h-14 w-auto"
                         width="520"
                         height="160"
                     />

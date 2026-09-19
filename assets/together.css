@@ -1,7 +1,7 @@
 /* ==========================================================================
    GUIRES design layer — Together-inspired editorial system
    Loaded after each page's inline theme block; overrides tokens site-wide.
-   Palette: #da2e0f  #c41112  #74d4fc  #8d468a  #b89dc0  (+ ink #010120)
+   Palette: #0C4DA2  #29539B  #74d4fc  #8d468a  #b89dc0  (+ ink #010120)
    Shape: 0 / 4px only.  Hierarchy: type > scale > weight > space > colour.
    ========================================================================== */
 
@@ -12,8 +12,8 @@ html:root {
     --ink-navy: #010120;
     --white: #ffffff;
     --paper: #ffffff;
-    --accent: #da2e0f;          /* interactive fills: buttons, CTA surface */
-    --accent-secondary: #c41112;/* pressed/hover + AA-safe small red text */
+    --accent: #0C4DA2;          /* interactive fills: buttons, CTA surface */
+    --accent-secondary: #29539B;/* pressed/hover + AA-safe small red text */
     --accent-cyan: #74d4fc;     /* accent on dark surfaces only */
     --purple: #8d468a;          /* secondary surface */
     --lilac: #b89dc0;           /* soft surface / dividers on light */
@@ -116,7 +116,7 @@ html .shadow-sm, html .shadow, html .shadow-md, html .shadow-lg, html .shadow-xl
     transform: translateX(4px);
 }
 .tg-btn--primary, html .btn-primary { background: var(--accent); color: #fff; }
-.tg-btn--primary:hover, html .btn-primary:hover { background: var(--accent-secondary); }
+.tg-btn--primary:hover, html .btn-primary:hover { background: var(--ink-navy); }
 .tg-btn--ghost, html .btn-outline { border-color: rgba(1, 1, 32, .35); color: var(--ink); background: transparent; }
 .tg-btn--ghost:hover, html .btn-outline:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 .tg-btn--light { background: #fff; color: var(--accent-secondary); }
@@ -218,3 +218,8 @@ html .tg-index-title { font-size: clamp(1.35rem, 2.4vw, 2.25rem) !important; }
 html .brand-card-text, html .brand-card::after { font-size: clamp(1.75rem, 3.4vw, 3rem); }
 .fs-num { font-size: clamp(3.5rem, 8vw, 7.5rem); }
 .tg-num { font-size: clamp(2.5rem, 4.6vw, 4rem); }
+
+/* ---- 13. Blue accent refinements ---------------------------------------- */
+/* on dark surfaces the blue primary button flips to white so it stays legible */
+.tg-on-ink .tg-btn--primary { background: #fff; color: var(--accent-secondary); }
+.tg-on-ink .tg-btn--primary:hover { background: var(--accent-cyan); color: var(--ink-navy); }

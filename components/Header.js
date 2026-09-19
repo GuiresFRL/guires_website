@@ -82,12 +82,12 @@ function Header() {
             data-file="components/Header.js"
             onMouseLeave={() => setOpenDesktopMenu(null)}
         >
-            <div className="tg-container h-16 xl:h-[72px] flex items-center gap-10">
+            <div className="tg-container h-[68px] xl:h-20 flex items-center gap-10">
                 <a href="https://guiresfrl.github.io/guires_website/index.html" className="header-elem block shrink-0 relative z-50" aria-label="GUIRES home">
                     <img
                         src="https://guiresfrl.github.io/guires_website/assets/guires-logo.png"
                         alt="Guires"
-                        className="h-10 xl:h-12 w-auto"
+                        className="h-12 xl:h-14 w-auto"
                         width="520"
                         height="160"
                     />
@@ -143,7 +143,7 @@ function Header() {
                 return (
                     <div
                         key={`panel-${item.href}`}
-                        className={`tg-on-ink hidden xl:block absolute left-0 top-full w-full overflow-hidden text-white border-b-2 border-b-[var(--accent)] transition-all duration-300 ${open ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-3 pointer-events-none'}`}
+                        className={`tg-on-ink hidden xl:block absolute left-0 top-full w-full overflow-hidden text-white border-b-2 border-b-[var(--accent-cyan)] transition-all duration-300 ${open ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-3 pointer-events-none'}`}
                         style={{ background: 'var(--ink-navy)' }}
                         aria-hidden={!open}
                     >

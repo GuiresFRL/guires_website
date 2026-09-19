@@ -75,7 +75,7 @@ function Footer() {
                     </div>
                     <div className="lg:col-span-4">
                         <div className="inline-block bg-white px-5 py-3 mb-6">
-                            <img src={`${SITE}/assets/guires-logo.png`} alt="Guires" className="h-10 w-auto" width="520" height="160" />
+                            <img src={`${SITE}/assets/guires-logo.png`} alt="Guires" className="h-12 w-auto" width="520" height="160" />
                         </div>
                         <p className="text-white/70 text-sm leading-relaxed mb-4">
                             GUIRES exists to responsibly advance research, regulatory and scientific excellence for healthcare and life sciences organizations. With deep domain expertise spanning research, data science, biostatistics and communication, we are the partner of choice for organizations across pharmaceuticals, biotechnology, medical devices, diagnostics and food science.

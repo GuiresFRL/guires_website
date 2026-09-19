@@ -13,7 +13,7 @@ function FilterBar({ filters, setFilter, clearFilters, options, activeCount }) {
         return () => { document.body.style.overflow = ''; };
     }, [mobileOpen]);
 
-    const selectClass = 'w-full appearance-none rounded-xl border border-[var(--cw-border)] bg-[var(--cw-surface)] px-4 py-3 text-sm font-medium text-[var(--cw-text)] focus:outline-none focus:ring-2 focus:ring-[#da2e0f4D] focus:border-[var(--cw-accent)] transition-colors';
+    const selectClass = 'w-full appearance-none rounded-xl border border-[var(--cw-border)] bg-[var(--cw-surface)] px-4 py-3 text-sm font-medium text-[var(--cw-text)] focus:outline-none focus:ring-2 focus:ring-[#0C4DA24D] focus:border-[var(--cw-accent)] transition-colors';
 
     const TypePills = ({ className }) => (
         <div className={`flex flex-wrap gap-2 ${className || ''}`}>
@@ -21,7 +21,7 @@ function FilterBar({ filters, setFilter, clearFilters, options, activeCount }) {
                 <button
                     key={p.value || 'all'}
                     onClick={() => setFilter('type', p.value)}
-                    className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 ${filters.type === p.value ? 'bg-[var(--cw-accent)] text-white border-[var(--cw-accent)]' : 'bg-[var(--cw-surface)] text-[var(--cw-text)] border-[var(--cw-border)] hover:border-[#da2e0f80]'}`}
+                    className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 ${filters.type === p.value ? 'bg-[var(--cw-accent)] text-white border-[var(--cw-accent)]' : 'bg-[var(--cw-surface)] text-[var(--cw-text)] border-[var(--cw-border)] hover:border-[#0C4DA280]'}`}
                 >
                     {p.label}
                 </button>
@@ -65,7 +65,7 @@ function FilterBar({ filters, setFilter, clearFilters, options, activeCount }) {
                     onChange={(e) => setFilter('search', e.target.value)}
                     placeholder="Search jobs by title, keyword or skill"
                     aria-label="Search jobs by title, keyword or skill"
-                    className="w-full rounded-2xl border border-[var(--cw-border)] bg-[var(--cw-surface)] pl-12 pr-4 py-4 text-base text-[var(--cw-text)] placeholder:text-[var(--cw-muted)] focus:outline-none focus:ring-2 focus:ring-[#da2e0f4D] focus:border-[var(--cw-accent)] transition-colors shadow-sm"
+                    className="w-full rounded-2xl border border-[var(--cw-border)] bg-[var(--cw-surface)] pl-12 pr-4 py-4 text-base text-[var(--cw-text)] placeholder:text-[var(--cw-muted)] focus:outline-none focus:ring-2 focus:ring-[#0C4DA24D] focus:border-[var(--cw-accent)] transition-colors shadow-sm"
                 />
             </div>
 

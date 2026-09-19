@@ -44,7 +44,7 @@ function Hero() {
                 <g className="hero-ring-b">
                     <rect x="170" y="170" width="260" height="260" stroke="#b89dc0" strokeOpacity="0.45" />
                 </g>
-                <path d="M300 180 A120 120 0 0 1 420 300 L300 300 Z" fill="#da2e0f" />
+                <path d="M300 180 A120 120 0 0 1 420 300 L300 300 Z" fill="#3E86D6" />
                 <path d="M300 420 A120 120 0 0 1 180 300 L300 300 Z" fill="#8d468a" />
                 <circle cx="300" cy="300" r="6" fill="#fff" />
                 <g className="hero-orbit">

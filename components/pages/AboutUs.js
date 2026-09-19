@@ -74,7 +74,7 @@ function AboutUsPage() {
                     <circle cx="200" cy="200" r="190" stroke="#74d4fc" strokeOpacity="0.22" strokeWidth="1.5" />
                     <circle cx="200" cy="200" r="140" stroke="#74d4fc" strokeOpacity="0.18" strokeWidth="1.5" />
                     <circle cx="200" cy="200" r="90" stroke="#b89dc0" strokeOpacity="0.3" strokeWidth="1.5" />
-                    <path d="M200 110 A90 90 0 0 1 290 200 L200 200 Z" fill="#da2e0f" />
+                    <path d="M200 110 A90 90 0 0 1 290 200 L200 200 Z" fill="#3E86D6" />
                 </svg>
                 <div className="tg-container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
                     <div className="reveal-el lg:col-span-3"><div className="tg-eyebrow">Our Story</div></div>
