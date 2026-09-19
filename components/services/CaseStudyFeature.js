@@ -6,50 +6,49 @@ const SMALL_CASE_STUDIES = [
 
 function CaseStudyFeature() {
     const ref = React.useRef(null);
+    const href = 'https://guiresfrl.github.io/guires_website/case-studies.html';
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(ref.current.querySelectorAll('.svc-case-elem'),
             { opacity: 0, y: 26 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 78%' } }
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 75%' } }
         );
     }, []);
 
     return (
-        <section ref={ref} className="py-24 lg:py-36 bg-[var(--bg-soft)]">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="max-w-2xl mb-14">
-                    <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-bold tracking-tight text-[var(--black)]">Research That Creates Measurable Impact</h2>
+        <section ref={ref} className="fs-band fs-band--paper py-24 lg:py-36">
+            <div className="tg-container">
+                <div className="svc-case-elem grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 lg:mb-20 items-end">
+                    <h2 className="tg-h2 lg:col-span-8">Research That Creates Measurable Impact</h2>
+                    <a href={href} className="tg-btn tg-btn--ghost lg:col-span-4 lg:justify-self-end self-start">All case studies <div className="icon-arrow-right"></div></a>
                 </div>
 
-                <div className="svc-case-elem grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[20px] overflow-hidden border border-black/10 bg-white mb-8">
-                    <div className="relative h-72 lg:h-auto">
-                        <img src="https://lumanity.com/wp-content/uploads/2025/09/Person-on-mountain.jpeg" alt="" className="w-full h-full object-cover" />
-                        <div className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">Placeholder Case Study</div>
+                <div className="svc-case-elem grid grid-cols-1 lg:grid-cols-12 mb-16 bg-white">
+                    <div className="relative lg:col-span-6 min-h-[18rem]">
+                        <img src="https://lumanity.com/wp-content/uploads/2025/09/Person-on-mountain.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+                        <div className="absolute top-4 left-4 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--ink)]">Placeholder Case Study</div>
                     </div>
-                    <div className="p-8 lg:p-12">
-                        <div className="text-xs font-bold tracking-wider text-[var(--accent)] uppercase mb-5">Biopharma &middot; Data &amp; Analytics</div>
-                        <dl className="space-y-5 mb-8">
-                            <div><dt className="text-sm font-bold text-[var(--black)] mb-1">The Challenge</dt><dd className="text-sm text-[var(--muted)] leading-relaxed">A global biopharma client needed to consolidate fragmented clinical datasets ahead of a regulatory submission deadline.</dd></div>
-                            <div><dt className="text-sm font-bold text-[var(--black)] mb-1">The Approach</dt><dd className="text-sm text-[var(--muted)] leading-relaxed">GUIRES deployed a dedicated statistical programming and data management team to standardize and validate datasets end-to-end.</dd></div>
-                            <div><dt className="text-sm font-bold text-[var(--black)] mb-1">The Impact</dt><dd className="text-sm text-[var(--muted)] leading-relaxed">Submission-ready datasets delivered ahead of schedule, with full audit-trail documentation.</dd></div>
+                    <div className="lg:col-span-6 p-8 lg:p-14">
+                        <div className="tg-eyebrow mb-8">Biopharma &middot; Data &amp; Analytics</div>
+                        <dl className="mb-10">
+                            <div className="tg-hairline py-5"><dt className="text-sm font-semibold mb-2">The Challenge</dt><dd className="text-[var(--muted)] leading-relaxed">A global biopharma client needed to consolidate fragmented clinical datasets ahead of a regulatory submission.</dd></div>
+                            <div className="tg-hairline py-5"><dt className="text-sm font-semibold mb-2">The Approach</dt><dd className="text-[var(--muted)] leading-relaxed">GUIRES deployed a dedicated statistical programming and data management team to standardize and validate datasets.</dd></div>
+                            <div className="tg-hairline py-5"><dt className="text-sm font-semibold mb-2">The Impact</dt><dd className="text-[var(--muted)] leading-relaxed">Submission-ready datasets delivered ahead of schedule, with full audit-trail documentation.</dd></div>
                         </dl>
-                        <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
-                            Read Case Study <div className="icon-arrow-right text-xs"></div>
-                        </a>
+                        <a href={href} className="tg-btn tg-btn--primary">Read Case Study <div className="icon-arrow-right"></div></a>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-10">
                     {SMALL_CASE_STUDIES.map((cs) => (
-                        <a key={cs.title} href="https://guiresfrl.github.io/guires_website/case-studies.html" className="svc-case-elem group rounded-2xl overflow-hidden border border-black/10 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                            <div className="relative h-36 overflow-hidden">
-                                <img src={cs.img} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <a key={cs.title} href={href} className="svc-case-elem group block">
+                            <div className="overflow-hidden mb-5 aspect-[4/3] bg-[var(--ink)]">
+                                <img src={cs.img} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                             </div>
-                            <div className="p-5">
-                                <div className="text-[11px] font-bold tracking-wider text-[var(--accent)] uppercase mb-2">{cs.industry}</div>
-                                <h3 className="text-sm font-bold text-[var(--black)] leading-snug">{cs.title}</h3>
-                            </div>
+                            <div className="tg-eyebrow mb-3">{cs.industry}</div>
+                            <h3 className="text-xl tracking-[-0.02em] leading-snug transition-colors group-hover:text-[var(--accent-secondary)]">{cs.title}</h3>
                         </a>
                     ))}
                 </div>

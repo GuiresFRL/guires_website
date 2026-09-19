@@ -16,23 +16,37 @@ function IndustriesPage() {
     ];
 
     React.useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo('.industry-card',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.06, ease: 'power2.out', scrollTrigger: { trigger: '#industries-grid', start: 'top 80%' } }
-        );
+        tgReveal('.industry-card');
     }, []);
 
     return (
-        <section className="py-24">
-            <div id="industries-grid" className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {industries.map((ind) => (
-                    <div key={ind.name} className="industry-card border-t border-black/10 pt-6">
-                        <h3 className="text-xl font-semibold mb-2">{ind.name}</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">{ind.desc}</p>
+        <React.Fragment>
+            <section className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-24 items-end">
+                        <div className="lg:col-span-8">
+                            <div className="tg-eyebrow mb-6">{industries.length} industries</div>
+                            <h2 className="tg-h2">Expertise built around your sector</h2>
+                        </div>
+                        <p className="lg:col-span-4 tg-lead text-[var(--muted)]">From life sciences to logistics, the same research rigor and data discipline, applied to your context.</p>
                     </div>
-                ))}
-            </div>
-        </section>
+
+                    <div id="industries-grid" className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16">
+                        {industries.map((ind, i) => (
+                            <div key={ind.name} className="industry-card tg-index-row">
+                                <div className="grid grid-cols-12 gap-x-4 items-baseline py-7">
+                                    <span className="col-span-2 text-sm font-medium text-[var(--muted)] tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                                    <div className="col-span-10">
+                                        <h3 className="tg-index-title text-[clamp(1.5rem,2.4vw,2.125rem)] font-medium tracking-[-0.03em] leading-tight mb-2">{ind.name}</h3>
+                                        <p className="text-[var(--muted)] leading-relaxed max-w-md">{ind.desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            <ContactCTA />
+        </React.Fragment>
     );
 }

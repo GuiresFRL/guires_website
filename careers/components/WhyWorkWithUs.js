@@ -1,45 +1,38 @@
 const WHY_WORK_CARDS = [
-    { icon: 'icon-trending-up', num: '01', title: 'Growth', desc: 'Structured mentorship, learning budgets and clear paths to take on more responsibility over time.' },
-    { icon: 'icon-target', num: '02', title: 'Impact', desc: 'Your work directly supports healthcare and life sciences organizations solving real research challenges.' },
-    { icon: 'icon-users', num: '03', title: 'People', desc: 'A collaborative, low-ego team that shares knowledge freely and celebrates each other’s wins.' },
-    { icon: 'icon-lightbulb', num: '04', title: 'Innovation', desc: 'Room to explore new tools, ideas and approaches — we back thoughtful risk-taking.' }
+    { num: '01', title: 'Growth', desc: 'Structured mentorship, learning budgets and clear paths to take on more responsibility over time.' },
+    { num: '02', title: 'Impact', desc: 'Your work directly supports healthcare and life sciences organizations solving real research challenges.' },
+    { num: '03', title: 'People', desc: 'A collaborative, low-ego team that shares knowledge freely and celebrates each other’s wins.' },
+    { num: '04', title: 'Innovation', desc: 'Room to explore new tools, ideas and approaches — we back thoughtful risk-taking.' }
 ];
 
 function WhyWorkWithUs() {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo(ref.current.querySelectorAll('.cw-why-card'),
+        gsap.fromTo(ref.current.querySelectorAll('.cw-why-card, .cw-why-head'),
             { opacity: 0, y: 28 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 78%' } }
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 80%' } }
         );
     }, []);
 
     return (
-        <section id="why-work-with-us" ref={ref} className="py-14 lg:py-20 bg-[var(--cw-surface-2)] scroll-mt-24">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="max-w-2xl mb-14">
-                    <div className="text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">Why GUIRES</div>
-                    <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--cw-text)]">Why Work With Us?</h2>
-                    <div className="w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mt-5"></div>
+        <section id="why-work-with-us" ref={ref} className="py-20 lg:py-32 bg-[var(--cw-surface-2)] scroll-mt-20">
+            <div className="tg-container">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-24 items-end">
+                    <div className="lg:col-span-8">
+                        <div className="cw-why-head tg-eyebrow mb-6">Why GUIRES</div>
+                        <h2 className="cw-why-head tg-h2">Why Work With Us?</h2>
+                    </div>
+                    <p className="cw-why-head lg:col-span-4 text-[var(--muted)] leading-relaxed">Four things we hold ourselves to, and expect to be held to.</p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-                    {WHY_WORK_CARDS.map((card) => (
-                        <div
-                            key={card.title}
-                            className="cw-why-card group relative overflow-hidden rounded-2xl bg-[var(--cw-surface)] border border-[var(--cw-border)] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#0C4DA24D]"
-                        >
-                            <div className="absolute top-3 right-4 text-5xl font-semibold text-[var(--cw-border)] select-none transition-colors duration-300 group-hover:text-[#0C4DA21A]">{card.num}</div>
-                            <div
-                                className="relative w-12 h-12 rounded-xl text-white flex items-center justify-center text-2xl mb-6 transition-transform duration-300 group-hover:scale-110 shadow-md"
-                                style={{ background: 'linear-gradient(140deg, var(--cw-accent) 0%, var(--cw-accent-secondary) 100%)' }}
-                            >
-                                <div className={card.icon}></div>
-                            </div>
-                            <h3 className="relative text-lg font-semibold text-[var(--cw-text)] mb-2">{card.title}</h3>
-                            <p className="relative text-sm text-[var(--cw-muted)] leading-relaxed mb-4">{card.desc}</p>
-                            <div className="relative h-0.5 w-8 bg-[var(--cw-border)] group-hover:w-14 group-hover:bg-[var(--cw-accent)] transition-all duration-300"></div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                    {WHY_WORK_CARDS.map((card, i) => (
+                        <div key={card.title} className={`cw-why-card border-t-2 border-[var(--ink)] pt-6 pb-12 ${i > 0 ? 'lg:pl-8' : ''} lg:pr-8`}>
+                            <div className="tg-num !text-[clamp(2.5rem,4vw,3.75rem)] mb-12" style={{ color: i === 0 ? 'var(--accent)' : 'var(--ink)' }}>{card.num}</div>
+                            <h3 className="text-2xl font-medium tracking-[-0.02em] mb-3">{card.title}</h3>
+                            <p className="text-[var(--muted)] leading-relaxed">{card.desc}</p>
                         </div>
                     ))}
                 </div>

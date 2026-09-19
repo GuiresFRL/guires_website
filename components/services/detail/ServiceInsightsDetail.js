@@ -15,7 +15,7 @@ function ServiceInsightsDetail({ service }) {
         <section ref={ref} className="py-14 lg:py-16 bg-white">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="max-w-2xl mb-10">
-                    <h2 className="text-[clamp(1.9rem,3.6vw,2.5rem)] font-bold tracking-tight text-[var(--black)]">Related Insights</h2>
+                    <h2 className="tg-h2 !text-[clamp(1.9rem,3.6vw,3rem)]">Related Insights</h2>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                     {list.map((a) => (

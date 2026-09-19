@@ -10,6 +10,7 @@ function ServiceMetrics() {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(ref.current.querySelectorAll('.svc-metric-elem'),
             { opacity: 0, y: 24 },
@@ -18,14 +19,14 @@ function ServiceMetrics() {
     }, []);
 
     return (
-        <section ref={ref} className="py-20 lg:py-28 bg-white border-t border-b border-black/10">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <p className="svc-metric-elem text-center text-xs text-[var(--muted)] uppercase tracking-wider mb-10">Figures to be confirmed and updated with verified GUIRES data</p>
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-8">
-                    {PROOF_METRICS.map((m) => (
-                        <div key={m.label} className="svc-metric-elem text-center">
-                            <div className="text-4xl lg:text-5xl font-bold text-[var(--accent)] mb-2">{m.placeholder}{m.suffix}</div>
-                            <div className="text-sm text-[var(--muted)] font-medium">{m.label}</div>
+        <section ref={ref} className="fs-band fs-band--white py-20 lg:py-28">
+            <div className="tg-container">
+                <p className="svc-metric-elem tg-eyebrow mb-12">Figures to be confirmed and updated with verified GUIRES data</p>
+                <div className="grid grid-cols-2 lg:grid-cols-5">
+                    {PROOF_METRICS.map((m, i) => (
+                        <div key={m.label} className={`svc-metric-elem tg-hairline pt-6 pb-10 ${i % 2 === 1 ? 'pl-5 lg:pl-8' : 'pr-5'} lg:pr-8 ${i > 0 ? 'lg:pl-8' : ''}`}>
+                            <div className="text-[clamp(3rem,6vw,5.5rem)] leading-none tracking-[-0.05em] text-[var(--accent)] mb-4 tabular-nums">{m.placeholder}{m.suffix}</div>
+                            <div className="text-[var(--muted)] max-w-[12rem]">{m.label}</div>
                         </div>
                     ))}
                 </div>

@@ -1,50 +1,49 @@
 const OPPORTUNITY_TYPES = [
-    { type: 'full-time', icon: 'icon-briefcase', title: 'Full Time', desc: 'Long-term roles across engineering, design, data, business and research — build your career with us.' },
-    { type: 'contract', icon: 'icon-file-pen', title: 'Contract', desc: 'Project-based engagements for specialists who want flexibility without sacrificing meaningful work.' },
-    { type: 'internship', icon: 'icon-graduation-cap', title: 'Internships', desc: 'Hands-on experience on live projects, with mentorship and a real shot at a full-time offer.' }
+    { type: 'full-time', title: 'Full Time', desc: 'Long-term roles across engineering, design, data, business and research — build your career with us.' },
+    { type: 'contract', title: 'Contract', desc: 'Project-based engagements for specialists who want flexibility without sacrificing meaningful work.' },
+    { type: 'internship', title: 'Internships', desc: 'Hands-on experience on live projects, with mentorship and a real shot at a full-time offer.' }
 ];
 
 function OpportunityTypes() {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo(ref.current.querySelectorAll('.cw-opp-card'),
+        gsap.fromTo(ref.current.querySelectorAll('.cw-opp-card, .cw-opp-head'),
             { opacity: 0, y: 28 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 78%' } }
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 80%' } }
         );
     }, []);
 
     return (
-        <section ref={ref} className="py-14 lg:py-20 bg-[var(--cw-bg)]">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="max-w-2xl mb-14">
-                    <div className="text-xs font-bold tracking-[0.2em] text-[var(--cw-accent)] uppercase mb-4">Open Roles</div>
-                    <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--cw-text)]">Find Your Next Opportunity</h2>
-                    <div className="w-12 h-1.5 rounded-full bg-[var(--cw-accent)] mt-5"></div>
+        <section ref={ref} className="py-20 lg:py-32 bg-white">
+            <div className="tg-container">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-20 items-end">
+                    <div className="lg:col-span-8">
+                        <div className="cw-opp-head tg-eyebrow mb-6">Open Roles</div>
+                        <h2 className="cw-opp-head tg-h2">Find Your Next Opportunity</h2>
+                    </div>
+                    <div className="cw-opp-head lg:col-span-4 lg:text-right">
+                        <a href={`${CAREERS_BASE}/jobs/`} className="tg-btn tg-btn--primary">View all jobs <div className="icon-arrow-right"></div></a>
+                    </div>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    {OPPORTUNITY_TYPES.map((opp) => {
+
+                <div>
+                    {OPPORTUNITY_TYPES.map((opp, i) => {
                         const count = JOBS_DATA.filter((j) => j.type === opp.type).length;
                         return (
                             <a
                                 key={opp.type}
                                 href={`${CAREERS_BASE}/jobs/?type=${opp.type}`}
-                                className="cw-opp-card group relative rounded-2xl bg-[var(--cw-surface)] border border-[var(--cw-border)] p-8 lg:p-10 overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#0C4DA266]"
+                                className="cw-opp-card tg-index-row group grid grid-cols-12 gap-x-4 items-baseline py-8 lg:py-10"
                             >
-                                <div className="absolute -right-6 -top-6 w-28 h-28 rounded-full bg-[#0C4DA20D] transition-transform duration-500 group-hover:scale-150"></div>
-                                <div className="relative z-10">
-                                    <div className="w-14 h-14 rounded-xl bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center text-2xl mb-8 transition-transform duration-300 group-hover:scale-110">
-                                        <div className={opp.icon}></div>
-                                    </div>
-                                    <h3 className="text-2xl font-semibold text-[var(--cw-text)] mb-3">{opp.title}</h3>
-                                    <p className="text-sm text-[var(--cw-muted)] leading-relaxed mb-8">{opp.desc}</p>
-                                    <div className="flex items-center justify-between pt-6 border-t border-[var(--cw-border)]">
-                                        <span className="text-sm font-semibold text-[var(--cw-text)]">{count} open role{count === 1 ? '' : 's'}</span>
-                                        <div className="w-9 h-9 rounded-full border border-[var(--cw-border)] flex items-center justify-center text-[var(--cw-text)] transition-all duration-300 group-hover:bg-[var(--cw-accent)] group-hover:text-white group-hover:border-[var(--cw-accent)] group-hover:translate-x-1">
-                                            <div className="icon-arrow-right text-sm"></div>
-                                        </div>
-                                    </div>
+                                <span className="col-span-2 lg:col-span-1 text-sm font-medium text-[var(--muted)] tabular-nums">0{i + 1}</span>
+                                <h3 className="tg-index-title col-span-10 lg:col-span-4 text-[clamp(1.75rem,3.6vw,3.25rem)] font-medium tracking-[-0.035em] leading-none">{opp.title}</h3>
+                                <p className="col-span-10 col-start-3 lg:col-start-auto lg:col-span-4 text-[var(--muted)] leading-relaxed mt-3 lg:mt-0">{opp.desc}</p>
+                                <div className="col-span-10 col-start-3 lg:col-start-auto lg:col-span-3 flex items-center lg:justify-end gap-4 mt-4 lg:mt-0">
+                                    <span className="text-sm font-semibold">{count} open role{count === 1 ? '' : 's'}</span>
+                                    <span className="tg-index-arrow icon-arrow-right text-xl"></span>
                                 </div>
                             </a>
                         );

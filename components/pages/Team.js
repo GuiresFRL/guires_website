@@ -11,64 +11,55 @@ function initialsFor(role) {
     return role.split(' ').filter((w) => w[0] === w[0].toUpperCase() && w.length > 2).map((w) => w[0]).slice(0, 2).join('');
 }
 
+const TEAM_SURFACES = [
+    { bg: 'var(--lilac)', fg: 'var(--ink)', sub: '#010120B3' },
+    { bg: 'var(--ink-navy)', fg: '#ffffff', sub: '#FFFFFFBF' },
+    { bg: 'var(--purple)', fg: '#ffffff', sub: '#FFFFFFD9' }
+];
+
 function TeamPage() {
-    const trackRef = React.useRef(null);
-
-    const scrollByCard = (dir) => {
-        const track = trackRef.current;
-        if (!track) return;
-        const card = track.querySelector('.team-card');
-        const amount = card ? card.offsetWidth + 32 : 320;
-        track.scrollBy({ left: dir * amount, behavior: 'smooth' });
-    };
-
     React.useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo('.team-card',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: '#team-slider', start: 'top 80%' } }
-        );
+        tgReveal('.team-card');
     }, []);
 
     return (
-        <section className="py-24">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="flex items-center justify-end gap-2 mb-8">
-                    <button
-                        onClick={() => scrollByCard(-1)}
-                        aria-label="Previous team member"
-                        className="w-11 h-11 rounded-full border border-black/15 flex items-center justify-center hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
-                    >
-                        <div className="icon-arrow-left"></div>
-                    </button>
-                    <button
-                        onClick={() => scrollByCard(1)}
-                        aria-label="Next team member"
-                        className="w-11 h-11 rounded-full border border-black/15 flex items-center justify-center hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
-                    >
-                        <div className="icon-arrow-right"></div>
-                    </button>
-                </div>
+        <React.Fragment>
+            <section id="team-slider" className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-end">
+                        <div className="lg:col-span-8">
+                            <div className="tg-eyebrow mb-6">Leadership team</div>
+                            <h2 className="tg-h2">The people behind the work</h2>
+                        </div>
+                        <p className="lg:col-span-4 text-[var(--muted)] leading-relaxed">Select a profile to learn more about each leader and the discipline they guide.</p>
+                    </div>
 
-                <div id="team-slider" ref={trackRef} className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory no-scrollbar">
-                    {TEAM_MEMBERS.map((m) => (
-                        <a
-                            key={m.slug}
-                            href={`https://guiresfrl.github.io/guires_website/about-us/meet-our-team/${m.slug}.html`}
-                            className="team-card group shrink-0 snap-start w-[280px] block border border-black/10 rounded-lg p-8 hover:border-[var(--accent)] transition-colors"
-                        >
-                            <div className="w-16 h-16 rounded-full bg-gray-100 text-[var(--accent)] font-bold flex items-center justify-center text-lg mb-6 group-hover:bg-[var(--accent)] group-hover:text-white transition-colors">
-                                {initialsFor(m.role)}
-                            </div>
-                            <div className="text-xs font-bold tracking-wider text-gray-400 uppercase mb-2">{m.dept}</div>
-                            <h3 className="text-xl font-semibold mb-4">{m.role}</h3>
-                            <div className="flex items-center gap-2 text-sm font-medium text-[var(--accent)]">
-                                View Profile <div className="icon-arrow-right transition-transform group-hover:translate-x-2"></div>
-                            </div>
-                        </a>
-                    ))}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {TEAM_MEMBERS.map((m, i) => {
+                            const s = TEAM_SURFACES[i % TEAM_SURFACES.length];
+                            return (
+                                <a
+                                    key={m.slug}
+                                    href={`https://guiresfrl.github.io/guires_website/about-us/meet-our-team/${m.slug}.html`}
+                                    className="team-card group flex flex-col justify-between min-h-[22rem] p-8 transition-transform duration-300 hover:-translate-y-1"
+                                    style={{ background: s.bg, color: s.fg }}
+                                >
+                                    <div className="flex items-start justify-between">
+                                        <span className="text-[clamp(3.5rem,6vw,5rem)] font-medium tracking-[-0.06em] leading-none">{initialsFor(m.role)}</span>
+                                        <span className="icon-arrow-up-right text-2xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></span>
+                                    </div>
+                                    <div>
+                                        <div className="text-xs font-semibold tracking-[0.14em] uppercase mb-3" style={{ color: s.sub }}>{m.dept}</div>
+                                        <h3 className="text-[clamp(1.5rem,2.4vw,2rem)] font-medium tracking-[-0.03em] leading-tight mb-6">{m.role}</h3>
+                                        <span className="tg-link text-sm">View Profile <span className="icon-arrow-right"></span></span>
+                                    </div>
+                                </a>
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <ContactCTA />
+        </React.Fragment>
     );
 }

@@ -1,0 +1,220 @@
+/* ==========================================================================
+   GUIRES design layer — Together-inspired editorial system
+   Loaded after each page's inline theme block; overrides tokens site-wide.
+   Palette: #da2e0f  #c41112  #74d4fc  #8d468a  #b89dc0  (+ ink #010120)
+   Shape: 0 / 4px only.  Hierarchy: type > scale > weight > space > colour.
+   ========================================================================== */
+
+/* ---- 1. Tokens ---------------------------------------------------------- */
+html:root {
+    --ink: #010120;             /* dominant dark surface + primary text */
+    --black: #010120;
+    --ink-navy: #010120;
+    --white: #ffffff;
+    --paper: #ffffff;
+    --accent: #da2e0f;          /* interactive fills: buttons, CTA surface */
+    --accent-secondary: #c41112;/* pressed/hover + AA-safe small red text */
+    --accent-cyan: #74d4fc;     /* accent on dark surfaces only */
+    --purple: #8d468a;          /* secondary surface */
+    --lilac: #b89dc0;           /* soft surface / dividers on light */
+    --bg-soft: #f6f3f8;         /* tint of lilac for quiet sections */
+    --tint-1: #f6f3f8;
+    --tint-2: #ebe3f0;
+    --off-white: #f6f3f8;
+    --muted: #4b4b66;           /* secondary text (AA on white + soft) */
+    --gray: #4b4b66;
+    --light-gray: #ddd6e2;
+    --font-display: 'The Future', 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ---- 2. Typography ------------------------------------------------------ */
+html body,
+html .font-sans {
+    font-family: var(--font-display);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+html h1, html h2, html h3, html h4, html h5, html h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+/* headings get their hierarchy from size + spacing, weight stays at 500 */
+html h1.font-bold, html h2.font-bold, html h3.font-bold,
+html h1.font-semibold, html h2.font-semibold, html h3.font-semibold,
+html h1.font-extrabold, html h2.font-extrabold {
+    font-weight: 500;
+}
+html h1 { line-height: 1.04; }
+html h2 { line-height: 1.1; }
+html ::selection { background: var(--accent); color: #fff; }
+
+/* secondary text colours pulled onto the navy-tinted neutral scale */
+html .text-gray-500, html .text-gray-600 { color: var(--muted); }
+html .text-gray-700 { color: #2c2c48; }
+html .text-gray-400 { color: #6b6b85; }
+html .bg-gray-50, html .bg-gray-100 { background-color: var(--bg-soft); }
+html .border-gray-100, html .border-gray-200 { border-color: #e6dfea; }
+
+/* small red text must stay AA on white / soft surfaces */
+/* (matches only the bare text colour class, never hover:/group-hover: variants) */
+html [class^="text-[var(--accent)]"], html [class*=" text-[var(--accent)]"] { color: var(--accent-secondary); }
+/* …but on ink surfaces red text is unreadable, use the cyan accent */
+html .tg-on-ink [class^="text-[var(--accent)]"], html .tg-on-ink [class*=" text-[var(--accent)]"],
+html [style*="var(--ink-navy)"] [class^="text-[var(--accent)]"], html [style*="var(--ink-navy)"] [class*=" text-[var(--accent)]"] { color: var(--accent-cyan); }
+
+/* ---- 3. Shape: sharp geometry (0 / 4px) --------------------------------- */
+html a.rounded-full, html button.rounded-full,
+html .rounded-lg, html .rounded-xl, html .rounded-2xl, html .rounded-3xl,
+html [class*="rounded-[2"], html [class*="rounded-[1"] {
+    border-radius: 4px;
+}
+html .shadow-sm, html .shadow, html .shadow-md, html .shadow-lg, html .shadow-xl, html .shadow-2xl {
+    box-shadow: none;
+}
+
+/* ---- 4. Layout primitives ---------------------------------------------- */
+.tg-container { width: 100%; max-width: 1440px; margin: 0 auto; padding-inline: clamp(1.25rem, 4vw, 3rem); }
+.tg-eyebrow {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent-secondary);
+}
+.tg-eyebrow::before { content: ''; width: .5rem; height: .5rem; background: currentColor; display: inline-block; }
+.tg-on-ink .tg-eyebrow, .tg-eyebrow--light { color: var(--accent-cyan); }
+.tg-display {
+    font-weight: 500; letter-spacing: -0.045em; line-height: .98;
+    font-size: clamp(3rem, 8.2vw, 8rem);
+}
+.tg-h2 {
+    font-weight: 500; letter-spacing: -0.035em; line-height: 1.02;
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+}
+.tg-lead { font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.5; }
+.tg-hairline { border-top: 1px solid rgba(1, 1, 32, .14); }
+.tg-on-ink .tg-hairline { border-color: rgba(255, 255, 255, .18); }
+.tg-grid-bg {
+    background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 72px 72px;
+}
+
+/* ---- 5. Buttons --------------------------------------------------------- */
+.tg-btn, html .btn-primary, html .btn-outline {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+    font-family: var(--font-display); font-size: .95rem; font-weight: 500; letter-spacing: -0.005em;
+    line-height: 1; padding: 1.05rem 1.5rem; border-radius: 4px; border: 1px solid transparent;
+    cursor: pointer; text-decoration: none;
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.tg-btn > [class^="icon-"], html .btn-primary > [class^="icon-"], html .btn-outline > [class^="icon-"] {
+    transition: transform .25s ease;
+}
+.tg-btn:hover > [class^="icon-"], html .btn-primary:hover > [class^="icon-"], html .btn-outline:hover > [class^="icon-"] {
+    transform: translateX(4px);
+}
+.tg-btn--primary, html .btn-primary { background: var(--accent); color: #fff; }
+.tg-btn--primary:hover, html .btn-primary:hover { background: var(--accent-secondary); }
+.tg-btn--ghost, html .btn-outline { border-color: rgba(1, 1, 32, .35); color: var(--ink); background: transparent; }
+.tg-btn--ghost:hover, html .btn-outline:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.tg-btn--light { background: #fff; color: var(--accent-secondary); }
+.tg-btn--light:hover { background: var(--ink); color: #fff; }
+.tg-btn--ghost-light { border-color: rgba(255, 255, 255, .45); color: #fff; background: transparent; }
+.tg-btn--ghost-light:hover { background: #fff; color: var(--ink); border-color: #fff; }
+.tg-btn:focus-visible, .tg-link:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+/* inline link with underline reveal */
+.tg-link { position: relative; display: inline-flex; align-items: center; gap: .5rem; font-weight: 500; text-decoration: none; }
+.tg-link::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: currentColor;
+    transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+}
+.tg-link:hover::after { transform: scaleX(1); }
+
+/* ---- 6. Nav ------------------------------------------------------------- */
+html .nav-link {
+    font-size: .875rem; font-weight: 500; letter-spacing: -0.005em; color: var(--ink);
+}
+html .nav-link:hover { color: var(--accent-secondary); }
+html .nav-link::after { background: var(--accent); height: 2px; bottom: -6px; }
+
+/* ---- 7. Index rows (Ecosystem Index) ----------------------------------- */
+.tg-index-row { position: relative; border-top: 1px solid rgba(1, 1, 32, .16); }
+.tg-index-row:last-child { border-bottom: 1px solid rgba(1, 1, 32, .16); }
+.tg-index-row .tg-index-title { transition: transform .35s cubic-bezier(.2, .7, .2, 1), color .25s ease; }
+.tg-index-row:hover .tg-index-title, .tg-index-row:focus-within .tg-index-title { transform: translateX(1.25rem); color: var(--accent-secondary); }
+.tg-index-row .tg-index-arrow { transition: transform .35s ease, opacity .25s ease; opacity: .35; }
+.tg-index-row:hover .tg-index-arrow, .tg-index-row:focus-within .tg-index-arrow { transform: translateX(6px); opacity: 1; color: var(--accent-secondary); }
+.tg-index-desc { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease, opacity .3s ease; opacity: 0; }
+.tg-index-desc > div { overflow: hidden; min-height: 0; }
+.tg-index-row:hover .tg-index-desc, .tg-index-row:focus-within .tg-index-desc { grid-template-rows: 1fr; opacity: 1; }
+@media (hover: none) { .tg-index-desc { grid-template-rows: 1fr; opacity: 1; } }
+
+/* ---- 8. Brand marquee (home) ------------------------------------------- */
+html .brand-card {
+    background: transparent; border-radius: 0; height: auto; min-width: 0; padding: 0 2.25rem 0 0;
+}
+html .brand-card-text {
+    font-size: clamp(2rem, 4.4vw, 4rem); font-weight: 500; letter-spacing: -0.04em; color: var(--ink);
+}
+html .brand-card::after { content: '/'; margin-left: 2.25rem; font-size: clamp(2rem, 4.4vw, 4rem); color: var(--lilac); }
+
+/* ---- 9. Accessibility & motion ----------------------------------------- */
+html :focus-visible { outline-color: var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .brand-marquee-track { animation: none !important; }
+}
+
+/* active nav item keeps its underline */
+html .nav-link.is-active { color: var(--ink); }
+html .nav-link.is-active::after { width: 100%; }
+
+/* ---- 10. Section bands & numerals (inner pages) ------------------------ */
+.tg-section { padding-block: clamp(4.5rem, 9vw, 9rem); }
+.tg-band { position: relative; }
+.tg-band--white { background: #fff; color: var(--ink); }
+.tg-band--soft { background: var(--bg-soft); color: var(--ink); }
+.tg-band--lilac { background: var(--lilac); color: var(--ink); }
+.tg-band--ink { background: var(--ink-navy); color: #fff; }
+.tg-band--purple { background: var(--purple); color: #fff; }
+.tg-band--accent { background: var(--accent); color: #fff; }
+.tg-num { font-size: clamp(3rem, 6vw, 5.5rem); line-height: .9; letter-spacing: -0.05em; font-weight: 500; font-variant-numeric: tabular-nums; }
+.tg-tile-dashed { border: 1px dashed rgba(1, 1, 32, .3); }
+.tg-band--ink .tg-tile-dashed { border-color: rgba(255, 255, 255, .35); }
+[id] { scroll-margin-top: 5rem; }
+
+/* hide scrollbars on horizontal tab strips / sliders */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---- 11. Careers mini-site bridge --------------------------------------- */
+html:root {
+    --cw-bg: #ffffff;
+    --cw-surface: #ffffff;
+    --cw-surface-2: var(--bg-soft);
+    --cw-ink: var(--ink-navy);
+    --cw-text: var(--ink);
+    --cw-muted: var(--muted);
+    --cw-border: #e6dfea;
+    --cw-accent: var(--accent);
+    --cw-accent-dark: var(--accent-secondary);
+    --cw-accent-secondary: var(--purple);
+    --cw-accent-light: var(--accent-cyan);
+}
+
+/* ---- 12. Heading scale (deliberately restrained) ------------------------
+   One cap for display + section headings; overrides per-component clamps. */
+html .tg-display { font-size: clamp(2.25rem, 5vw, 4.25rem) !important; line-height: 1.04; letter-spacing: -0.04em; }
+html .tg-h2 { font-size: clamp(1.75rem, 3.3vw, 2.875rem) !important; line-height: 1.08; letter-spacing: -0.035em; }
+html .tg-index-title { font-size: clamp(1.35rem, 2.4vw, 2.25rem) !important; }
+html .brand-card-text, html .brand-card::after { font-size: clamp(1.75rem, 3.4vw, 3rem); }
+.fs-num { font-size: clamp(3.5rem, 8vw, 7.5rem); }
+.tg-num { font-size: clamp(2.5rem, 4.6vw, 4rem); }

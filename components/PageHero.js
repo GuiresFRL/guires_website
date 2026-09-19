@@ -1,27 +1,19 @@
 function PageHero({ eyebrow, title, subtitle }) {
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.fromTo('.page-hero-elem',
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.2 }
+            { y: 24, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out', delay: 0.1 }
         );
     }, []);
 
     return (
-        <section className="relative pt-28 pb-12 lg:pt-32 lg:pb-14 bg-gray-50 border-b border-black/5 overflow-hidden" data-name="page-hero" data-file="components/PageHero.js">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-                {eyebrow && (
-                    <div className="page-hero-elem text-sm font-bold tracking-wider text-[var(--accent)] uppercase mb-4">
-                        {eyebrow}
-                    </div>
-                )}
-                <h1 className="page-hero-elem text-[clamp(2.25rem,4.5vw,3.75rem)] font-bold leading-[1.1] tracking-tight mb-4 max-w-4xl">
-                    {title}
-                </h1>
-                {subtitle && (
-                    <p className="page-hero-elem text-base lg:text-lg text-gray-600 max-w-2xl leading-relaxed">
-                        {subtitle}
-                    </p>
-                )}
+        <section className="tg-on-ink relative pt-32 pb-16 lg:pt-44 lg:pb-24 text-white overflow-hidden" style={{ background: 'var(--ink-navy)' }} data-name="page-hero" data-file="components/PageHero.js">
+            <div className="absolute inset-0 tg-grid-bg opacity-60 pointer-events-none" style={{ WebkitMaskImage: 'linear-gradient(180deg, transparent, #000 60%)', maskImage: 'linear-gradient(180deg, transparent, #000 60%)' }}></div>
+            <div className="tg-container relative z-10">
+                {eyebrow && <div className="page-hero-elem tg-eyebrow mb-7">{eyebrow}</div>}
+                <h1 className="page-hero-elem tg-display max-w-[16ch] !text-[clamp(2.5rem,6.6vw,6rem)] mb-8">{title}</h1>
+                {subtitle && <p className="page-hero-elem tg-lead text-white/75 max-w-2xl">{subtitle}</p>}
             </div>
         </section>
     );

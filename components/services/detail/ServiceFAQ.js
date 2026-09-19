@@ -14,7 +14,7 @@ function ServiceFAQ({ service }) {
         <section ref={ref} className="py-14 lg:py-16 bg-[var(--bg-soft)]">
             <div className="max-w-3xl mx-auto px-6 lg:px-12">
                 <div className="svd-faq-elem max-w-2xl mb-10">
-                    <h2 className="text-[clamp(1.9rem,3.6vw,2.5rem)] font-bold tracking-tight text-[var(--black)]">Frequently Asked Questions</h2>
+                    <h2 className="tg-h2 !text-[clamp(1.9rem,3.6vw,3rem)]">Frequently Asked Questions</h2>
                 </div>
                 <div className="divide-y divide-black/10 border-t border-b border-black/10">
                     {service.faqs.map((faq, i) => (

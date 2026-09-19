@@ -8,23 +8,35 @@ function OurBrandsPage() {
     ];
 
     React.useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo('.brand-card',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out', scrollTrigger: { trigger: '#brands-grid', start: 'top 80%' } }
-        );
+        tgReveal('.brand-row');
     }, []);
 
     return (
-        <section className="py-24">
-            <div id="brands-grid" className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                {brands.map((b) => (
-                    <div key={b.id} id={b.id} className="brand-card border border-black/10 rounded-lg p-10 scroll-mt-32">
-                        <h3 className="text-2xl font-bold mb-3">{b.name}</h3>
-                        <p className="text-gray-600 leading-relaxed">{b.desc}</p>
+        <React.Fragment>
+            <section className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-24 items-end">
+                        <div className="lg:col-span-8">
+                            <div className="tg-eyebrow mb-6">A family of five</div>
+                            <h2 className="tg-h2">Specialist brands, one standard of rigor</h2>
+                        </div>
+                        <p className="lg:col-span-4 tg-lead text-[var(--muted)]">Each brand focuses on a discipline. Together they cover the full research, regulatory and communication lifecycle.</p>
                     </div>
-                ))}
-            </div>
-        </section>
+
+                    <div id="brands-grid">
+                        {brands.map((b, i) => (
+                            <div key={b.id} id={b.id} className="brand-row tg-index-row scroll-mt-32">
+                                <div className="grid grid-cols-12 gap-x-4 items-baseline py-8 lg:py-10">
+                                    <span className="col-span-2 lg:col-span-1 text-sm font-medium text-[var(--muted)] tabular-nums">0{i + 1}</span>
+                                    <h3 className="tg-index-title col-span-10 lg:col-span-6 text-[clamp(2rem,4.6vw,4rem)] font-medium tracking-[-0.04em] leading-none">{b.name}</h3>
+                                    <p className="col-span-10 col-start-3 lg:col-start-auto lg:col-span-5 text-[var(--muted)] leading-relaxed mt-3 lg:mt-0">{b.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            <ContactCTA />
+        </React.Fragment>
     );
 }

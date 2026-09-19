@@ -1,12 +1,6 @@
 function AboutUsPage() {
     React.useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.reveal-el').forEach((elem) => {
-            gsap.fromTo(elem,
-                { opacity: 0, y: 40 },
-                { opacity: 1, y: 0, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: elem, start: 'top 85%' } }
-            );
-        });
+        tgReveal('.reveal-el');
     }, []);
 
     const overviewFacts = [
@@ -52,66 +46,80 @@ function AboutUsPage() {
         { stage: 'Today', desc: 'A family of specialist brands serving healthcare and life sciences worldwide.' }
     ];
 
+    const regions = ['North America', 'Europe', 'Asia-Pacific', 'Middle East'];
+
     return (
         <React.Fragment>
-            <section id="company-overview" className="py-24 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-sm font-bold tracking-wider text-[var(--accent)] uppercase mb-6">Company Overview</h2>
-                    <p className="reveal-el text-2xl lg:text-3xl font-medium leading-relaxed text-gray-800 max-w-4xl mb-16">
+            {/* Company overview */}
+            <section id="company-overview" className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="reveal-el tg-eyebrow mb-8">Company Overview</div>
+                    <p className="reveal-el text-[clamp(1.5rem,2.8vw,2.5rem)] font-medium tracking-[-0.03em] leading-[1.12] max-w-5xl mb-20">
                         GUIRES is a research and data analytics company supporting healthcare and life sciences organizations with research, regulatory, statistical and communication expertise.
                     </p>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                        {overviewFacts.map((f) => (
-                            <div key={f.label} className="reveal-el border-t border-black/10 pt-4">
-                                <div className="text-xs font-bold tracking-wider text-gray-400 uppercase mb-2">{f.label}</div>
-                                <div className="text-lg font-semibold">{f.value}</div>
+                    <dl className="grid grid-cols-2 lg:grid-cols-4">
+                        {overviewFacts.map((f, i) => (
+                            <div key={f.label} className={`reveal-el tg-hairline pt-5 pb-8 ${i > 0 ? 'lg:pl-8' : ''} ${i % 2 === 1 ? 'pl-5 lg:pl-8' : 'pr-5'}`}>
+                                <dt className="tg-eyebrow mb-4">{f.label}</dt>
+                                <dd className="text-xl lg:text-2xl font-medium tracking-[-0.02em] leading-snug">{f.value}</dd>
                             </div>
                         ))}
-                    </div>
+                    </dl>
                 </div>
             </section>
 
-            <section id="our-story" className="relative py-24 bg-[#081B33] border-b border-black/5 overflow-hidden">
-                <svg className="absolute -right-20 -bottom-20 w-[380px] h-[380px] text-white/5 pointer-events-none" viewBox="0 0 400 400" fill="none">
-                    <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="200" cy="200" r="90" stroke="currentColor" strokeWidth="1.5" />
+            {/* Our story */}
+            <section id="our-story" className="tg-on-ink tg-band tg-band--ink tg-section overflow-hidden">
+                <svg className="absolute -right-24 -bottom-32 w-[560px] h-[560px] pointer-events-none" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+                    <circle cx="200" cy="200" r="190" stroke="#74d4fc" strokeOpacity="0.22" strokeWidth="1.5" />
+                    <circle cx="200" cy="200" r="140" stroke="#74d4fc" strokeOpacity="0.18" strokeWidth="1.5" />
+                    <circle cx="200" cy="200" r="90" stroke="#b89dc0" strokeOpacity="0.3" strokeWidth="1.5" />
+                    <path d="M200 110 A90 90 0 0 1 290 200 L200 200 Z" fill="#da2e0f" />
                 </svg>
-                <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-sm font-bold tracking-wider text-blue-300 uppercase mb-6">Our Story</h2>
-                    <p className="reveal-el text-2xl lg:text-3xl font-medium leading-relaxed text-white">
+                <div className="tg-container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <div className="reveal-el lg:col-span-3"><div className="tg-eyebrow">Our Story</div></div>
+                    <p className="reveal-el lg:col-span-8 text-[clamp(1.4rem,2.5vw,2.25rem)] font-normal tracking-[-0.02em] leading-[1.28] text-white">
                         GUIRES was built around a simple idea: that healthcare and life sciences organizations move faster and further when their research is rigorous, their data is trustworthy, and their science is communicated clearly. Today we support pharmaceutical, biotechnology, medical device and food science organizations across research, regulatory, statistical and communication disciplines &mdash; so our clients can focus on the outcomes that matter.
                     </p>
                 </div>
             </section>
 
-            <section id="vision-mission" className="py-24 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-16">
-                    <div className="reveal-el">
-                        <h3 className="text-sm font-bold tracking-wider text-gray-500 uppercase mb-6">Our Vision</h3>
-                        <p className="text-2xl font-medium leading-relaxed">A world where rigorous research and human expertise combine to accelerate better health and scientific outcomes.</p>
+            {/* Vision & mission */}
+            <section id="vision-mission" className="grid grid-cols-1 md:grid-cols-2">
+                <div className="reveal-el tg-band tg-band--lilac tg-section">
+                    <div className="tg-container md:!pr-12">
+                        <div className="tg-eyebrow !text-[var(--ink)] mb-8">Our Vision</div>
+                        <p className="text-[clamp(1.5rem,2.6vw,2.4rem)] font-medium tracking-[-0.03em] leading-[1.18]">A world where rigorous research and human expertise combine to accelerate better health and scientific outcomes.</p>
                     </div>
-                    <div className="reveal-el">
-                        <h3 className="text-sm font-bold tracking-wider text-gray-500 uppercase mb-6">Our Mission</h3>
-                        <p className="text-2xl font-medium leading-relaxed">To advance research, regulatory and scientific excellence for healthcare and life sciences organizations worldwide.</p>
+                </div>
+                <div className="reveal-el tg-band tg-band--accent tg-section">
+                    <div className="tg-container md:!pl-12">
+                        <div className="tg-eyebrow !text-white mb-8">Our Mission</div>
+                        <p className="text-[clamp(1.5rem,2.6vw,2.4rem)] font-medium tracking-[-0.03em] leading-[1.18]">To advance research, regulatory and scientific excellence for healthcare and life sciences organizations worldwide.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="leadership" className="py-24 bg-gray-50 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-4xl font-bold mb-4">Leadership</h2>
-                    <p className="reveal-el text-lg text-gray-600 mb-16 max-w-2xl">Our leadership team brings decades of combined experience across research, regulatory affairs, biostatistics and healthcare communications.</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                        {leadership.map((l) => (
-                            <div key={l.role} className="reveal-el border-t border-black/10 pt-6">
-                                <div className="text-3xl font-bold text-[var(--accent)] mb-4">&#9679;</div>
-                                <h3 className="text-lg font-semibold mb-2">{l.role}</h3>
-                                <p className="text-sm text-gray-600 leading-relaxed">{l.desc}</p>
+            {/* Leadership */}
+            <section id="leadership" className="tg-band tg-band--soft tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-end">
+                        <div className="lg:col-span-8">
+                            <div className="reveal-el tg-eyebrow mb-6">People</div>
+                            <h2 className="reveal-el tg-h2">Leadership</h2>
+                        </div>
+                        <p className="reveal-el lg:col-span-4 text-[var(--muted)] leading-relaxed">Our leadership team brings decades of combined experience across research, regulatory affairs, biostatistics and healthcare communications.</p>
+                    </div>
+                    <div className="mb-14">
+                        {leadership.map((l, i) => (
+                            <div key={l.role} className="reveal-el tg-index-row grid grid-cols-12 gap-x-4 items-baseline py-7">
+                                <span className="col-span-2 lg:col-span-1 text-sm font-medium text-[var(--muted)] tabular-nums">0{i + 1}</span>
+                                <h3 className="tg-index-title col-span-10 lg:col-span-5 text-[clamp(1.5rem,2.6vw,2.25rem)] font-medium tracking-[-0.03em] leading-tight">{l.role}</h3>
+                                <p className="col-span-10 col-start-3 lg:col-start-auto lg:col-span-6 text-[var(--muted)] leading-relaxed mt-2 lg:mt-0">{l.desc}</p>
                             </div>
                         ))}
                     </div>
-                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="reveal-el inline-flex items-center gap-2 text-lg font-medium text-[var(--accent)] hover:gap-4 transition-all duration-300">
+                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="reveal-el tg-btn tg-btn--primary">
                         Meet Our Team <div className="icon-arrow-right"></div>
                     </a>
                 </div>
@@ -119,47 +127,57 @@ function AboutUsPage() {
 
             <Testimonials />
 
-            <section id="values" className="py-24 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-4xl font-bold mb-16">Our Values</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {/* Values */}
+            <section id="values" className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="reveal-el tg-eyebrow mb-6">What guides us</div>
+                    <h2 className="reveal-el tg-h2 mb-20">Our Values</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-14">
                         {values.map((val, i) => (
-                            <div key={val.name} className="reveal-el border-t border-black/10 pt-6">
-                                <span className="text-[var(--accent)] text-sm font-mono">{`0${i + 1}`}</span>
-                                <h3 className="text-xl font-semibold mt-2 mb-3">{val.name}</h3>
-                                <p className="text-sm text-gray-600 leading-relaxed">{val.desc}</p>
+                            <div key={val.name} className="reveal-el border-t-2 border-[var(--ink)] pt-6">
+                                <div className="tg-num !text-[clamp(2.5rem,4vw,3.5rem)] mb-10" style={{ color: i === 0 ? 'var(--accent)' : 'var(--ink)' }}>{`0${i + 1}`}</div>
+                                <h3 className="text-2xl font-medium tracking-[-0.02em] mb-3">{val.name}</h3>
+                                <p className="text-[var(--muted)] leading-relaxed">{val.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section id="our-approach" className="py-24 bg-gray-50 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-4xl font-bold mb-4">Our Approach</h2>
-                    <p className="reveal-el text-lg text-gray-600 mb-16 max-w-2xl">A consistent, disciplined approach behind every engagement.</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Approach */}
+            <section id="our-approach" className="tg-on-ink tg-band tg-band--ink tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-end">
+                        <div className="lg:col-span-8">
+                            <div className="reveal-el tg-eyebrow mb-6">How we work</div>
+                            <h2 className="reveal-el tg-h2">Our Approach</h2>
+                        </div>
+                        <p className="reveal-el lg:col-span-4 text-white/75 leading-relaxed">A consistent, disciplined approach behind every engagement.</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                         {approachSteps.map((s) => (
-                            <div key={s.num} className="reveal-el border-t border-black/10 pt-6">
-                                <div className="text-gray-400 text-sm mb-4 font-mono">{s.num}</div>
-                                <h3 className="text-lg font-semibold mb-3">{s.title}</h3>
-                                <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+                            <div key={s.num} className="reveal-el tg-hairline pt-6 pb-10 lg:pr-8">
+                                <div className="tg-num text-[var(--accent-cyan)] mb-12">{s.num}</div>
+                                <h3 className="text-2xl font-medium tracking-[-0.02em] mb-3">{s.title}</h3>
+                                <p className="text-white/75 leading-relaxed">{s.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section id="quality-compliance" className="py-24 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-                    <div>
-                        <h2 className="reveal-el text-4xl font-bold mb-6">Quality &amp; Compliance</h2>
-                        <p className="reveal-el text-lg text-gray-600 leading-relaxed">Quality is built into every stage of our work, from study design through final delivery.</p>
+            {/* Quality & compliance */}
+            <section id="quality-compliance" className="tg-band tg-band--soft tg-section">
+                <div className="tg-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                    <div className="lg:col-span-5">
+                        <div className="reveal-el tg-eyebrow mb-6">Standards</div>
+                        <h2 className="reveal-el tg-h2 !text-[clamp(2rem,4vw,3.5rem)] mb-6">Quality &amp; Compliance</h2>
+                        <p className="reveal-el tg-lead text-[var(--muted)]">Quality is built into every stage of our work, from study design through final delivery.</p>
                     </div>
-                    <ul className="flex flex-col gap-4">
+                    <ul className="lg:col-span-7">
                         {qualityPrinciples.map((p) => (
-                            <li key={p} className="reveal-el flex items-start gap-4 text-lg text-gray-700">
-                                <div className="icon-check text-[var(--accent)] mt-1 shrink-0"></div>
+                            <li key={p} className="reveal-el tg-hairline flex items-start gap-5 py-6 text-xl lg:text-2xl font-normal tracking-[-0.02em] leading-snug">
+                                <span className="w-2.5 h-2.5 mt-3 bg-[var(--accent)] shrink-0"></span>
                                 {p}
                             </li>
                         ))}
@@ -167,62 +185,78 @@ function AboutUsPage() {
                 </div>
             </section>
 
-            <section id="awards" className="py-24 bg-gray-50 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-4xl font-bold mb-4">Awards &amp; Recognition</h2>
-                    <p className="reveal-el text-lg text-gray-600 mb-16 max-w-2xl">GUIRES's work is recognized across the research and healthcare communications industry.</p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Awards */}
+            <section id="awards" className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-end">
+                        <h2 className="reveal-el tg-h2 !text-[clamp(2rem,4vw,3.5rem)] lg:col-span-8">Awards &amp; Recognition</h2>
+                        <p className="reveal-el lg:col-span-4 text-[var(--muted)] leading-relaxed">GUIRES's work is recognized across the research and healthcare communications industry.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {[1, 2, 3].map((i) => (
-                            <div key={i} className="reveal-el border border-dashed border-black/15 rounded-lg p-8 text-center text-gray-400">
-                                <div className="icon-award text-3xl mb-4"></div>
-                                <p className="text-sm">Award / Recognition placeholder</p>
+                            <div key={i} className="reveal-el tg-tile-dashed p-8 min-h-[12rem] flex flex-col justify-between text-[var(--muted)]">
+                                <span className="text-sm tabular-nums">0{i}</span>
+                                <p className="text-lg">Award / Recognition placeholder</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section id="associations" className="py-24 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-4xl font-bold mb-4">Associations</h2>
-                    <p className="reveal-el text-lg text-gray-600 mb-16 max-w-2xl">Industry associations and memberships GUIRES participates in.</p>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Associations */}
+            <section id="associations" className="tg-band tg-band--soft tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-end">
+                        <h2 className="reveal-el tg-h2 !text-[clamp(2rem,4vw,3.5rem)] lg:col-span-8">Associations</h2>
+                        <p className="reveal-el lg:col-span-4 text-[var(--muted)] leading-relaxed">Industry associations and memberships GUIRES participates in.</p>
+                    </div>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                         {[1, 2, 3, 4].map((i) => (
-                            <div key={i} className="reveal-el border border-dashed border-black/15 rounded-lg p-8 text-center text-gray-400">
-                                <div className="icon-link text-3xl mb-4"></div>
-                                <p className="text-sm">Association placeholder</p>
+                            <div key={i} className="reveal-el tg-tile-dashed p-8 min-h-[10rem] flex flex-col justify-between text-[var(--muted)]">
+                                <span className="text-sm tabular-nums">0{i}</span>
+                                <p>Association placeholder</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section id="global-presence" className="py-24 bg-gray-50 border-b border-black/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-4xl font-bold mb-6">Global Presence</h2>
-                    <p className="reveal-el text-lg text-gray-600 mb-10 max-w-2xl">We support clients and research partners across multiple regions and markets.</p>
-                    <div className="reveal-el flex flex-wrap gap-4">
-                        {['North America', 'Europe', 'Asia-Pacific', 'Middle East'].map((region) => (
-                            <span key={region} className="px-5 py-2 border border-black/10 rounded-full text-sm font-medium text-gray-700">{region}</span>
-                        ))}
+            {/* Global presence */}
+            <section id="global-presence" className="tg-band tg-band--lilac tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-end">
+                        <h2 className="reveal-el tg-h2 lg:col-span-8">Global Presence</h2>
+                        <p className="reveal-el lg:col-span-4 leading-relaxed text-[#010120CC]">We support clients and research partners across multiple regions and markets.</p>
                     </div>
+                    <ul>
+                        {regions.map((r, i) => (
+                            <li key={r} className="reveal-el border-t border-[#01012040] last:border-b flex items-baseline gap-6 py-6">
+                                <span className="text-sm tabular-nums w-8">0{i + 1}</span>
+                                <span className="text-[clamp(1.75rem,4.4vw,4rem)] font-medium tracking-[-0.04em] leading-none">{r}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </section>
 
-            <section id="milestones" className="py-24">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="reveal-el text-4xl font-bold mb-16">Milestones</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Milestones */}
+            <section id="milestones" className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="reveal-el tg-eyebrow mb-6">Timeline</div>
+                    <h2 className="reveal-el tg-h2 mb-16">Milestones</h2>
+                    <ol>
                         {milestones.map((m, i) => (
-                            <div key={m.stage} className="reveal-el border-t border-black/10 pt-6">
-                                <span className="text-[var(--accent)] text-sm font-mono">{`0${i + 1}`}</span>
-                                <h3 className="text-xl font-semibold mt-2 mb-3">{m.stage}</h3>
-                                <p className="text-sm text-gray-600 leading-relaxed">{m.desc}</p>
-                            </div>
+                            <li key={m.stage} className="reveal-el tg-hairline grid grid-cols-12 gap-x-4 items-baseline py-8">
+                                <span className="col-span-2 lg:col-span-1 tg-num !text-[clamp(1.5rem,2.4vw,2.25rem)] text-[var(--accent-secondary)]">{`0${i + 1}`}</span>
+                                <h3 className="col-span-10 lg:col-span-5 text-[clamp(1.5rem,2.6vw,2.25rem)] font-medium tracking-[-0.03em] leading-tight">{m.stage}</h3>
+                                <p className="col-span-10 col-start-3 lg:col-start-auto lg:col-span-6 text-[var(--muted)] leading-relaxed mt-2 lg:mt-0">{m.desc}</p>
+                            </li>
                         ))}
-                    </div>
+                    </ol>
                 </div>
             </section>
+
+            <ContactCTA />
         </React.Fragment>
     );
 }

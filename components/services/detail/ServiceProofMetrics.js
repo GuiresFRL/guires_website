@@ -26,7 +26,7 @@ function ServiceProofMetrics({ service }) {
                     ))}
                 </div>
 
-                <a href={service.proofCta.href} className="svd-metric-elem inline-flex items-center gap-2 rounded-full border border-[var(--accent)] text-[var(--accent)] text-sm font-semibold px-6 py-3 hover:bg-[#0C4DA21A] transition-colors duration-300">
+                <a href={service.proofCta.href} className="svd-metric-elem inline-flex items-center gap-2 rounded-full border border-[var(--accent)] text-[var(--accent)] text-sm font-semibold px-6 py-3 hover:bg-[var(--tint-2)] transition-colors duration-300">
                     {service.proofCta.label} <div className="icon-chevron-right text-xs"></div>
                 </a>
             </div>

@@ -65,7 +65,7 @@ function ServicesPage() {
                         <div className="lg:col-span-6">
                             <p className="text-lg text-gray-600 leading-relaxed">{s.desc}</p>
                             {s.link && (
-                                <a href={s.link} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:text-blue-800 transition-colors">
+                                <a href={s.link} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:text-[var(--accent-secondary)] transition-colors">
                                     Learn More <div className="icon-arrow-right"></div>
                                 </a>
                             )}

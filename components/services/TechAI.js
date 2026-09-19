@@ -15,7 +15,7 @@ function NetworkBackground() {
     })), []);
 
     return (
-        <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             {nodes.map((n, i) => (
                 i < nodes.length - 1 && (
                     <line key={`l${i}`} x1={n.x} y1={n.y} x2={nodes[i + 1].x} y2={nodes[i + 1].y} stroke="var(--accent-cyan)" strokeWidth="0.15" />
@@ -34,31 +34,37 @@ function TechAI() {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(ref.current.querySelectorAll('.svc-tech-elem'),
             { opacity: 0, y: 26 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 78%' } }
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.07, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 75%' } }
         );
     }, []);
 
     return (
-        <section ref={ref} className="relative py-24 lg:py-36 overflow-hidden" style={{ background: 'var(--ink-navy)' }}>
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }}></div>
+        <section ref={ref} className="fs-band fs-band--dark tg-on-ink py-24 lg:py-36 overflow-hidden">
+            <div className="absolute inset-0 tg-grid-bg opacity-60 pointer-events-none"></div>
             <NetworkBackground />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="max-w-2xl mb-16">
-                    <div className="svc-tech-elem text-xs font-bold tracking-[0.25em] text-[var(--accent-cyan)] uppercase mb-5">Technology &amp; AI</div>
-                    <h2 className="svc-tech-elem text-[clamp(2rem,4vw,2.75rem)] font-bold tracking-tight text-white mb-5">Powered by Data, Technology &amp; AI</h2>
-                    <p className="svc-tech-elem text-lg text-white/60 leading-relaxed">Combine scientific expertise with advanced technology to improve research efficiency, analytical depth and decision-making.</p>
+            <div className="relative z-10 tg-container">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-24 items-end">
+                    <div className="lg:col-span-8">
+                        <div className="svc-tech-elem tg-eyebrow mb-6">Technology &amp; AI</div>
+                        <h2 className="svc-tech-elem tg-h2">Powered by Data, Technology &amp; AI</h2>
+                    </div>
+                    <p className="svc-tech-elem lg:col-span-4 text-[#eef3fad9] leading-relaxed">Combine scientific expertise with advanced technology to improve research efficiency, analytical depth and decision-making.</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {TECH_MODULES.map((m) => (
-                        <div key={m.title} className="svc-tech-elem group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-8 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08]">
-                            <div className="w-12 h-12 rounded-xl bg-[#19D3E626] text-[var(--accent-cyan)] flex items-center justify-center text-2xl mb-6 transition-transform duration-300 group-hover:scale-110"><div className={m.icon}></div></div>
-                            <h3 className="text-lg font-bold text-white mb-2">{m.title}</h3>
-                            <p className="text-sm text-white/60 leading-relaxed">{m.desc}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10">
+                    {TECH_MODULES.map((m, i) => (
+                        <div key={m.title} className="svc-tech-elem tg-hairline group pt-6 pb-12">
+                            <div className="flex items-center justify-between mb-10">
+                                <span className="text-sm tabular-nums text-[var(--accent-cyan)]">0{i + 1}</span>
+                                <span className={`${m.icon} text-xl text-[var(--accent-cyan)] transition-transform duration-300 group-hover:translate-x-1`}></span>
+                            </div>
+                            <h3 className="text-2xl tracking-[-0.02em] mb-3">{m.title}</h3>
+                            <p className="text-[#eef3facc] leading-relaxed max-w-sm">{m.desc}</p>
                         </div>
                     ))}
                 </div>

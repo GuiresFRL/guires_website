@@ -106,7 +106,7 @@ function TherapeuticAreas() {
         <section ref={ref} className="py-24 lg:py-36 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="svc-ta-elem flex items-end justify-between gap-6 mb-12">
-                    <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-bold tracking-tight text-[var(--black)] max-w-2xl">Deep Expertise Across Therapeutic Areas</h2>
+                    <h2 className="tg-h2 !text-[clamp(2rem,4vw,3.5rem)] max-w-2xl">Deep Expertise Across Therapeutic Areas</h2>
                     <div className="hidden lg:flex items-center gap-2 shrink-0">
                         <button onClick={() => scrollBy(-1)} aria-label="Scroll left" className="w-11 h-11 rounded-full border border-black/15 flex items-center justify-center hover:bg-black/5 transition-colors"><div className="icon-chevron-left"></div></button>
                         <button onClick={() => scrollBy(1)} aria-label="Scroll right" className="w-11 h-11 rounded-full border border-black/15 flex items-center justify-center hover:bg-black/5 transition-colors"><div className="icon-chevron-right"></div></button>
@@ -120,7 +120,7 @@ function TherapeuticAreas() {
                         {ta.img && (
                             <React.Fragment>
                                 <img src={ta.img} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-                                <div className="absolute inset-0 bg-[#071A2BCC]"></div>
+                                <div className="absolute inset-0 bg-[#081B33CC]"></div>
                             </React.Fragment>
                         )}
                         <div className="relative z-10">

@@ -4,6 +4,7 @@ function initialsFor(role) {
 
 function TeamMemberPage({ member }) {
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.fromTo('.member-reveal',
             { opacity: 0, y: 20 },
             { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out', delay: 0.1 }
@@ -11,22 +12,41 @@ function TeamMemberPage({ member }) {
     }, []);
 
     return (
-        <section className="py-24">
-            <div className="max-w-4xl mx-auto px-6 lg:px-12">
-                <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="member-reveal inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[var(--accent)] transition-colors mb-12">
-                    <div className="icon-arrow-left"></div> Back to Team
-                </a>
-
-                <div className="member-reveal w-24 h-24 rounded-full bg-gray-100 text-[var(--accent)] font-bold flex items-center justify-center text-2xl mb-8">
-                    {initialsFor(member.role)}
+        <React.Fragment>
+            <section className="tg-on-ink tg-band tg-band--ink pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden">
+                <div className="absolute inset-0 tg-grid-bg opacity-60 pointer-events-none" style={{ WebkitMaskImage: 'linear-gradient(180deg, transparent, #000 60%)', maskImage: 'linear-gradient(180deg, transparent, #000 60%)' }}></div>
+                <div className="tg-container relative z-10">
+                    <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="member-reveal tg-link text-sm text-white/80 hover:text-white mb-14">
+                        <span className="icon-arrow-left"></span> Back to Team
+                    </a>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+                        <div className="member-reveal lg:col-span-3">
+                            <div className="w-40 h-40 lg:w-full lg:aspect-square lg:h-auto flex items-center justify-center text-[clamp(3.5rem,7vw,6rem)] font-medium tracking-[-0.06em]" style={{ background: 'var(--accent)', color: '#fff' }}>
+                                {initialsFor(member.role)}
+                            </div>
+                        </div>
+                        <div className="lg:col-span-9">
+                            <div className="member-reveal tg-eyebrow mb-6">{member.dept}</div>
+                            <h1 className="member-reveal tg-display !text-[clamp(2.5rem,6.6vw,6rem)] max-w-[16ch]">{member.role}</h1>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <div className="member-reveal text-xs font-bold tracking-wider text-gray-400 uppercase mb-3">{member.dept}</div>
-                <h1 className="member-reveal text-4xl lg:text-5xl font-bold mb-8">{member.role}</h1>
-                <p className="member-reveal text-lg text-gray-600 leading-relaxed max-w-2xl">
-                    Full bio coming soon. This profile is a placeholder for {member.role.toLowerCase()} at GUIRES.
-                </p>
-            </div>
-        </section>
+            <section className="tg-band tg-band--white tg-section">
+                <div className="tg-container grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <div className="lg:col-span-3"><div className="tg-eyebrow">Profile</div></div>
+                    <div className="lg:col-span-8">
+                        <p className="text-[clamp(1.4rem,2.4vw,2rem)] tracking-[-0.02em] leading-[1.3] text-[var(--muted)] mb-12 max-w-3xl">
+                            Full bio coming soon. This profile is a placeholder for {member.role.toLowerCase()} at GUIRES.
+                        </p>
+                        <a href="https://guiresfrl.github.io/guires_website/about-us/meet-our-team.html" className="tg-btn tg-btn--ghost">
+                            Meet the rest of the team <div className="icon-arrow-right"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <ContactCTA />
+        </React.Fragment>
     );
 }

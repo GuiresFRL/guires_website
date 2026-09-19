@@ -4,21 +4,24 @@ function applyMailto(job) {
     return `mailto:careers@guires.com?subject=${subject}&body=${body}`;
 }
 
-function JobDetailSection({ title, children }) {
+function JobDetailSection({ num, title, children }) {
     return (
-        <div className="cw-jd-section mb-12">
-            <h2 className="text-2xl font-semibold text-[var(--cw-text)] mb-5">{title}</h2>
-            {children}
+        <div className="cw-jd-section tg-hairline pt-8 mb-14">
+            <div className="flex items-baseline gap-5 mb-6">
+                <span className="text-sm tabular-nums text-[var(--accent-secondary)]">{num}</span>
+                <h2 className="text-[clamp(1.5rem,2.6vw,2.25rem)] font-medium tracking-[-0.03em]">{title}</h2>
+            </div>
+            <div className="lg:pl-10">{children}</div>
         </div>
     );
 }
 
 function JobDetailList({ items }) {
     return (
-        <ul className="space-y-3">
+        <ul>
             {items.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[var(--cw-muted)] leading-relaxed">
-                    <div className="icon-check text-[var(--cw-accent)] mt-1 shrink-0"></div>
+                <li key={i} className="flex items-start gap-4 border-t border-[#01012014] first:border-t-0 py-3 text-[var(--muted)] leading-relaxed">
+                    <span className="w-2 h-2 mt-2.5 bg-[var(--accent)] shrink-0"></span>
                     <span>{item}</span>
                 </li>
             ))}
@@ -27,32 +30,25 @@ function JobDetailList({ items }) {
 }
 
 function JobSummaryCard({ job, sticky }) {
+    const rows = [
+        ['Department', job.department],
+        ['Location', job.location],
+        ['Employment Type', EMPLOYMENT_TYPES[job.type]],
+        ['Experience Level', EXPERIENCE_LEVELS[job.experience]]
+    ];
     return (
-        <div className={`rounded-2xl border border-[var(--cw-border)] bg-[var(--cw-surface)] p-6 lg:p-7 ${sticky ? 'lg:sticky lg:top-28' : ''}`}>
-            <h3 className="text-sm font-bold tracking-wider text-[var(--cw-muted)] uppercase mb-5">Job Summary</h3>
-            <dl className="space-y-4 mb-7">
-                <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center shrink-0"><div className="icon-building-2 text-sm"></div></div>
-                    <div><dt className="text-xs text-[var(--cw-muted)]">Department</dt><dd className="text-sm font-semibold text-[var(--cw-text)]">{job.department}</dd></div>
-                </div>
-                <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center shrink-0"><div className="icon-map-pin text-sm"></div></div>
-                    <div><dt className="text-xs text-[var(--cw-muted)]">Location</dt><dd className="text-sm font-semibold text-[var(--cw-text)]">{job.location}</dd></div>
-                </div>
-                <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center shrink-0"><div className="icon-briefcase text-sm"></div></div>
-                    <div><dt className="text-xs text-[var(--cw-muted)]">Employment Type</dt><dd className="text-sm font-semibold text-[var(--cw-text)]">{EMPLOYMENT_TYPES[job.type]}</dd></div>
-                </div>
-                <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#0C4DA21A] text-[var(--cw-accent)] flex items-center justify-center shrink-0"><div className="icon-layers text-sm"></div></div>
-                    <div><dt className="text-xs text-[var(--cw-muted)]">Experience Level</dt><dd className="text-sm font-semibold text-[var(--cw-text)]">{EXPERIENCE_LEVELS[job.experience]}</dd></div>
-                </div>
+        <div className={`bg-[var(--cw-surface-2)] p-7 ${sticky ? 'lg:sticky lg:top-28' : ''}`}>
+            <h3 className="tg-eyebrow mb-6">Job Summary</h3>
+            <dl className="mb-8">
+                {rows.map(([label, value]) => (
+                    <div key={label} className="tg-hairline py-4">
+                        <dt className="text-xs text-[var(--muted)] mb-1">{label}</dt>
+                        <dd className="text-lg font-medium tracking-[-0.01em]">{value}</dd>
+                    </div>
+                ))}
             </dl>
-            <a
-                href={applyMailto(job)}
-                className="cw-btn-arrow w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-sm font-semibold px-6 py-3.5 hover:bg-[var(--cw-accent-dark)] transition-colors duration-300"
-            >
-                Apply Now <div className="icon-arrow-right transition-transform duration-300"></div>
+            <a href={applyMailto(job)} className="tg-btn tg-btn--primary w-full">
+                Apply Now <div className="icon-arrow-right"></div>
             </a>
         </div>
     );
@@ -63,104 +59,91 @@ function JobDetailPage({ slug }) {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (!job || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo('.cw-jd-hero-elem', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out' });
         gsap.fromTo(ref.current.querySelectorAll('.cw-jd-section'),
             { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 80%' } }
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 85%' } }
         );
     }, []);
 
     if (!job) {
         return (
-            <section className="pt-40 pb-24 text-center max-w-xl mx-auto px-6">
-                <h1 className="text-3xl font-semibold text-[var(--cw-text)] mb-4">Role not found</h1>
-                <p className="text-[var(--cw-muted)] mb-8">This role may have closed or the link is incorrect.</p>
-                <a href={`${CAREERS_BASE}/jobs/`} className="inline-flex items-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-sm font-semibold px-6 py-3">
+            <section className="pt-40 pb-24 tg-container">
+                <h1 className="tg-display !text-[clamp(2.5rem,6vw,5rem)] mb-6">Role not found</h1>
+                <p className="text-[var(--muted)] mb-8 max-w-md">This role may have closed or the link is incorrect.</p>
+                <a href={`${CAREERS_BASE}/jobs/`} className="tg-btn tg-btn--primary">
                     View All Jobs <div className="icon-arrow-right"></div>
                 </a>
             </section>
         );
     }
 
+    const meta = [job.location, EMPLOYMENT_TYPES[job.type], EXPERIENCE_LEVELS[job.experience]];
+
     return (
         <React.Fragment>
-            <section className="relative pt-32 pb-10 lg:pt-40 lg:pb-14 overflow-hidden">
-                <img
-                    src={DEPARTMENT_BANNER_IMAGES[job.department] || DEPARTMENT_BANNER_IMAGES.Engineering}
-                    alt=""
-                    aria-hidden="true"
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-[#0B1120B3]"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120E6] via-transparent to-[#0B112033]"></div>
-
-                <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-                    <a href={`${CAREERS_BASE}/jobs/`} className="cw-jd-hero-elem inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition-colors mb-6">
-                        <div className="icon-arrow-left text-xs"></div> Back to Open Positions
-                    </a>
-                    <div className="cw-jd-hero-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent-light)] uppercase mb-4">{job.department}</div>
-                    <h1 className="cw-jd-hero-elem text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6 max-w-3xl">{job.title}</h1>
-                    <div className="cw-jd-hero-elem flex flex-wrap items-center gap-3 mb-8">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-map-pin text-[11px]"></div> {job.location}</span>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-briefcase text-[11px]"></div> {EMPLOYMENT_TYPES[job.type]}</span>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/25 backdrop-blur px-3.5 py-2 text-xs font-semibold text-white"><div className="icon-layers text-[11px]"></div> {EXPERIENCE_LEVELS[job.experience]}</span>
+            <section className="tg-on-ink relative overflow-hidden text-white pt-32 pb-14 lg:pt-44 lg:pb-20" style={{ background: 'var(--ink-navy)' }}>
+                <div className="absolute inset-0 tg-grid-bg opacity-60 pointer-events-none" style={{ WebkitMaskImage: 'linear-gradient(180deg, transparent, #000 60%)', maskImage: 'linear-gradient(180deg, transparent, #000 60%)' }}></div>
+                <div className="tg-container relative z-10">
+                    <div className="cw-jd-hero-elem mb-12">
+                        <a href={`${CAREERS_BASE}/jobs/`} className="tg-link text-sm text-white/80 hover:text-white">
+                            <span className="icon-arrow-left text-xs"></span> Back to Open Positions
+                        </a>
                     </div>
-                    {/* Mobile: Apply Now near top */}
-                    <a
-                        href={applyMailto(job)}
-                        className="cw-jd-hero-elem lg:hidden cw-btn-arrow w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-sm font-semibold px-6 py-3.5 hover:bg-[var(--cw-accent-dark)] transition-colors duration-300"
-                    >
-                        Apply Now <div className="icon-arrow-right transition-transform duration-300"></div>
+                    <div className="cw-jd-hero-elem tg-eyebrow mb-6">{job.department}</div>
+                    <h1 className="cw-jd-hero-elem tg-display !text-[clamp(2.5rem,6vw,5.5rem)] mb-10 max-w-[18ch]">{job.title}</h1>
+                    <ul className="cw-jd-hero-elem flex flex-wrap gap-x-8 gap-y-2 text-white/85 mb-8">
+                        {meta.map((m) => <li key={m} className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[var(--accent-cyan)]"></span>{m}</li>)}
+                    </ul>
+                    <a href={applyMailto(job)} className="cw-jd-hero-elem lg:hidden tg-btn tg-btn--primary w-full">
+                        Apply Now <div className="icon-arrow-right"></div>
                     </a>
                 </div>
             </section>
 
-            <section ref={ref} className="py-16 lg:py-24 bg-[var(--cw-bg)]">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-                    <div className="lg:col-span-2">
-                        <JobDetailSection title="About the Role">
-                            <p className="text-[var(--cw-muted)] leading-relaxed">{job.aboutRole}</p>
+            <section ref={ref} className="py-16 lg:py-24 bg-white">
+                <div className="tg-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    <div className="lg:col-span-8">
+                        <JobDetailSection num="01" title="About the Role">
+                            <p className="text-[var(--muted)] leading-relaxed text-lg">{job.aboutRole}</p>
                         </JobDetailSection>
 
-                        <JobDetailSection title="What You'll Do">
+                        <JobDetailSection num="02" title="What You'll Do">
                             <JobDetailList items={job.whatYoullDo} />
                         </JobDetailSection>
 
-                        <JobDetailSection title="Requirements">
+                        <JobDetailSection num="03" title="Requirements">
                             <JobDetailList items={job.requirements} />
                         </JobDetailSection>
 
-                        <JobDetailSection title="Good to Have">
+                        <JobDetailSection num="04" title="Good to Have">
                             <JobDetailList items={job.goodToHave} />
                         </JobDetailSection>
 
-                        <JobDetailSection title="What We Offer">
+                        <JobDetailSection num="05" title="What We Offer">
                             <JobDetailList items={job.whatWeOffer} />
                         </JobDetailSection>
 
-                        <JobDetailSection title="Application Process">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <JobDetailSection num="06" title="Application Process">
+                            <ol className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
                                 {JOB_APPLICATION_PROCESS.map((s) => (
-                                    <div key={s.step} className="rounded-xl border border-[var(--cw-border)] p-5">
-                                        <div className="w-8 h-8 rounded-full bg-[var(--cw-accent)] text-white text-sm font-bold flex items-center justify-center mb-3">{s.step}</div>
-                                        <h4 className="text-sm font-semibold text-[var(--cw-text)] mb-1.5">{s.title}</h4>
-                                        <p className="text-xs text-[var(--cw-muted)] leading-relaxed">{s.desc}</p>
-                                    </div>
+                                    <li key={s.step} className="tg-hairline py-5">
+                                        <div className="text-sm tabular-nums text-[var(--accent-secondary)] mb-3">Step {s.step}</div>
+                                        <h4 className="text-lg font-medium tracking-[-0.02em] mb-1.5">{s.title}</h4>
+                                        <p className="text-sm text-[var(--muted)] leading-relaxed">{s.desc}</p>
+                                    </li>
                                 ))}
-                            </div>
+                            </ol>
                         </JobDetailSection>
 
-                        {/* Mobile: Apply Now near bottom */}
-                        <a
-                            href={applyMailto(job)}
-                            className="lg:hidden cw-btn-arrow w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-sm font-semibold px-6 py-3.5 hover:bg-[var(--cw-accent-dark)] transition-colors duration-300"
-                        >
-                            Apply Now <div className="icon-arrow-right transition-transform duration-300"></div>
+                        <a href={applyMailto(job)} className="lg:hidden tg-btn tg-btn--primary w-full">
+                            Apply Now <div className="icon-arrow-right"></div>
                         </a>
                     </div>
 
-                    <div className="hidden lg:block">
+                    <div className="hidden lg:block lg:col-span-4">
                         <JobSummaryCard job={job} sticky />
                     </div>
                 </div>

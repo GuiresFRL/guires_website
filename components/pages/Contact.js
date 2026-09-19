@@ -9,35 +9,49 @@ function ContactPage() {
     ];
 
     React.useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo('.contact-card',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: '#contact-grid', start: 'top 80%' } }
-        );
+        tgReveal('.contact-card');
     }, []);
 
     return (
-        <section className="py-24">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div id="contact-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-                    {options.map((opt) => (
-                        <div key={opt.title} className="contact-card border-t border-black/10 pt-6">
-                            <h3 className="text-xl font-semibold mb-3">{opt.title}</h3>
-                            <p className="text-sm text-gray-600 leading-relaxed">{opt.desc}</p>
+        <React.Fragment>
+            <section className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-24 items-end">
+                        <div className="lg:col-span-8">
+                            <div className="tg-eyebrow mb-6">How can we help</div>
+                            <h2 className="tg-h2">Choose the conversation you need</h2>
                         </div>
-                    ))}
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-10 lg:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-                    <div>
-                        <h2 className="text-3xl font-bold mb-4">Let's start a conversation.</h2>
-                        <p className="text-gray-600 max-w-lg">Tell us about your challenge, idea or opportunity and our team will be in touch.</p>
+                        <p className="lg:col-span-4 tg-lead text-[var(--muted)]">Pick a topic and it opens an email to our team with the subject already filled in.</p>
                     </div>
-                    <a href="mailto:support@guires.com" className="btn-primary shrink-0">
-                        Email Us <div className="icon-arrow-right"></div>
-                    </a>
+
+                    <div id="contact-grid" className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16">
+                        {options.map((opt, i) => (
+                            <a
+                                key={opt.title}
+                                href={`mailto:support@guires.com?subject=${encodeURIComponent(opt.title)}`}
+                                className="contact-card tg-index-row group grid grid-cols-12 gap-x-4 items-baseline py-7"
+                            >
+                                <span className="col-span-2 text-sm font-medium text-[var(--muted)] tabular-nums">0{i + 1}</span>
+                                <div className="col-span-8">
+                                    <h3 className="tg-index-title text-[clamp(1.5rem,2.4vw,2.125rem)] font-medium tracking-[-0.03em] leading-tight mb-2">{opt.title}</h3>
+                                    <p className="text-[var(--muted)] leading-relaxed">{opt.desc}</p>
+                                </div>
+                                <span className="tg-index-arrow col-span-2 text-right icon-arrow-right text-xl"></span>
+                            </a>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <section className="tg-band tg-band--accent tg-section overflow-hidden">
+                <div className="tg-container grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+                    <h2 className="lg:col-span-8 tg-display !text-[clamp(2.75rem,7vw,6.5rem)] max-w-[14ch]">Let&rsquo;s start a conversation.</h2>
+                    <div className="lg:col-span-4">
+                        <p className="tg-lead text-white/90 mb-8">Tell us about your challenge, idea or opportunity and our team will be in touch.</p>
+                        <a href="mailto:support@guires.com" className="tg-btn tg-btn--light !py-5 !px-8">Email Us <div className="icon-arrow-right"></div></a>
+                    </div>
+                </div>
+            </section>
+        </React.Fragment>
     );
 }

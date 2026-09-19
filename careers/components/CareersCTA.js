@@ -2,29 +2,32 @@ function CareersCTA({ eyebrow = 'Join Us', heading, subtext, buttonLabel, button
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(ref.current.querySelectorAll('.cw-cta-elem'),
             { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 80%' } }
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 85%' } }
         );
     }, []);
 
     return (
-        <section ref={ref} className="relative py-24 lg:py-28 bg-[var(--cw-ink)] overflow-hidden">
-            <div className="absolute inset-0 opacity-40 pointer-events-none" aria-hidden="true">
-                <div className="cw-float-slow absolute -top-24 -right-16 w-72 h-72 rounded-full" style={{ background: 'radial-gradient(circle, var(--cw-accent) 0%, transparent 70%)' }}></div>
-                <div className="cw-float-slower absolute -bottom-32 -left-20 w-80 h-80 rounded-full" style={{ background: 'radial-gradient(circle, var(--cw-accent-secondary) 0%, transparent 70%)' }}></div>
-            </div>
-            <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-                <div className="cw-cta-elem text-xs font-bold tracking-[0.2em] text-[var(--cw-accent-light)] uppercase mb-5">{eyebrow}</div>
-                <h2 className="cw-cta-elem text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-[1.2] tracking-tight mb-6">{heading}</h2>
-                {subtext && <p className="cw-cta-elem text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">{subtext}</p>}
-                <a
-                    href={buttonHref}
-                    className="cw-cta-elem cw-btn-arrow inline-flex items-center gap-2 rounded-full bg-[var(--cw-accent)] text-white text-base font-semibold px-8 py-4 hover:bg-[var(--cw-accent-dark)] transition-colors duration-300"
-                >
-                    {buttonLabel} <div className="icon-arrow-right transition-transform duration-300"></div>
-                </a>
+        <section ref={ref} className="relative py-24 lg:py-40 overflow-hidden text-white" style={{ background: 'var(--accent)' }}>
+            <svg className="absolute -right-24 -bottom-40 w-[560px] h-[560px] pointer-events-none" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+                <circle cx="200" cy="200" r="190" stroke="#fff" strokeOpacity="0.28" strokeWidth="1.5" />
+                <circle cx="200" cy="200" r="140" stroke="#fff" strokeOpacity="0.28" strokeWidth="1.5" />
+                <circle cx="200" cy="200" r="90" stroke="#fff" strokeOpacity="0.28" strokeWidth="1.5" />
+            </svg>
+            <div className="relative z-10 tg-container">
+                <div className="cw-cta-elem tg-eyebrow !text-white mb-8">{eyebrow}</div>
+                <h2 className="cw-cta-elem tg-display max-w-[14ch] mb-10 !text-[clamp(2.75rem,7.6vw,7.5rem)]">{heading}</h2>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                    {subtext && <p className="cw-cta-elem lg:col-span-6 tg-lead text-white/90 max-w-xl">{subtext}</p>}
+                    <div className="cw-cta-elem lg:col-span-6 lg:text-right">
+                        <a href={buttonHref} className="tg-btn tg-btn--light !py-5 !px-8 !text-base">
+                            {buttonLabel} <div className="icon-arrow-right"></div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     );

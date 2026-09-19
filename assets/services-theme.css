@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Services pages — logo-inspired "Feature Stack" theme
+   Palette taken from the GUIRES logo: brand blue #0C4DA2, brand navy #29539B,
+   deep navy #081B33, tints #EEF3FA / #DCE8F5, sky #7FB5FF (accent on dark).
+   Scoped to <html class="theme-services">; layered over together.css.
+   Structure follows the n8n "Feature Stack": stacked full-bleed bands,
+   light headline weight, hierarchy from type scale rather than colour.
+   ========================================================================== */
+
+html.theme-services:root {
+    --ink: #081B33;                 /* text on light surfaces */
+    --black: #081B33;
+    --ink-navy: #081B33;            /* dominant dark surface (deep logo navy) */
+    --accent: #0C4DA2;              /* logo blue: CTAs, key numerals */
+    --accent-secondary: #29539B;    /* logo navy: hover + small text on light */
+    --accent-cyan: #7FB5FF;         /* accent text on dark surfaces */
+    --purple: #29539B;              /* mid-blue band */
+    --lilac: #DCE8F5;               /* light blue band */
+    --bg-soft: #EEF3FA;             /* paper */
+    --tint-1: #EEF3FA;
+    --tint-2: #DCE8F5;
+    --off-white: #EEF3FA;
+    --muted: #4A5D78;
+    --gray: #4A5D78;
+    --light-gray: #C9D6E8;
+    --font-display: 'Geomanist', 'The Future', 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* light headline weight, very tight tracking */
+html.theme-services h1, html.theme-services h2, html.theme-services h3 { font-weight: 400; }
+html.theme-services h1.font-bold, html.theme-services h2.font-bold, html.theme-services h3.font-bold,
+html.theme-services h1.font-semibold, html.theme-services h2.font-semibold, html.theme-services h3.font-semibold { font-weight: 400; }
+html.theme-services .tg-display, html.theme-services .tg-h2 { font-weight: 400; letter-spacing: -0.05em; }
+
+html.theme-services .text-gray-500, html.theme-services .text-gray-600 { color: var(--muted); }
+html.theme-services .tg-hairline { border-color: rgba(8, 27, 51, .18); }
+html.theme-services .tg-on-ink .tg-hairline { border-color: rgba(127, 181, 255, .28); }
+html.theme-services .tg-grid-bg {
+    background-image:
+        linear-gradient(rgba(127,181,255,.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(127,181,255,.10) 1px, transparent 1px);
+}
+html.theme-services .tg-eyebrow { color: var(--accent-secondary); }
+html.theme-services .tg-on-ink .tg-eyebrow, html.theme-services .tg-eyebrow--light { color: var(--accent-cyan); }
+html.theme-services .nav-link.is-active::after, html.theme-services .nav-link::after { background: var(--accent); }
+
+/* ---- Feature Stack bands ------------------------------------------------ */
+.fs-band { position: relative; }
+.fs-band--dark { background: var(--ink-navy); color: #EEF3FA; }
+.fs-band--blue { background: var(--accent); color: #fff; }
+.fs-band--mid { background: var(--purple); color: #fff; }
+.fs-band--paper { background: var(--bg-soft); color: var(--ink); }
+.fs-band--tan { background: var(--lilac); color: var(--ink); }
+.fs-band--white { background: #fff; color: var(--ink); }
+.fs-band--accent { background: var(--accent); color: #fff; }
+.fs-num {
+    font-size: clamp(4rem, 11vw, 11rem); line-height: .85; font-weight: 400; letter-spacing: -0.06em;
+    color: currentColor; opacity: .2; font-variant-numeric: tabular-nums;
+}
+.fs-band--dark .fs-num, .fs-band--blue .fs-num, .fs-band--mid .fs-num { color: var(--accent-cyan); opacity: .55; }
+
+/* buttons */
+html.theme-services .tg-btn--primary:hover { background: var(--ink-navy); }
+html.theme-services .tg-btn--ghost { border-color: rgba(8, 27, 51, .4); }
+html.theme-services .tg-btn--ghost:hover { background: var(--ink-navy); border-color: var(--ink-navy); color: #fff; }
+html.theme-services .tg-btn--light { color: var(--accent-secondary); }
+html.theme-services .tg-btn--light:hover { background: var(--ink-navy); color: #fff; }
+/* on the dark hero the blue primary button needs a lighter fill to stay legible */
+html.theme-services .tg-on-ink .tg-btn--primary { background: #fff; color: var(--accent-secondary); }
+html.theme-services .tg-on-ink .tg-btn--primary:hover { background: var(--accent-cyan); color: var(--ink-navy); }

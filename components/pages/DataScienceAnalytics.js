@@ -179,21 +179,21 @@ function CustomerSuccessCarousel() {
                 <div className="dsa-reveal text-xs font-bold tracking-wider text-[var(--accent)] uppercase">Customer Success Stories</div>
             </div>
 
-            <svg className="block w-full text-[#081B33]" viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ height: '60px' }}>
+            <svg className="block w-full text-[#010120]" viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ height: '60px' }}>
                 <path fill="currentColor" d="M0,30 C 360,68 1080,-8 1440,30 L1440,60 L0,60 Z" />
             </svg>
 
-            <div className="relative bg-[#081B33] pb-16">
+            <div className="relative bg-[#010120] pb-16">
                 <svg className="absolute -right-24 -top-24 w-[420px] h-[420px] text-white/5 pointer-events-none" viewBox="0 0 400 400" fill="none">
                     <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" />
                     <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
                     <circle cx="200" cy="200" r="90" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
 
-                <button onClick={() => go(-1)} aria-label="Previous story" className="absolute left-4 lg:left-10 top-[45%] -translate-y-1/2 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#081B33] hover:bg-white/90 transition-colors z-20">
+                <button onClick={() => go(-1)} aria-label="Previous story" className="absolute left-4 lg:left-10 top-[45%] -translate-y-1/2 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#010120] hover:bg-white/90 transition-colors z-20">
                     <div className="icon-chevron-left"></div>
                 </button>
-                <button onClick={() => go(1)} aria-label="Next story" className="absolute right-4 lg:right-10 top-[45%] -translate-y-1/2 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#081B33] hover:bg-white/90 transition-colors z-20">
+                <button onClick={() => go(1)} aria-label="Next story" className="absolute right-4 lg:right-10 top-[45%] -translate-y-1/2 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#010120] hover:bg-white/90 transition-colors z-20">
                     <div className="icon-chevron-right"></div>
                 </button>
 
@@ -207,12 +207,12 @@ function CustomerSuccessCarousel() {
                     <div>
                         <h3 key={story.title} className="text-2xl font-bold text-white mb-4 leading-snug">{story.title}</h3>
                         <p className="text-white/50 mb-8 leading-relaxed">Client success story placeholder &mdash; to be replaced with a real GUIRES case study once available.</p>
-                        <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="rounded-full px-6 py-3 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-blue-800 transition-colors inline-flex items-center gap-2">Learn More <div className="icon-chevron-right"></div></a>
+                        <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="rounded-full px-6 py-3 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-[var(--accent-secondary)] transition-colors inline-flex items-center gap-2">Learn More <div className="icon-chevron-right"></div></a>
                     </div>
                 </div>
             </div>
 
-            <svg className="block w-full text-[#081B33] -mt-px" viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ height: '60px', transform: 'scaleY(-1)' }}>
+            <svg className="block w-full text-[#010120] -mt-px" viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ height: '60px', transform: 'scaleY(-1)' }}>
                 <path fill="currentColor" d="M0,30 C 360,68 1080,-8 1440,30 L1440,60 L0,60 Z" />
             </svg>
 
@@ -251,14 +251,14 @@ function DataScienceAnalyticsPage() {
     return (
         <React.Fragment>
             {/* ============ HERO ============ */}
-            <section ref={heroRef} className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-[#050B18] overflow-hidden">
+            <section ref={heroRef} className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-[#010120] overflow-hidden">
                 <img
                     className="dsa-hero-wall absolute inset-0 w-full h-full object-cover opacity-0"
                     src="https://www.axtria.com/hs-fs/hubfs/Axtria-2025/Service%20-%20Data%20Engineering%20-%202025/Data-engineering-banner.jpg?width=2025&height=825&name=Data-engineering-banner.jpg"
                     alt=""
                     aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#050B18] via-[#050B18]/70 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#010120] via-[#010120]/70 to-transparent"></div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
                     <div className="flex items-center gap-2 text-xs text-white/50 mb-6">
@@ -271,7 +271,7 @@ function DataScienceAnalyticsPage() {
                     <h1 className="text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.1] mb-4 overflow-hidden">
                         <span className="dsa-hero-line block text-white">Data Science &amp; Analytics</span>
                     </h1>
-                    <p className="dsa-hero-fade text-blue-100 text-lg max-w-xl">Build the data foundation your research strategy demands.</p>
+                    <p className="dsa-hero-fade text-white/80 text-lg max-w-xl">Build the data foundation your research strategy demands.</p>
                 </div>
             </section>
 
@@ -377,7 +377,7 @@ function DataScienceAnalyticsPage() {
                         ))}
                     </div>
                 </div>
-                <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="hidden lg:flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 -rotate-90 origin-right translate-x-1/2 bg-[#081B33] text-white text-xs font-bold tracking-wider uppercase px-5 py-3">
+                <a href="https://guiresfrl.github.io/guires_website/case-studies.html" className="hidden lg:flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 -rotate-90 origin-right translate-x-1/2 bg-[#010120] text-white text-xs font-bold tracking-wider uppercase px-5 py-3">
                     View Case Studies <div className="icon-arrow-right"></div>
                 </a>
             </section>

@@ -21,7 +21,12 @@ const PLATFORM_STATS = [
 
 function PlatformStats() {
     React.useEffect(() => {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         gsap.registerPlugin(ScrollTrigger);
+        if (reduce) {
+            document.querySelectorAll('.stat-num').forEach((el) => { el.innerHTML = el.getAttribute('data-target') + '+'; });
+            return;
+        }
         gsap.fromTo('.platform-reveal', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: '#platform-section', start: 'top 70%' } });
 
         document.querySelectorAll('.hub-path').forEach((c) => {
@@ -51,58 +56,56 @@ function PlatformStats() {
     }, []);
 
     return (
-        <section id="platform-section" className="py-24 bg-white" data-name="platform-stats" data-file="components/PlatformStats.js">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-                <div>
-                    <h2 className="platform-reveal text-4xl lg:text-5xl font-bold mb-6">Data &amp; research intelligence platforms</h2>
-                    <p className="platform-reveal text-gray-600 leading-relaxed mb-6">
+        <section id="platform-section" className="py-24 lg:py-36 bg-white" data-name="platform-stats" data-file="components/PlatformStats.js">
+            <div className="tg-container grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center mb-24 lg:mb-32">
+                <div className="lg:col-span-6">
+                    <div className="platform-reveal tg-eyebrow mb-6">Platforms</div>
+                    <h2 className="platform-reveal tg-h2 !text-[clamp(2rem,4.4vw,4rem)] mb-8">Data &amp; research intelligence platforms</h2>
+                    <p className="platform-reveal tg-lead text-[var(--muted)] mb-8 max-w-xl">
                         Global demand for research, regulatory and data-driven decision-making continues to accelerate. GUIRES combines domain specialists with modern research operations to help clients move from raw data to publication-ready outcomes &mdash; faster and with confidence.
                     </p>
-                    <ul className="platform-reveal space-y-3 mb-8 text-gray-700">
-                        <li className="flex items-center gap-3"><div className="icon-check text-[var(--accent)]"></div> Research &amp; data intelligence</li>
-                        <li className="flex items-center gap-3"><div className="icon-check text-[var(--accent)]"></div> Regulatory &amp; compliance workflows</li>
-                        <li className="flex items-center gap-3"><div className="icon-check text-[var(--accent)]"></div> Scientific communication &amp; publication support</li>
+                    <ul className="platform-reveal mb-10 max-w-xl">
+                        {['Research & data intelligence', 'Regulatory & compliance workflows', 'Scientific communication & publication support'].map((t) => (
+                            <li key={t} className="tg-hairline flex items-center gap-4 py-4 text-lg font-medium tracking-tight">
+                                <span className="w-2 h-2 bg-[var(--accent)] shrink-0"></span>{t}
+                            </li>
+                        ))}
                     </ul>
-                    <a href="https://guiresfrl.github.io/guires_website/services.html" className="platform-reveal rounded-full px-8 py-4 bg-[var(--accent)] text-white text-sm font-semibold hover:bg-blue-800 transition-colors inline-flex items-center gap-2">Read More <div className="icon-arrow-right"></div></a>
+                    <a href="https://guiresfrl.github.io/guires_website/services.html" className="platform-reveal tg-btn tg-btn--primary">Read More <div className="icon-arrow-right"></div></a>
                 </div>
-                <div className="flex items-center justify-center">
-                    <svg viewBox="0 0 480 440" className="w-full max-w-lg" fill="none">
+                <div className="lg:col-span-6 flex items-center justify-center">
+                    <svg viewBox="0 0 480 440" className="w-full max-w-lg" fill="none" role="img" aria-label="Four research disciplines converging into one platform">
                         {HUB_PATHS.map((d, i) => (
-                            <path key={i} className="hub-path" d={d} stroke="#C7D6EA" strokeWidth="2" fill="none" />
+                            <path key={i} className="hub-path" d={d} stroke="#b89dc0" strokeWidth="2" fill="none" />
                         ))}
                         {HUB_PATHS.map((d, i) => (
-                            <circle key={i} r="4" fill="#5A8FD6">
+                            <circle key={i} r="4" fill="#da2e0f">
                                 <animateMotion dur="2.4s" repeatCount="indefinite" begin={`${i * 0.6}s`} path={d} />
                             </circle>
                         ))}
-                        {HUB_NODES.map((node) => (
+                        {HUB_NODES.map((node, i) => (
                             <g key={node.x} className="hub-node">
-                                <rect x={node.x} y="40" width="70" height="70" rx="16" fill="#0A1B33" />
+                                <rect x={node.x} y="40" width="70" height="70" fill={['#010120', '#8d468a', '#010120', '#8d468a'][i]} />
                                 <foreignObject x={node.x} y="40" width="70" height="70">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '26px' }} className={node.icon}></div>
                                 </foreignObject>
                             </g>
                         ))}
-                        <defs>
-                            <radialGradient id="hubGrad" cx="35%" cy="30%" r="80%">
-                                <stop offset="0%" stopColor="#1B4F8C" />
-                                <stop offset="100%" stopColor="#081B33" />
-                            </radialGradient>
-                        </defs>
-                        <circle cx="240" cy="395" r="58" fill="url(#hubGrad)" />
+                        <circle cx="240" cy="395" r="58" fill="#da2e0f" />
                         <foreignObject x="205" y="360" width="70" height="70">
                             <div xmlns="http://www.w3.org/1999/xhtml" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '28px' }} className="icon-network"></div>
                         </foreignObject>
                     </svg>
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 border-t border-black/10 pt-14">
-                <div className="text-xs font-bold tracking-wider text-gray-400 uppercase mb-10">Featured Outcomes</div>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
-                    {PLATFORM_STATS.map((s) => (
-                        <div key={s.label}>
-                            <div className="stat-num text-5xl font-bold text-[var(--accent)] mb-2" data-target={s.target}>0</div>
-                            <div className="text-gray-600 font-medium">{s.label}</div>
+
+            <div className="tg-container">
+                <div className="tg-eyebrow mb-10">Featured Outcomes</div>
+                <div className="grid grid-cols-2 lg:grid-cols-4">
+                    {PLATFORM_STATS.map((s, i) => (
+                        <div key={s.label} className={`tg-hairline pt-6 pb-10 ${i % 2 === 1 ? 'pl-5 lg:pl-8' : 'pr-5'} ${i > 0 ? 'lg:pl-8' : ''} lg:pr-8`}>
+                            <div className="stat-num text-[clamp(3rem,7vw,6.5rem)] font-medium tracking-[-0.05em] leading-none mb-4 tabular-nums" data-target={s.target}>0</div>
+                            <div className="text-[var(--muted)] font-medium max-w-[16rem]">{s.label}</div>
                         </div>
                     ))}
                 </div>

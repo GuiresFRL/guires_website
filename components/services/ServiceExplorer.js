@@ -1,8 +1,9 @@
-function svcUrl(slug) {
-    if (slug === 'data-science-analytics') {
-        return 'https://guiresfrl.github.io/guires_website/services/data-science-analytics.html';
-    }
-    return `https://guiresfrl.github.io/guires_website/services/${slug}/`;
+function explorerUrl(slug) {
+    const base = 'https://guiresfrl.github.io/guires_website';
+    if (slug === 'biostatistics') return base + '/services/biostatistics/';
+    if (slug === 'data-analytics' || slug === 'data-science-analytics') return base + '/services/data-science-analytics.html';
+    // detail pages not built yet: route to a conversation instead of a dead link
+    return base + '/contact-us.html';
 }
 
 const EXPLORER_CATEGORIES = [
@@ -60,6 +61,7 @@ function ServiceExplorer() {
     const category = EXPLORER_CATEGORIES.find((c) => c.key === active);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(ref.current.querySelectorAll('.svc-explorer-elem'),
             { opacity: 0, y: 24 },
@@ -68,7 +70,7 @@ function ServiceExplorer() {
     }, []);
 
     React.useEffect(() => {
-        if (!panelRef.current) return;
+        if (!panelRef.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.fromTo(panelRef.current.querySelectorAll('.svc-explorer-item'),
             { opacity: 0, y: 12 },
             { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: 'power2.out' }
@@ -76,69 +78,68 @@ function ServiceExplorer() {
     }, [active]);
 
     return (
-        <section ref={ref} className="py-24 lg:py-36 bg-[var(--bg-soft)]">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="svc-explorer-elem max-w-2xl mb-14">
-                    <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-bold tracking-tight text-[var(--black)]">Explore Our Expertise</h2>
+        <section id="service-explorer" ref={ref} className="fs-band fs-band--tan py-24 lg:py-36 scroll-mt-20">
+            <div className="tg-container">
+                <div className="svc-explorer-elem grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 lg:mb-20 items-end">
+                    <h2 className="tg-h2 lg:col-span-8">Explore Our Expertise</h2>
+                    <p className="lg:col-span-4 leading-relaxed text-[#081b33cc]">Choose a discipline to see the services behind it.</p>
                 </div>
 
                 {/* Desktop split layout */}
-                <div className="hidden lg:grid grid-cols-12 gap-10">
-                    <div className="svc-explorer-elem col-span-4">
-                        <div className="flex flex-col gap-1 sticky top-28">
-                            {EXPLORER_CATEGORIES.map((c) => (
+                <div className="hidden lg:grid grid-cols-12 gap-16">
+                    <div className="svc-explorer-elem col-span-4" role="tablist" aria-label="Disciplines">
+                        <div className="sticky top-28">
+                            {EXPLORER_CATEGORIES.map((c, i) => (
                                 <button
                                     key={c.key}
+                                    role="tab"
+                                    aria-selected={active === c.key}
                                     onClick={() => setActive(c.key)}
-                                    className={`flex items-center gap-3 text-left px-5 py-4 rounded-xl transition-all duration-300 ${active === c.key ? 'bg-white shadow-md' : 'hover:bg-white/60'}`}
+                                    className={`w-full flex items-baseline gap-5 text-left py-5 border-t border-[#081b3340] last:border-b transition-colors ${active === c.key ? 'text-[var(--ink)]' : 'text-[#081b338c] hover:text-[var(--ink)]'}`}
                                 >
-                                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 ${active === c.key ? 'bg-[var(--accent)] text-white' : 'bg-black/5 text-[var(--muted)]'}`}>
-                                        <div className={c.icon}></div>
-                                    </div>
-                                    <span className={`font-semibold ${active === c.key ? 'text-[var(--black)]' : 'text-[var(--muted)]'}`}>{c.label}</span>
+                                    <span className="text-sm tabular-nums">0{i + 1}</span>
+                                    <span className="flex-1 text-3xl tracking-[-0.03em]">{c.label}</span>
+                                    <span className={`icon-arrow-right transition-all duration-300 ${active === c.key ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}></span>
                                 </button>
                             ))}
                         </div>
                     </div>
-                    <div ref={panelRef} className="col-span-8">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {category.items.map((item) => (
-                                <a
-                                    key={item.title}
-                                    href={svcUrl(item.slug)}
-                                    className="svc-explorer-item group rounded-2xl bg-white border border-black/10 p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                                >
-                                    <h3 className="text-lg font-bold text-[var(--black)] mb-2">{item.title}</h3>
-                                    <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">{item.desc}</p>
-                                    <div className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
-                                        Learn more <div className="icon-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></div>
-                                    </div>
-                                </a>
-                            ))}
-                        </div>
+                    <div ref={panelRef} className="col-span-8" role="tabpanel">
+                        {category.items.map((item) => (
+                            <a
+                                key={item.title}
+                                href={explorerUrl(item.slug)}
+                                className="svc-explorer-item group grid grid-cols-12 gap-6 items-baseline py-7 border-t border-[#081b3340] last:border-b"
+                            >
+                                <h3 className="col-span-5 text-2xl tracking-[-0.02em] transition-transform duration-300 group-hover:translate-x-2">{item.title}</h3>
+                                <p className="col-span-6 text-[#081b33cc] leading-relaxed">{item.desc}</p>
+                                <span className="col-span-1 text-right icon-arrow-right text-xl transition-transform duration-300 group-hover:translate-x-1.5"></span>
+                            </a>
+                        ))}
                     </div>
                 </div>
 
                 {/* Mobile accordion */}
-                <div className="lg:hidden divide-y divide-black/10 border-t border-b border-black/10">
-                    {EXPLORER_CATEGORIES.map((c) => (
-                        <div key={c.key}>
+                <div className="lg:hidden border-t border-[#081b3340]">
+                    {EXPLORER_CATEGORIES.map((c, i) => (
+                        <div key={c.key} className="border-b border-[#081b3340]">
                             <button
                                 onClick={() => setOpenMobile(openMobile === c.key ? null : c.key)}
-                                className="w-full flex items-center justify-between gap-4 py-5"
+                                className="w-full flex items-center justify-between gap-4 py-5 text-left"
+                                aria-expanded={openMobile === c.key}
                             >
-                                <span className="flex items-center gap-3">
-                                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${openMobile === c.key ? 'bg-[var(--accent)] text-white' : 'bg-black/5 text-[var(--muted)]'}`}><div className={c.icon}></div></div>
-                                    <span className="font-semibold text-[var(--black)]">{c.label}</span>
+                                <span className="flex items-baseline gap-4">
+                                    <span className="text-sm tabular-nums">0{i + 1}</span>
+                                    <span className="text-2xl tracking-[-0.02em]">{c.label}</span>
                                 </span>
-                                <div className={`icon-chevron-down text-[var(--muted)] transition-transform duration-300 ${openMobile === c.key ? 'rotate-180' : ''}`}></div>
+                                <div className={`icon-chevron-down transition-transform duration-300 ${openMobile === c.key ? 'rotate-180' : ''}`}></div>
                             </button>
                             <div className={`grid transition-all duration-300 ease-out ${openMobile === c.key ? 'grid-rows-[1fr] opacity-100 pb-5' : 'grid-rows-[0fr] opacity-0'}`} style={{ overflow: 'hidden' }}>
-                                <div className="min-h-0 space-y-3">
+                                <div className="min-h-0">
                                     {c.items.map((item) => (
-                                        <a key={item.title} href={svcUrl(item.slug)} className="block rounded-xl bg-white border border-black/10 p-5">
-                                            <h4 className="font-bold text-[var(--black)] mb-1">{item.title}</h4>
-                                            <p className="text-sm text-[var(--muted)]">{item.desc}</p>
+                                        <a key={item.title} href={explorerUrl(item.slug)} className="block border-t border-[#081b3326] py-4">
+                                            <h4 className="text-lg mb-1">{item.title}</h4>
+                                            <p className="text-sm text-[#081b33cc]">{item.desc}</p>
                                         </a>
                                     ))}
                                 </div>

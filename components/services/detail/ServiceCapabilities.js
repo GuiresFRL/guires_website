@@ -22,10 +22,10 @@ function ServiceCapabilities({ service }) {
         <section ref={ref} className="py-14 lg:py-16 bg-[var(--bg-soft)]">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="svd-cap-elem max-w-2xl mb-10">
-                    <h2 className="text-[clamp(1.9rem,3.6vw,2.5rem)] font-bold tracking-tight text-[var(--black)]">{service.capabilitiesHeading || 'Our Capabilities'}</h2>
+                    <h2 className="tg-h2 !text-[clamp(1.9rem,3.6vw,3rem)]">{service.capabilitiesHeading || 'Our Capabilities'}</h2>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.6fr] gap-10 lg:gap-16">
-                    <div className="svd-cap-elem flex lg:flex-col overflow-x-auto lg:overflow-visible border-t border-black/10 lg:border-t-0">
+                    <div className="svd-cap-elem flex lg:flex-col overflow-x-auto lg:overflow-visible no-scrollbar border-t border-black/10 lg:border-t-0">
                         {service.capabilities.map((cap, i) => (
                             <button
                                 key={cap.title}
@@ -38,7 +38,7 @@ function ServiceCapabilities({ service }) {
                     </div>
 
                     <div className="svd-cap-elem rounded-[20px] bg-white border border-black/10 p-8 lg:p-10">
-                        <div className="w-12 h-12 rounded-xl bg-[#0C4DA21A] text-[var(--accent)] flex items-center justify-center text-2xl mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-[var(--tint-2)] text-[var(--accent)] flex items-center justify-center text-2xl mb-6">
                             <div className={current.icon}></div>
                         </div>
                         <p className="text-[var(--muted)] leading-relaxed mb-9 max-w-2xl">{current.desc}</p>

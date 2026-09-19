@@ -10,58 +10,31 @@ function ValueLifecycle() {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo(ref.current.querySelector('.svc-lifecycle-heading'),
+        gsap.fromTo(ref.current.querySelectorAll('.svc-lifecycle-heading, .svc-lifecycle-content'),
             { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 78%' } }
-        );
-
-        const line = ref.current.querySelector('.svc-lifecycle-line');
-        if (line) {
-            const len = line.getTotalLength();
-            gsap.set(line, { strokeDasharray: len, strokeDashoffset: len });
-            gsap.to(line, { strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut', scrollTrigger: { trigger: ref.current, start: 'top 65%' } });
-        }
-
-        gsap.utils.toArray(ref.current.querySelectorAll('.svc-lifecycle-node')).forEach((node, i) => {
-            gsap.fromTo(node,
-                { opacity: 0, scale: 0.6 },
-                { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)', scrollTrigger: { trigger: ref.current, start: 'top 65%' }, delay: i * 0.15 }
-            );
-        });
-
-        gsap.fromTo(ref.current.querySelectorAll('.svc-lifecycle-content'),
-            { opacity: 0, y: 16 },
-            { opacity: 1, y: 0, duration: 0.6, stagger: 0.12, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 60%' } }
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 70%' } }
         );
     }, []);
 
     return (
-        <section ref={ref} className="py-24 lg:py-36 bg-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="svc-lifecycle-heading max-w-2xl mb-20">
-                    <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-bold tracking-tight text-[var(--black)]">From Complex Questions to Clear Decisions</h2>
+        <section ref={ref} className="fs-band fs-band--white py-24 lg:py-36 overflow-hidden">
+            <div className="tg-container">
+                <div className="svc-lifecycle-heading grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-24 items-end">
+                    <h2 className="tg-h2 lg:col-span-8">From Complex Questions to Clear Decisions</h2>
+                    <p className="lg:col-span-4 text-[var(--muted)] leading-relaxed">Every engagement follows the same five-stage path, from the first question to measured impact.</p>
                 </div>
 
-                <div className="relative">
-                    <svg className="hidden lg:block absolute top-6 left-0 w-full h-1" viewBox="0 0 1000 4" preserveAspectRatio="none" fill="none">
-                        <path className="svc-lifecycle-line" d="M0 2 L1000 2" stroke="var(--accent)" strokeWidth="2" />
-                    </svg>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-6">
-                        {LIFECYCLE_STAGES.map((s) => (
-                            <div key={s.num} className="relative">
-                                <div className="svc-lifecycle-node relative z-10 w-12 h-12 rounded-full bg-white border-2 border-[var(--accent)] flex items-center justify-center text-[var(--accent)] text-lg mb-6">
-                                    <div className={s.icon}></div>
-                                </div>
-                                <div className="svc-lifecycle-content">
-                                    <div className="text-xs font-bold text-[var(--muted)] mb-2">{s.num}</div>
-                                    <h3 className="text-lg font-bold text-[var(--black)] mb-2">{s.title}</h3>
-                                    <p className="text-sm text-[var(--muted)] leading-relaxed">{s.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                    {LIFECYCLE_STAGES.map((s, i) => (
+                        <li key={s.num} className="svc-lifecycle-content border-t-2 border-[var(--ink)] pt-6 pb-10 lg:pr-8">
+                            <div className="text-[clamp(3rem,5vw,4.5rem)] leading-none tracking-[-0.05em] tabular-nums mb-10 lg:mb-16" style={{ color: i === LIFECYCLE_STAGES.length - 1 ? 'var(--accent)' : 'var(--ink)' }}>{s.num}</div>
+                            <h3 className="text-2xl tracking-[-0.02em] mb-3">{s.title}</h3>
+                            <p className="text-[var(--muted)] leading-relaxed">{s.desc}</p>
+                        </li>
+                    ))}
+                </ol>
             </div>
         </section>
     );

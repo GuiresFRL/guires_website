@@ -9,8 +9,10 @@ function ServicesInsights() {
     const ref = React.useRef(null);
     const featured = SERVICES_INSIGHTS.find((i) => i.featured);
     const rest = SERVICES_INSIGHTS.filter((i) => !i.featured);
+    const href = 'https://guiresfrl.github.io/guires_website/insights.html';
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(ref.current.querySelectorAll('.svc-insight-elem'),
             { opacity: 0, y: 24 },
@@ -19,35 +21,33 @@ function ServicesInsights() {
     }, []);
 
     return (
-        <section ref={ref} className="py-24 lg:py-36 bg-white">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="max-w-2xl mb-14">
-                    <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-bold tracking-tight text-[var(--black)]">Latest Insights</h2>
+        <section ref={ref} className="fs-band fs-band--white py-24 lg:py-36">
+            <div className="tg-container">
+                <div className="svc-insight-elem flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 lg:mb-20">
+                    <h2 className="tg-h2">Latest Insights</h2>
+                    <a href={href} className="tg-btn tg-btn--ghost self-start md:self-auto">View All Insights <div className="icon-arrow-right"></div></a>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <a href="https://guiresfrl.github.io/guires_website/insights.html" className="svc-insight-elem group rounded-2xl overflow-hidden border border-black/10">
-                        <div className="relative h-72 overflow-hidden">
-                            <img src={featured.img} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-12">
+                    <a href={href} className="svc-insight-elem group lg:col-span-7 block min-w-0">
+                        <div className="overflow-hidden mb-6 aspect-[16/10] bg-[var(--ink)]">
+                            <img src={featured.img} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <div className="p-7">
-                            <div className="flex items-center gap-3 text-xs font-bold tracking-wider text-[var(--accent)] uppercase mb-3"><span>{featured.category}</span><span className="text-[var(--muted)] font-medium normal-case tracking-normal">{featured.date}</span></div>
-                            <h3 className="text-xl font-bold text-[var(--black)] mb-3">{featured.title}</h3>
-                            <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">{featured.desc}</p>
-                            <div className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">Read Insight <div className="icon-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></div></div>
-                        </div>
+                        <div className="flex items-center gap-4 mb-4"><span className="tg-eyebrow">{featured.category}</span><span className="text-sm text-[var(--muted)]">{featured.date}</span></div>
+                        <h3 className="text-[clamp(1.75rem,3vw,2.75rem)] tracking-[-0.03em] leading-[1.08] mb-4 max-w-2xl transition-colors group-hover:text-[var(--accent-secondary)]">{featured.title}</h3>
+                        <p className="text-[var(--muted)] leading-relaxed mb-6 max-w-xl">{featured.desc}</p>
+                        <span className="tg-link text-[var(--accent-secondary)]">Read Insight <span className="icon-arrow-right"></span></span>
                     </a>
 
-                    <div className="grid grid-rows-3 gap-4">
+                    <div className="lg:col-span-5 min-w-0">
                         {rest.map((a) => (
-                            <a key={a.title} href="https://guiresfrl.github.io/guires_website/insights.html" className="svc-insight-elem group flex items-center gap-5 rounded-2xl border border-black/10 p-4 transition-all duration-300 hover:shadow-md">
-                                <div className="w-24 h-20 rounded-xl overflow-hidden shrink-0">
-                                    <img src={a.img} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <a key={a.title} href={href} className="svc-insight-elem group tg-hairline flex items-center gap-5 py-6 first:border-t-0 first:pt-0 min-w-0">
+                                <div className="min-w-0 flex-1">
+                                    <div className="flex items-center gap-4 mb-3"><span className="tg-eyebrow">{a.category}</span><span className="text-sm text-[var(--muted)]">{a.date}</span></div>
+                                    <h4 className="text-xl tracking-[-0.02em] leading-snug transition-colors group-hover:text-[var(--accent-secondary)]">{a.title}</h4>
                                 </div>
-                                <div className="min-w-0">
-                                    <div className="text-[11px] font-bold tracking-wider text-[var(--accent)] uppercase mb-1">{a.category}</div>
-                                    <h4 className="text-sm font-bold text-[var(--black)] leading-snug truncate">{a.title}</h4>
-                                    <div className="text-xs text-[var(--muted)] mt-1">{a.date}</div>
+                                <div className="w-24 h-24 overflow-hidden shrink-0 bg-[var(--ink)]">
+                                    <img src={a.img} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                 </div>
                             </a>
                         ))}

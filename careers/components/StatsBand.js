@@ -9,29 +9,23 @@ function StatsBand() {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(ref.current.querySelectorAll('.cw-stats-elem'),
             { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 80%' } }
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 85%' } }
         );
     }, []);
 
     return (
-        <section ref={ref} className="py-16 lg:py-20 bg-[var(--cw-bg)]">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="relative rounded-2xl overflow-hidden grid grid-cols-2 lg:grid-cols-4">
-                    <img
-                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600"
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[#0B1120CC]"></div>
+        <section ref={ref} className="tg-on-ink py-20 lg:py-28 text-white" style={{ background: 'var(--ink-navy)' }}>
+            <div className="tg-container">
+                <div className="cw-stats-elem tg-eyebrow mb-12">The team behind the work</div>
+                <div className="grid grid-cols-2 lg:grid-cols-4">
                     {CAREERS_STATS.map((s, i) => (
-                        <div key={s.label} className={`cw-stats-elem relative p-7 lg:p-10 text-center ${i % 2 === 1 ? 'border-l border-white/15' : ''} ${i >= 2 ? 'border-t lg:border-t-0 border-white/15' : ''} ${i === 2 ? 'lg:border-l' : ''}`}>
-                            <div className="text-3xl lg:text-4xl font-semibold text-white mb-1">{s.value}</div>
-                            <div className="text-xs sm:text-sm text-white/60 font-medium">{s.label}</div>
+                        <div key={s.label} className={`cw-stats-elem tg-hairline pt-6 pb-10 ${i % 2 === 1 ? 'pl-5 lg:pl-8' : 'pr-5'} lg:pr-8 ${i > 0 ? 'lg:pl-8' : ''}`}>
+                            <div className="text-[clamp(2.75rem,6vw,5.5rem)] font-medium tracking-[-0.05em] leading-none mb-4 tabular-nums">{s.value}</div>
+                            <div className="text-white/75 max-w-[13rem]">{s.label}</div>
                         </div>
                     ))}
                 </div>

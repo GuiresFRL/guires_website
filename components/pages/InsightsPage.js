@@ -13,48 +13,81 @@ function InsightsPage() {
         { date: 'Aug 05, 2026', category: 'Whitepapers', title: 'A Framework for Research Quality & Compliance' }
     ];
 
+    // which article categories belong to each filter tab
+    const filterMap = {
+        'Research Insights': ['Research', 'Regulatory', 'Biostatistics', 'Data Science'],
+        'Industry Insights': ['Industry Insights', 'Food Research'],
+        'Whitepapers': ['Whitepapers'],
+        'Publications': ['Publications']
+    };
+    const visible = activeFilter === 'All' ? articles : articles.filter((a) => (filterMap[activeFilter] || []).includes(a.category));
+
     React.useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo('.insight-page-card',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: '#insights-list', start: 'top 80%' } }
-        );
+        tgReveal('.insight-page-card');
     }, []);
 
-    return (
-        <section className="py-24">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="flex flex-wrap gap-3 mb-16">
-                    {filters.map((f) => (
-                        <button
-                            key={f}
-                            onClick={() => setActiveFilter(f)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium border transition-colors ${activeFilter === f ? 'bg-[var(--accent)] text-white border-[var(--accent)]' : 'border-black/15 text-gray-600 hover:border-black/40'}`}
-                        >
-                            {f}
-                        </button>
-                    ))}
-                </div>
+    React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        gsap.fromTo('.insight-row', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: 'power2.out', clearProps: 'all' });
+    }, [activeFilter]);
 
-                <div id="insights-list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {articles.map((art, idx) => (
-                        <div key={idx} className="insight-page-card bg-white p-8 border border-black/10 hover:border-black/30 transition-colors cursor-pointer group flex flex-col justify-between min-h-[300px] shadow-sm">
-                            <div>
-                                <div className="flex justify-between items-center mb-8">
-                                    <span className="text-xs font-bold text-[var(--accent-secondary)] uppercase tracking-wider">{art.category}</span>
-                                    <span className="text-xs text-gray-500">{art.date}</span>
+    const [featured, ...rest] = visible;
+    const href = 'https://guiresfrl.github.io/guires_website/insights.html';
+
+    return (
+        <React.Fragment>
+            <section className="tg-band tg-band--white tg-section">
+                <div className="tg-container">
+                    <div role="tablist" aria-label="Filter insights" className="flex flex-wrap gap-x-8 gap-y-3 border-b border-[#01012026] mb-16 lg:mb-20">
+                        {filters.map((f) => (
+                            <button
+                                key={f}
+                                role="tab"
+                                aria-selected={activeFilter === f}
+                                onClick={() => setActiveFilter(f)}
+                                className={`relative pb-4 text-[15px] font-medium transition-colors ${activeFilter === f ? 'text-[var(--ink)]' : 'text-[var(--muted)] hover:text-[var(--ink)]'}`}
+                            >
+                                {f}
+                                <span className={`absolute left-0 right-0 -bottom-px h-0.5 bg-[var(--accent)] transition-transform origin-left ${activeFilter === f ? 'scale-x-100' : 'scale-x-0'}`}></span>
+                            </button>
+                        ))}
+                    </div>
+
+                    {visible.length === 0 ? (
+                        <div className="py-20 max-w-xl">
+                            <h3 className="text-3xl font-medium tracking-[-0.03em] mb-4">Nothing here yet.</h3>
+                            <p className="text-[var(--muted)] leading-relaxed mb-8">We haven&rsquo;t published anything under &ldquo;{activeFilter}&rdquo; yet. Browse everything instead.</p>
+                            <button onClick={() => setActiveFilter('All')} className="tg-btn tg-btn--ghost">View all insights</button>
+                        </div>
+                    ) : (
+                        <div id="insights-list" className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-14">
+                            <a href={href} className="insight-row insight-page-card group lg:col-span-7 flex flex-col justify-between min-h-[26rem] p-8 lg:p-12 tg-on-ink" style={{ background: 'var(--ink-navy)', color: '#fff' }}>
+                                <div className="flex items-center justify-between">
+                                    <span className="tg-eyebrow">{featured.category}</span>
+                                    <span className="text-sm text-white/70">{featured.date}</span>
                                 </div>
-                                <h3 className="text-xl font-semibold group-hover:text-[var(--accent)] transition-colors">
-                                    {art.title}
-                                </h3>
-                            </div>
-                            <div className="flex items-center gap-2 text-sm font-medium mt-8">
-                                Read Article <div className="icon-arrow-right transition-transform group-hover:translate-x-2"></div>
+                                <div>
+                                    <h3 className="text-[clamp(1.75rem,3.4vw,3.25rem)] font-medium tracking-[-0.035em] leading-[1.05] mb-8 max-w-2xl">{featured.title}</h3>
+                                    <span className="tg-link">Read Article <span className="icon-arrow-right"></span></span>
+                                </div>
+                            </a>
+
+                            <div className="lg:col-span-5">
+                                {rest.map((art) => (
+                                    <a key={art.title} href={href} className="insight-row insight-page-card group tg-hairline block py-7 first:border-t-0 lg:first:pt-0">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <span className="tg-eyebrow">{art.category}</span>
+                                            <span className="text-sm text-[var(--muted)]">{art.date}</span>
+                                        </div>
+                                        <h3 className="text-xl lg:text-2xl font-medium tracking-[-0.02em] leading-snug transition-colors group-hover:text-[var(--accent-secondary)]">{art.title}</h3>
+                                    </a>
+                                ))}
                             </div>
                         </div>
-                    ))}
+                    )}
                 </div>
-            </div>
-        </section>
+            </section>
+            <ContactCTA />
+        </React.Fragment>
     );
 }
